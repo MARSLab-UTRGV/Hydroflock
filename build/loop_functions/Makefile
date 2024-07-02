@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/Ryan/hydroflock
+CMAKE_SOURCE_DIR = /home/rluna319/Argos_Projects/Hydroflock
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/Ryan/hydroflock/build
+CMAKE_BINARY_DIR = /home/rluna319/Argos_Projects/Hydroflock/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/Ryan/hydroflock/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/Ryan/hydroflock/build/CMakeFiles /home/Ryan/hydroflock/build/loop_functions/CMakeFiles/progress.marks
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/Ryan/hydroflock/build/CMakeFiles 0
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/rluna319/Argos_Projects/Hydroflock/build/CMakeFiles /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions/CMakeFiles/progress.marks
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rluna319/Argos_Projects/Hydroflock/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/clean
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/preinstall
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/preinstall
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/Ryan/hydroflock/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/rule:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/rule
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/rule
 .PHONY : loop_functions/CMakeFiles/hydroflock_loop_functions.dir/rule
 
 # Convenience name for target.
@@ -122,12 +122,12 @@ hydroflock_loop_functions: loop_functions/CMakeFiles/hydroflock_loop_functions.d
 
 # fast build rule for target.
 hydroflock_loop_functions/fast:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build
 .PHONY : hydroflock_loop_functions/fast
 
 # Convenience name for target.
 loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/rule:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/rule
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/rule
 .PHONY : loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/rule
 
 # Convenience name for target.
@@ -137,7 +137,7 @@ hydroflock_loop_functions_autogen: loop_functions/CMakeFiles/hydroflock_loop_fun
 
 # fast build rule for target.
 hydroflock_loop_functions_autogen/fast:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/build
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/build
 .PHONY : hydroflock_loop_functions_autogen/fast
 
 hydroflock_loop_functions_autogen/mocs_compilation.o: hydroflock_loop_functions_autogen/mocs_compilation.cpp.o
@@ -146,7 +146,7 @@ hydroflock_loop_functions_autogen/mocs_compilation.o: hydroflock_loop_functions_
 
 # target to build an object file
 hydroflock_loop_functions_autogen/mocs_compilation.cpp.o:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.o
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.o
 .PHONY : hydroflock_loop_functions_autogen/mocs_compilation.cpp.o
 
 hydroflock_loop_functions_autogen/mocs_compilation.i: hydroflock_loop_functions_autogen/mocs_compilation.cpp.i
@@ -155,7 +155,7 @@ hydroflock_loop_functions_autogen/mocs_compilation.i: hydroflock_loop_functions_
 
 # target to preprocess a source file
 hydroflock_loop_functions_autogen/mocs_compilation.cpp.i:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.i
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.i
 .PHONY : hydroflock_loop_functions_autogen/mocs_compilation.cpp.i
 
 hydroflock_loop_functions_autogen/mocs_compilation.s: hydroflock_loop_functions_autogen/mocs_compilation.cpp.s
@@ -164,7 +164,7 @@ hydroflock_loop_functions_autogen/mocs_compilation.s: hydroflock_loop_functions_
 
 # target to generate assembly for a file
 hydroflock_loop_functions_autogen/mocs_compilation.cpp.s:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.s
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.s
 .PHONY : hydroflock_loop_functions_autogen/mocs_compilation.cpp.s
 
 hydroflock_qt_user_functions.o: hydroflock_qt_user_functions.cpp.o
@@ -173,7 +173,7 @@ hydroflock_qt_user_functions.o: hydroflock_qt_user_functions.cpp.o
 
 # target to build an object file
 hydroflock_qt_user_functions.cpp.o:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.o
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.o
 .PHONY : hydroflock_qt_user_functions.cpp.o
 
 hydroflock_qt_user_functions.i: hydroflock_qt_user_functions.cpp.i
@@ -182,7 +182,7 @@ hydroflock_qt_user_functions.i: hydroflock_qt_user_functions.cpp.i
 
 # target to preprocess a source file
 hydroflock_qt_user_functions.cpp.i:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.i
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.i
 .PHONY : hydroflock_qt_user_functions.cpp.i
 
 hydroflock_qt_user_functions.s: hydroflock_qt_user_functions.cpp.s
@@ -191,7 +191,7 @@ hydroflock_qt_user_functions.s: hydroflock_qt_user_functions.cpp.s
 
 # target to generate assembly for a file
 hydroflock_qt_user_functions.cpp.s:
-	cd /home/Ryan/hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.s
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f loop_functions/CMakeFiles/hydroflock_loop_functions.dir/build.make loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.s
 .PHONY : hydroflock_qt_user_functions.cpp.s
 
 # Help Target
@@ -221,6 +221,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/Ryan/hydroflock/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

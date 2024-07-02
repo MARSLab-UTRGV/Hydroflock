@@ -24,7 +24,7 @@ include_directories(${CMAKE_SOURCE_DIR} ${ARGOS_INCLUDE_DIRS})
 link_directories(${ARGOS_LIBRARY_DIR})
 link_libraries(${ARGOS_LDFLAGS})
 
-# Look for the (optional) galib library
+# Look for the (optional) GALIB library
 find_package(GALIB)
 if(GALIB_FOUND)
   include_directories(${GALIB_INCLUDE_DIRS})

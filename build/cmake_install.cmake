@@ -1,4 +1,4 @@
-# Install script for directory: /home/Ryan/hydroflock
+# Install script for directory: /home/rluna319/Argos_Projects/Hydroflock
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/Ryan/hydroflock/build/controllers/cmake_install.cmake")
-  include("/home/Ryan/hydroflock/build/loop_functions/cmake_install.cmake")
+  include("/home/rluna319/Argos_Projects/Hydroflock/build/controllers/cmake_install.cmake")
+  include("/home/rluna319/Argos_Projects/Hydroflock/build/loop_functions/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/Ryan/hydroflock/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/rluna319/Argos_Projects/Hydroflock/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

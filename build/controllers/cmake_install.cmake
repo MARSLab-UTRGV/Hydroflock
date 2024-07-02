@@ -1,4 +1,4 @@
-# Install script for directory: /home/Ryan/hydroflock/controllers
+# Install script for directory: /home/rluna319/Argos_Projects/Hydroflock/controllers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/Ryan/hydroflock/build/controllers/footbot_flocking/cmake_install.cmake")
-  include("/home/Ryan/hydroflock/build/controllers/footbot_hydroflock/cmake_install.cmake")
+  include("/home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking/cmake_install.cmake")
+  include("/home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock/cmake_install.cmake")
 
 endif()
 

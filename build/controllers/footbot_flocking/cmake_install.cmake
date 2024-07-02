@@ -1,4 +1,4 @@
-# Install script for directory: /home/Ryan/hydroflock/controllers/footbot_flocking
+# Install script for directory: /home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_flocking
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

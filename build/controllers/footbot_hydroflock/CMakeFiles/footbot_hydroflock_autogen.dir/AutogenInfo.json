@@ -1,21 +1,21 @@
 {
-	"BUILD_DIR" : "/home/Ryan/hydroflock/build/controllers/footbot_hydroflock/footbot_hydroflock_autogen",
-	"CMAKE_BINARY_DIR" : "/home/Ryan/hydroflock/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/Ryan/hydroflock/build/controllers/footbot_hydroflock",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/Ryan/hydroflock/controllers/footbot_hydroflock",
+	"BUILD_DIR" : "/home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock/footbot_hydroflock_autogen",
+	"CMAKE_BINARY_DIR" : "/home/rluna319/Argos_Projects/Hydroflock/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_hydroflock",
 	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
-	"CMAKE_SOURCE_DIR" : "/home/Ryan/hydroflock",
+	"CMAKE_SOURCE_DIR" : "/home/rluna319/Argos_Projects/Hydroflock",
 	"HEADERS" : 
 	[
 		[
-			"/home/Ryan/hydroflock/controllers/footbot_hydroflock/footbot_hydroflock.h",
+			"/home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_hydroflock/footbot_hydroflock.h",
 			"Mu",
 			"EWIEGA46WW/moc_footbot_hydroflock.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/Ryan/hydroflock/build/controllers/footbot_hydroflock/footbot_hydroflock_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/Ryan/hydroflock/build/controllers/footbot_hydroflock/footbot_hydroflock_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock/footbot_hydroflock_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock/footbot_hydroflock_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"GL_SILENCE_DEPRECATION",
@@ -34,23 +34,23 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"/home/Ryan/hydroflock/build/controllers/footbot_hydroflock",
-		"/home/Ryan/hydroflock/controllers/footbot_hydroflock",
-		"/home/Ryan/hydroflock",
+		"/home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock",
+		"/home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_hydroflock",
+		"/home/rluna319/Argos_Projects/Hydroflock",
 		"/usr/include/Headers",
 		"/usr/include/lua5.3",
-		"/home/Ryan/hydroflock/controllers",
+		"/home/rluna319/Argos_Projects/Hydroflock/controllers",
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
 		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
 		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
 		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/usr/local/include",
 		"/usr/include",
 		"/usr/include/c++/9",
 		"/usr/include/x86_64-linux-gnu/c++/9",
 		"/usr/include/c++/9/backward",
 		"/usr/lib/gcc/x86_64-linux-gnu/9/include",
-		"/usr/local/include",
 		"/usr/include/x86_64-linux-gnu"
 	],
 	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE" ],
@@ -58,26 +58,26 @@
 	"MOC_PATH_PREFIX" : true,
 	"MOC_PREDEFS_CMD" : 
 	[
-		"/bin/c++",
+		"/usr/bin/g++",
 		"-dM",
 		"-E",
 		"-c",
 		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/Ryan/hydroflock/build/controllers/footbot_hydroflock/footbot_hydroflock_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock/footbot_hydroflock_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "/home/Ryan/hydroflock/build/controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen.dir/ParseCache.txt",
+	"PARALLEL" : 10,
+	"PARSE_CACHE_FILE" : "/home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 5,
-	"SETTINGS_FILE" : "/home/Ryan/hydroflock/build/controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"/home/Ryan/hydroflock/controllers/footbot_hydroflock/footbot_hydroflock.cpp",
+			"/home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_hydroflock/footbot_hydroflock.cpp",
 			"Mu"
 		]
 	],
