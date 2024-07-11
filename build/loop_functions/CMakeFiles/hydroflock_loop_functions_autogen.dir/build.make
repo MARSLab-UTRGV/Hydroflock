@@ -55,7 +55,7 @@ include loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/progress
 
 loop_functions/CMakeFiles/hydroflock_loop_functions_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rluna319/Argos_Projects/Hydroflock/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target hydroflock_loop_functions"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/cmake -E cmake_autogen /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/AutogenInfo.json Release
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/cmake -E cmake_autogen /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/AutogenInfo.json Debug
 
 hydroflock_loop_functions_autogen: loop_functions/CMakeFiles/hydroflock_loop_functions_autogen
 hydroflock_loop_functions_autogen: loop_functions/CMakeFiles/hydroflock_loop_functions_autogen.dir/build.make

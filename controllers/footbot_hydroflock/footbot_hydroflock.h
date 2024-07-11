@@ -17,6 +17,17 @@
 #include <argos3/plugins/robots/foot-bot/control_interface/ci_footbot_light_sensor.h>
 /* Vector2 definitions */
 #include <argos3/core/utility/math/vector2.h>
+/* Definition of the positioning sensor */
+#include <argos3/plugins/robots/generic/control_interface/ci_positioning_sensor.h>
+/* Definition of the range and bearing sensor */
+#include <argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_sensor.h>
+/* Definition of the range and bearing actuator*/
+#include <argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_actuator.h>
+
+#include <set>
+
+
+
 
 /*
  * All the ARGoS stuff in the 'argos' namespace.
@@ -82,6 +93,9 @@ public:
       Real GeneralizedLennardJones(Real f_distance);
    };
 
+   /* Boolean used to keep robots in place for communication testing */
+   bool CommunicationTest;
+
 public:
 
    /* Class constructor. */
@@ -135,6 +149,21 @@ protected:
     */
    void SetWheelSpeedsFromVector(const CVector2& c_heading);
 
+   /**
+    * Perform search pattern when line-of-sight to light source is not available (Ryan Luna)
+    */
+   virtual CVector2 PerformSearchPattern();
+
+   /**
+    * Search pattern helper function to get the robot ID
+    */
+   virtual size_t GetRobotIndex();
+
+   /**
+    * Search pattern helper function to get current position
+    */
+   virtual CVector2 GetCurrentPosition();
+
 private:
 
    /* Pointer to the differential steering actuator */
@@ -145,11 +174,41 @@ private:
    CCI_LEDsActuator* m_pcLEDs;
    /* Pointer to the omnidirectional camera sensor */
    CCI_ColoredBlobOmnidirectionalCameraSensor* m_pcCamera;
+   /* Pointer to the positioning sensor */
+   CCI_PositioningSensor* m_pcPosition;
+   /* Pointer to the range and bearing sensor */
+   CCI_RangeAndBearingSensor* m_pcRABSens;
+   /* Pointer to the range and bearing actuator */
+   CCI_RangeAndBearingActuator* m_pcRABActuator;
 
    /* The turning parameters. */
    SWheelTurningParams m_sWheelTurningParams;
    /* The flocking interaction parameters. */
    SFlockingInteractionParams m_sFlockingParams;
+
+   /* Last known vector to the light source. *///     + (7/1/24 by Ryan Luna)
+   CVector2 m_cLastVectorToLight;
+   /* Simulation time step. */
+   Real TimeStep;
+   /* Acceptable range for correlating positions from RAB and omni-cam sensors. */
+   Real m_fAcceptableRange;
+
+   /* Variable to count simulation ticks */
+   UInt32 m_unTicks;
+
+   /* Blob list to store blobs and simulation occlusion by robots*/
+
+   /**
+    * Test function for the omni-cam
+    */
+   void OmniCameraTest();
+
+   std::set<int> m_setReceivedMessages; // Set of received message IDs
+
+   void SendMessage(const Message& msg);
+   std::vector<Message> ReceiveMessages();
+   void PropagateMessages(const std::vector<Message>& vecMessages);
+   
 };
 
 #endif

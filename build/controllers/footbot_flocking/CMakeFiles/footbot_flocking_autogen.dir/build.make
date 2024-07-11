@@ -55,7 +55,7 @@ include controllers/footbot_flocking/CMakeFiles/footbot_flocking_autogen.dir/pro
 
 controllers/footbot_flocking/CMakeFiles/footbot_flocking_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rluna319/Argos_Projects/Hydroflock/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target footbot_flocking"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/cmake -E cmake_autogen /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking/CMakeFiles/footbot_flocking_autogen.dir/AutogenInfo.json Release
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/cmake -E cmake_autogen /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking/CMakeFiles/footbot_flocking_autogen.dir/AutogenInfo.json Debug
 
 footbot_flocking_autogen: controllers/footbot_flocking/CMakeFiles/footbot_flocking_autogen
 footbot_flocking_autogen: controllers/footbot_flocking/CMakeFiles/footbot_flocking_autogen.dir/build.make

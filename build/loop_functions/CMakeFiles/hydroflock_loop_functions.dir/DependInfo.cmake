@@ -14,7 +14,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "GL_SILENCE_DEPRECATION"
   "QT_CORE_LIB"
   "QT_GUI_LIB"
-  "QT_NO_DEBUG"
   "QT_WIDGETS_LIB"
   "hydroflock_loop_functions_EXPORTS"
   )

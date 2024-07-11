@@ -55,7 +55,7 @@ include controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen.dir
 
 controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rluna319/Argos_Projects/Hydroflock/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target footbot_hydroflock"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock && /usr/bin/cmake -E cmake_autogen /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen.dir/AutogenInfo.json Release
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock && /usr/bin/cmake -E cmake_autogen /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen.dir/AutogenInfo.json Debug
 
 footbot_hydroflock_autogen: controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen
 footbot_hydroflock_autogen: controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen.dir/build.make
