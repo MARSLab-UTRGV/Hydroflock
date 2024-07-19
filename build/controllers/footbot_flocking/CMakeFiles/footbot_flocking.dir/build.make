@@ -60,28 +60,28 @@ include controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/flags.make
 controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.o: controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/flags.make
 controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.o: controllers/footbot_flocking/footbot_flocking_autogen/mocs_compilation.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rluna319/Argos_Projects/Hydroflock/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.o"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.o -c /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking/footbot_flocking_autogen/mocs_compilation.cpp
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.o -c /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking/footbot_flocking_autogen/mocs_compilation.cpp
 
 controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.i"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking/footbot_flocking_autogen/mocs_compilation.cpp > CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.i
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking/footbot_flocking_autogen/mocs_compilation.cpp > CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.i
 
 controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.s"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking/footbot_flocking_autogen/mocs_compilation.cpp -o CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.s
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking/footbot_flocking_autogen/mocs_compilation.cpp -o CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.s
 
 controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.o: controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/flags.make
 controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.o: ../controllers/footbot_flocking/footbot_flocking.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rluna319/Argos_Projects/Hydroflock/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.o"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.o -c /home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_flocking/footbot_flocking.cpp
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.o -c /home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_flocking/footbot_flocking.cpp
 
 controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.i"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_flocking/footbot_flocking.cpp > CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.i
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_flocking/footbot_flocking.cpp > CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.i
 
 controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.s"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_flocking/footbot_flocking.cpp -o CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.s
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_flocking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_flocking/footbot_flocking.cpp -o CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.s
 
 # Object files for target footbot_flocking
 footbot_flocking_OBJECTS = \
@@ -94,39 +94,6 @@ footbot_flocking_EXTERNAL_OBJECTS =
 controllers/footbot_flocking/libfootbot_flocking.so: controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking_autogen/mocs_compilation.cpp.o
 controllers/footbot_flocking/libfootbot_flocking.so: controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/footbot_flocking.cpp.o
 controllers/footbot_flocking/libfootbot_flocking.so: controllers/footbot_flocking/CMakeFiles/footbot_flocking.dir/build.make
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libdl.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libfreeimage.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libfreeimageplus.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libGL.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libGLU.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libglut.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libXmu.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libXi.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/liblua5.3.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libm.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libdl.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libfreeimage.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libfreeimageplus.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libGL.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libGLU.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libglut.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libXmu.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libXi.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/liblua5.3.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libm.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libdl.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libfreeimage.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libfreeimageplus.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libGL.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libGLU.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libglut.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libXmu.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libXi.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/liblua5.3.so
-controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libm.so
 controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libdl.so
 controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libpthread.so
 controllers/footbot_flocking/libfootbot_flocking.so: /usr/lib/x86_64-linux-gnu/libfreeimage.so

@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/rule:
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/rule
+.PHONY : controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/rule
+
+# Convenience name for target.
+rab_dsr: controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/rule
+
+.PHONY : rab_dsr
+
+# fast build rule for target.
+rab_dsr/fast:
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/build.make controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/build
+.PHONY : rab_dsr/fast
+
+# Convenience name for target.
 controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock.dir/rule:
 	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock.dir/rule
 .PHONY : controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock.dir/rule
@@ -124,6 +139,21 @@ footbot_hydroflock: controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock
 footbot_hydroflock/fast:
 	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock.dir/build.make controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock.dir/build
 .PHONY : footbot_hydroflock/fast
+
+# Convenience name for target.
+controllers/footbot_hydroflock/CMakeFiles/rab_dsr_autogen.dir/rule:
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f CMakeFiles/Makefile2 controllers/footbot_hydroflock/CMakeFiles/rab_dsr_autogen.dir/rule
+.PHONY : controllers/footbot_hydroflock/CMakeFiles/rab_dsr_autogen.dir/rule
+
+# Convenience name for target.
+rab_dsr_autogen: controllers/footbot_hydroflock/CMakeFiles/rab_dsr_autogen.dir/rule
+
+.PHONY : rab_dsr_autogen
+
+# fast build rule for target.
+rab_dsr_autogen/fast:
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/rab_dsr_autogen.dir/build.make controllers/footbot_hydroflock/CMakeFiles/rab_dsr_autogen.dir/build
+.PHONY : rab_dsr_autogen/fast
 
 # Convenience name for target.
 controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen.dir/rule:
@@ -194,6 +224,60 @@ footbot_hydroflock_autogen/mocs_compilation.cpp.s:
 	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock.dir/build.make controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock.dir/footbot_hydroflock_autogen/mocs_compilation.cpp.s
 .PHONY : footbot_hydroflock_autogen/mocs_compilation.cpp.s
 
+rab_dsr.o: rab_dsr.cpp.o
+
+.PHONY : rab_dsr.o
+
+# target to build an object file
+rab_dsr.cpp.o:
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/build.make controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/rab_dsr.cpp.o
+.PHONY : rab_dsr.cpp.o
+
+rab_dsr.i: rab_dsr.cpp.i
+
+.PHONY : rab_dsr.i
+
+# target to preprocess a source file
+rab_dsr.cpp.i:
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/build.make controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/rab_dsr.cpp.i
+.PHONY : rab_dsr.cpp.i
+
+rab_dsr.s: rab_dsr.cpp.s
+
+.PHONY : rab_dsr.s
+
+# target to generate assembly for a file
+rab_dsr.cpp.s:
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/build.make controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/rab_dsr.cpp.s
+.PHONY : rab_dsr.cpp.s
+
+rab_dsr_autogen/mocs_compilation.o: rab_dsr_autogen/mocs_compilation.cpp.o
+
+.PHONY : rab_dsr_autogen/mocs_compilation.o
+
+# target to build an object file
+rab_dsr_autogen/mocs_compilation.cpp.o:
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/build.make controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/rab_dsr_autogen/mocs_compilation.cpp.o
+.PHONY : rab_dsr_autogen/mocs_compilation.cpp.o
+
+rab_dsr_autogen/mocs_compilation.i: rab_dsr_autogen/mocs_compilation.cpp.i
+
+.PHONY : rab_dsr_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+rab_dsr_autogen/mocs_compilation.cpp.i:
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/build.make controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/rab_dsr_autogen/mocs_compilation.cpp.i
+.PHONY : rab_dsr_autogen/mocs_compilation.cpp.i
+
+rab_dsr_autogen/mocs_compilation.s: rab_dsr_autogen/mocs_compilation.cpp.s
+
+.PHONY : rab_dsr_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+rab_dsr_autogen/mocs_compilation.cpp.s:
+	cd /home/rluna319/Argos_Projects/Hydroflock/build && $(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/build.make controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/rab_dsr_autogen/mocs_compilation.cpp.s
+.PHONY : rab_dsr_autogen/mocs_compilation.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -201,8 +285,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... rab_dsr"
 	@echo "... rebuild_cache"
 	@echo "... footbot_hydroflock"
+	@echo "... rab_dsr_autogen"
 	@echo "... footbot_hydroflock_autogen"
 	@echo "... footbot_hydroflock.o"
 	@echo "... footbot_hydroflock.i"
@@ -210,6 +296,12 @@ help:
 	@echo "... footbot_hydroflock_autogen/mocs_compilation.o"
 	@echo "... footbot_hydroflock_autogen/mocs_compilation.i"
 	@echo "... footbot_hydroflock_autogen/mocs_compilation.s"
+	@echo "... rab_dsr.o"
+	@echo "... rab_dsr.i"
+	@echo "... rab_dsr.s"
+	@echo "... rab_dsr_autogen/mocs_compilation.o"
+	@echo "... rab_dsr_autogen/mocs_compilation.i"
+	@echo "... rab_dsr_autogen/mocs_compilation.s"
 .PHONY : help
 
 

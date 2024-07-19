@@ -6,6 +6,7 @@
 #include <cmath>
 #include <argos3/core/utility/math/ray2.h>
 #include <sstream>
+#include <argos3/core/utility/math/quaternion.h>
 
 /****************************************/
 /****************************************/
@@ -59,7 +60,10 @@ CFootBotHydroflock::CFootBotHydroflock() :
    m_pcWheels(NULL),
    m_pcLight(NULL),
    m_pcLEDs(NULL),
-   m_pcCamera(NULL) {}
+   m_pcCamera(NULL),
+   m_pcRABActuator(NULL),
+   m_pcRABSens(NULL),
+   m_cRab_Dsr(GetId()) {}
 
 /****************************************/
 /****************************************/
@@ -119,10 +123,30 @@ void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
    /*
     * Other init stuff
     */
-   Reset();
+   // Reset();
 
    // Initialize the ticks
    m_unTicks = 0;
+
+   // m_pcRABActuator->Reset();
+   // m_pcRABSens->Reset();
+   // if (GetId() == "fb1" || GetId() == "fb2"){
+   //    CByteArray data;
+   //    data.Resize(m_pcRABActuator->GetSize());
+   //    for (size_t i = 0; i < m_pcRABActuator->GetSize(); i++){
+   //       if (GetId() == "fb1"){
+   //          data[i]=1;
+   //       }else{
+   //          data[i]=2;
+   //       }
+   //    }
+   //    m_pcRABActuator->SetData(data);
+   // }
+
+   m_cRab_Dsr.Init(m_pcRABSens, m_pcRABActuator);
+
+   m_pcRABActuator->ClearData();
+   // LOG << "RAB Actuator cleared for robot: " << GetId() << std::endl;
 }
 
 /****************************************/
@@ -131,27 +155,70 @@ void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
 // modified (Ryan Luna)
 void CFootBotHydroflock::ControlStep() {
 
+   // LOG << "Start of control step for robot: " << GetId() << std::endl;
+   // std::cout << "Start of control step for robot: " << GetId() << std::endl;
+
+   // std::vector<CCI_RangeAndBearingSensor::SPacket> readings = m_pcRABSens->GetReadings();
+
+   // if (readings.empty()) {
+   //    LOG << "No signals received" << std::endl;
+   //    std::cout << "No signals received" << std::endl;
+   // } else {
+   //    LOG << "Signals received: " << readings.size() << std::endl;
+   //    std::cout << "Signals received: " << readings.size() << std::endl;
+   //    for (const auto& packet: readings) {
+   //       std::cout << "Signal Data: " << packet.Data;
+
+   //       // Assuming you have the following inputs
+   //       argos::CVector2 robot_position = GetCurrentPosition(); // Robot's position in global frame
+   //       CRadians cZAngle, cYAngle, cXAngle;
+   //       CQuaternion robot_orientation = m_pcPosition->GetReading().Orientation;
+   //       robot_orientation.ToEulerAngles( cZAngle, 
+   //                                        cYAngle, 
+   //                                        cXAngle);         // Robot's orientation in global frame (theta in radians)
+   //       CRadians robot_heading = cZAngle;                  // Robot's heading in global frame
+   //       float range = packet.Range;                        // Range reading
+   //       CRadians bearing = packet.HorizontalBearing;       // Bearing reading in radians relative to robot's heading
+
+   //       // Convert bearing to global angle
+   //       CRadians global_theta = robot_heading + bearing;
+
+   //       // Calculate global coordinates
+   //       float global_x = robot_position.GetX() + range * cos(global_theta.GetValue());
+   //       float global_y = robot_position.GetY() + range * sin(global_theta.GetValue());
+
+   //       // Output the global coordinates
+   //       std::cout << "Signal Source: (" << global_x << ", " << global_y << ")" << std::endl;
+   //    }
+   //    exit(1);
+   // }
+
    if (CommunicationTest){
 
-      // std::stringstream ss;
-      // ss << "ID: " << GetId() << ", Position: " << GetCurrentPosition() << ", Msg: Test..." << std::endl;
-      // std::string msg = ss.str();
+      std::vector<CDynamicSourceRouting::Packet> incomingPackets = m_cRab_Dsr.ListenAndUpdate();
 
-      // Message msg(GetId(), )
+      if (GetId() == "fb1") {    // Send initial broadcast from robot 1
 
+         bool sentRecently = false;
 
-      // if (m_unTicks % 2 == 0) {
-      //    // SendMessage(msg);
-      // } else {
-      //    if (GetId() == "fb1") {
-      //       // OmniCameraTest();
-      //       // std::vector<std::string> msgList = ReceiveMessages();
+         std::stringstream ss;
+         ss << "flood test" << std::endl;
+         std::string msg = ss.str();
+         CDynamicSourceRouting::Packet packet(CDynamicSourceRouting::BROADCAST, GetId(), GetCurrentPosition(), "", msg);
 
-      //       for (const auto& msg : msgList) {
-      //          LOG << "Received: " << msg << std::endl;
-      //       }
-      //    }
-      // }
+         if (sentRecently && m_unTicks % 10 == 0) {   // Reset the sentRecently flag ever 10 ticks
+            sentRecently = false;
+         }
+         
+         if (m_unTicks % 20 == 0 && !sentRecently) {   // Send a message every 20 ticks
+            m_cRab_Dsr.AddToQueue(packet);
+            sentRecently = true;
+         }
+      }
+
+      for (const auto& packet: incomingPackets){
+         LOG << "Packet received from " << packet.GetSource() << " at " << packet.GetPosition() << " with message: " << packet.GetPayload() << std::endl;
+      }
 
    }else{
 

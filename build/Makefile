@@ -137,6 +137,19 @@ footbot_flocking_autogen/fast:
 .PHONY : footbot_flocking_autogen/fast
 
 #=============================================================================
+# Target rules for targets named rab_dsr
+
+# Build rule for target.
+rab_dsr: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rab_dsr
+.PHONY : rab_dsr
+
+# fast build rule for target.
+rab_dsr/fast:
+	$(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/build.make controllers/footbot_hydroflock/CMakeFiles/rab_dsr.dir/build
+.PHONY : rab_dsr/fast
+
+#=============================================================================
 # Target rules for targets named footbot_hydroflock
 
 # Build rule for target.
@@ -148,6 +161,19 @@ footbot_hydroflock: cmake_check_build_system
 footbot_hydroflock/fast:
 	$(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock.dir/build.make controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock.dir/build
 .PHONY : footbot_hydroflock/fast
+
+#=============================================================================
+# Target rules for targets named rab_dsr_autogen
+
+# Build rule for target.
+rab_dsr_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rab_dsr_autogen
+.PHONY : rab_dsr_autogen
+
+# fast build rule for target.
+rab_dsr_autogen/fast:
+	$(MAKE) -f controllers/footbot_hydroflock/CMakeFiles/rab_dsr_autogen.dir/build.make controllers/footbot_hydroflock/CMakeFiles/rab_dsr_autogen.dir/build
+.PHONY : rab_dsr_autogen/fast
 
 #=============================================================================
 # Target rules for targets named footbot_hydroflock_autogen
@@ -198,7 +224,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... footbot_flocking"
 	@echo "... footbot_flocking_autogen"
+	@echo "... rab_dsr"
 	@echo "... footbot_hydroflock"
+	@echo "... rab_dsr_autogen"
 	@echo "... footbot_hydroflock_autogen"
 	@echo "... hydroflock_loop_functions"
 	@echo "... hydroflock_loop_functions_autogen"

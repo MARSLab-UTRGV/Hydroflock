@@ -24,6 +24,7 @@
 /* Definition of the range and bearing actuator*/
 #include <argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_actuator.h>
 
+#include <rab_dsr.h>
 #include <set>
 
 
@@ -196,18 +197,13 @@ private:
    /* Variable to count simulation ticks */
    UInt32 m_unTicks;
 
-   /* Blob list to store blobs and simulation occlusion by robots*/
+   
+   CDynamicSourceRouting m_cRab_Dsr;
 
    /**
     * Test function for the omni-cam
     */
    void OmniCameraTest();
-
-   std::set<int> m_setReceivedMessages; // Set of received message IDs
-
-   void SendMessage(const Message& msg);
-   std::vector<Message> ReceiveMessages();
-   void PropagateMessages(const std::vector<Message>& vecMessages);
    
 };
 

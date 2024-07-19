@@ -6,6 +6,30 @@
 
 #IncludeRegexTransform: 
 
+../controllers/footbot_hydroflock/rab_dsr.h
+argos3/core/utility/math/vector2.h
+-
+argos3/core/utility/logging/argos_log.h
+-
+argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_sensor.h
+-
+argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_actuator.h
+-
+map
+-
+vector
+-
+string
+-
+unordered_set
+-
+queue
+-
+set
+-
+iostream
+-
+
 /home/rluna319/Argos_Projects/Hydroflock/build/controllers/footbot_hydroflock/footbot_hydroflock_autogen/mocs_compilation.cpp
 
 /home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_hydroflock/footbot_hydroflock.cpp
@@ -20,6 +44,8 @@ cmath
 argos3/core/utility/math/ray2.h
 -
 sstream
+-
+argos3/core/utility/math/quaternion.h
 -
 
 /home/rluna319/Argos_Projects/Hydroflock/controllers/footbot_hydroflock/footbot_hydroflock.h
@@ -40,6 +66,8 @@ argos3/plugins/robots/generic/control_interface/ci_positioning_sensor.h
 argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_sensor.h
 -
 argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_actuator.h
+-
+rab_dsr.h
 -
 set
 -

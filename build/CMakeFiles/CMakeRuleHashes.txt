@@ -1,4 +1,5 @@
 # Hashes of file build rules.
 b4b70b85252402e61ed2514b51882265 controllers/footbot_flocking/CMakeFiles/footbot_flocking_autogen
 7d53730f6567f50fe50b7b0f45c24529 controllers/footbot_hydroflock/CMakeFiles/footbot_hydroflock_autogen
+2698f51916431cbd16ff7460c00ecd9d controllers/footbot_hydroflock/CMakeFiles/rab_dsr_autogen
 055231cb659c8c83bc0f67cf8c6be50c loop_functions/CMakeFiles/hydroflock_loop_functions_autogen

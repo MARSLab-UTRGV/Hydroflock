@@ -60,28 +60,28 @@ include loop_functions/CMakeFiles/hydroflock_loop_functions.dir/flags.make
 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.o: loop_functions/CMakeFiles/hydroflock_loop_functions.dir/flags.make
 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.o: loop_functions/hydroflock_loop_functions_autogen/mocs_compilation.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rluna319/Argos_Projects/Hydroflock/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.o"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.o -c /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions/hydroflock_loop_functions_autogen/mocs_compilation.cpp
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.o -c /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions/hydroflock_loop_functions_autogen/mocs_compilation.cpp
 
 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.i"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions/hydroflock_loop_functions_autogen/mocs_compilation.cpp > CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.i
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions/hydroflock_loop_functions_autogen/mocs_compilation.cpp > CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.i
 
 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.s"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions/hydroflock_loop_functions_autogen/mocs_compilation.cpp -o CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.s
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions/hydroflock_loop_functions_autogen/mocs_compilation.cpp -o CMakeFiles/hydroflock_loop_functions.dir/hydroflock_loop_functions_autogen/mocs_compilation.cpp.s
 
 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.o: loop_functions/CMakeFiles/hydroflock_loop_functions.dir/flags.make
 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.o: ../loop_functions/hydroflock_qt_user_functions.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rluna319/Argos_Projects/Hydroflock/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.o"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.o -c /home/rluna319/Argos_Projects/Hydroflock/loop_functions/hydroflock_qt_user_functions.cpp
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.o -c /home/rluna319/Argos_Projects/Hydroflock/loop_functions/hydroflock_qt_user_functions.cpp
 
 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.i"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rluna319/Argos_Projects/Hydroflock/loop_functions/hydroflock_qt_user_functions.cpp > CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.i
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rluna319/Argos_Projects/Hydroflock/loop_functions/hydroflock_qt_user_functions.cpp > CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.i
 
 loop_functions/CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.s"
-	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rluna319/Argos_Projects/Hydroflock/loop_functions/hydroflock_qt_user_functions.cpp -o CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.s
+	cd /home/rluna319/Argos_Projects/Hydroflock/build/loop_functions && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rluna319/Argos_Projects/Hydroflock/loop_functions/hydroflock_qt_user_functions.cpp -o CMakeFiles/hydroflock_loop_functions.dir/hydroflock_qt_user_functions.cpp.s
 
 # Object files for target hydroflock_loop_functions
 hydroflock_loop_functions_OBJECTS = \
@@ -105,39 +105,6 @@ loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libXmu
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libXi.so
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/liblua5.3.so
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libm.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libdl.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libfreeimage.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libfreeimageplus.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libGL.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libGLU.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libglut.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libXmu.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libXi.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/liblua5.3.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libm.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libdl.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libfreeimage.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libfreeimageplus.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libGL.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libGLU.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libglut.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libXmu.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libXi.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/liblua5.3.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libm.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libdl.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libfreeimage.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libfreeimageplus.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libGL.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libGLU.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libglut.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libXmu.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libXi.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/liblua5.3.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libm.so
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libGL.so
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libGLU.so
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libglut.so
@@ -150,10 +117,6 @@ loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libGLU
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libglut.so
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libXmu.so
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libXi.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libdl.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libfreeimage.so
-loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libfreeimageplus.so
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/liblua5.3.so
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libm.so
 loop_functions/libhydroflock_loop_functions.so: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
