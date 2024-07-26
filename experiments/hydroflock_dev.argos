@@ -20,27 +20,27 @@
             </sensors>
             <params>
                 <wheel_turning hard_turn_angle_threshold="90" soft_turn_angle_threshold="70" no_turn_angle_threshold="10" max_speed="10"/>
-                <flocking target_distance="75" gain="1250" exponent="2" GreenToRed_GainModifier="0.25" GreenToRed_TargetDistanceModifier="1" RedToGreen_GainModifier="0.5" RedToGreen_TargetDistanceModifier="1" RedToRed_GainModifier="1.5" RedToRed_TargetDistanceModifier="1.5"/>
+                <flocking target_distance="75" gain="1250" exponent="2" GreenToRed_GainModifier="0.25" GreenToRed_TargetDistanceModifier="1" RedToGreen_GainModifier="0.1" RedToGreen_TargetDistanceModifier="1" RedToRed_GainModifier="1.5" RedToRed_TargetDistanceModifier="2"/>
                 <settings communication_test="false" time_step="0.1" target_position="0,4.5,0" AngleThresholdInDegrees="20.0"/>
             </params>
         </footbot_hydroflock_controller>
     </controllers>
-    <arena size="5,10,10" center="0,0,0.5">
+    <arena size="10,15,10" center="0,0,0.5">
         <light id="light" position="0,4.5,5" orientation="0,0,0" color="yellow" intensity="5.0" medium="leds"/>
-        <box id="wall_north" size="5.1,0.1,1.0" movable="false">
-            <body position="0,5.0,0" orientation="0,0,0"/>
+        <box id="wall_north" size="10.1,0.1,1.0" movable="false">
+            <body position="0,7.5,0" orientation="0,0,0"/>
         </box>
-        <box id="wall_south" size="5.1,0.1,1.0" movable="false">
-            <body position="0,-5.0,0" orientation="0,0,0"/>
+        <box id="wall_south" size="10.1,0.1,1.0" movable="false">
+            <body position="0,-7.5,0" orientation="0,0,0"/>
         </box>
-        <box id="wall_east" size="0.1,10.0,1.0" movable="false">
-            <body position="2.5,0,0" orientation="0,0,0"/>
+        <box id="wall_east" size="0.1,15.0,1.0" movable="false">
+            <body position="5.0,0,0" orientation="0,0,0"/>
         </box>
-        <box id="wall_west" size="0.1,10.0,1.0" movable="false">
-            <body position="-2.5,0,0" orientation="0,0,0"/>
+        <box id="wall_west" size="0.1,15.0,1.0" movable="false">
+            <body position="-5.0,0,0" orientation="0,0,0"/>
         </box>
         <distribute>
-            <position method="uniform" min="-0.5,-4,0" max="0.5,-3,0"/>
+            <position method="uniform" min="-1.5,-3,0" max="-0.5,-2,0"/>
             <orientation method="gaussian" mean="0,0,0" std_dev="360,0,0"/>
             <entity quantity="10" max_trials="100">
                 <foot-bot id="fb" omnidirectional_camera_aperture="80">
@@ -48,8 +48,8 @@
                 </foot-bot>
             </entity>
         </distribute>
-        <box id="wall_middle" size="4.0,0.1,1.0" movable="false">
-            <body position="-0.5,0,0" orientation="0,0,0"/>
+        <box id="wall_middle" size="8.0,0.1,1.0" movable="false">
+            <body position="-1.0,0,0" orientation="0,0,0"/>
         </box>
     </arena>
     <physics_engines>

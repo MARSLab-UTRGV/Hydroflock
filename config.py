@@ -230,7 +230,7 @@ def footbot_default_distribution(root):
         raise ValueError("No arena element found in the configuration file")
 
     distribute = ET.SubElement(arena, 'distribute')
-    position = ET.SubElement(distribute, 'position', attrib={'method': 'uniform', 'min': '-0.5,-4,0', 'max': '0.5,-3,0'})
+    position = ET.SubElement(distribute, 'position', attrib={'method': 'uniform', 'min': '-1.5,-3,0', 'max': '-0.5,-2,0'})
     orientation = ET.SubElement(distribute, 'orientation', attrib={'method': 'gaussian', 'mean': '0,0,0', 'std_dev': '360,0,0'})
     
     entity = ET.SubElement(distribute, 'entity', attrib={'quantity': '10', 'max_trials': '100'})

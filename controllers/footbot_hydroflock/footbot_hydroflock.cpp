@@ -215,13 +215,22 @@ void CFootBotHydroflock::Reset() {
 /****************************************/
 
 bool CFootBotHydroflock::DetectWall() {
+
+   //TODO: This is not a reliable method differentiate between walls and robots. Need to implement a more robust method.
    const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
+   bool bWallDetected = false;
    for(size_t i = 0; i < tProxReads.size(); ++i) {
-      if(tProxReads[i].Value > 0.5 && !RobotInProximity(tProxReads[i].Angle)) { // Threshold value, adjust as necessary;
-         return true;        
+      if(tProxReads[i].Value > 0.1){
+         if(!RobotInProximity(tProxReads[i].Angle)) { // Threshold value, adjust as necessary;
+            bWallDetected = true;
+         }
+         else {
+            bWallDetected = false;
+            break;
+         }
       }
    }
-   return false;
+   return bWallDetected;
 }
 
 bool CFootBotHydroflock::TargetVectorUnobstructed() {
@@ -245,10 +254,20 @@ bool CFootBotHydroflock::RobotInProximity(const CRadians& f_cProximityAngle){
    // Get blob list from camera
    const std::vector<CCI_ColoredBlobOmnidirectionalCameraSensor::SBlob*>& sBlobList = m_pcCamera->GetReadings().BlobList;
 
+   std::vector<CCI_ColoredBlobOmnidirectionalCameraSensor::SBlob*> sFilterdBlobs;
+
+   // Filter out blobs that are not within range of the proximity sensor
+   for (const auto& blob : sBlobList){
+      if (blob->Distance < 30){  // footbot radius is 17cm and max proximity sensor range is 10cm. I added 3cm for safety...
+         sFilterdBlobs.push_back(blob);
+      }
+   }
+
    // Set the threshold angle for proximity
+   // TODO: This might need to be optimized??
    const CRadians cAngleThreshold = ToRadians(CDegrees(20.0f));
 
-   for (const auto& blob : sBlobList){
+   for (const auto& blob : sFilterdBlobs){
       if (Abs(blob->Angle - f_cProximityAngle) <= cAngleThreshold){
          return true;
       }
@@ -335,20 +354,16 @@ CVector2 CFootBotHydroflock::VectorToWall(){
    const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
    CVector2 cWallVector;
 
-   if (DetectWall()){
 
-      // Calculate vector to wall
-      for(size_t i = 0; i < tProxReads.size(); ++i) {
-         if(tProxReads[i].Value > 0.0f) {
-            CRadians cAngle = tProxReads[i].Angle;
-            Real fValue = tProxReads[i].Value;
-            cWallVector+= CVector2(fValue, cAngle);
-         }
+   // Calculate vector to wall
+   for(size_t i = 0; i < tProxReads.size(); ++i) {
+      if(tProxReads[i].Value > 0.0f) {
+         CRadians cAngle = tProxReads[i].Angle;
+         Real fValue = tProxReads[i].Value;
+         cWallVector+= CVector2(fValue, cAngle);
       }
-      return cWallVector;
-   } else {
-      return CVector2();
    }
+   return cWallVector;
 }
 
 CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFlockingVector) {
@@ -366,21 +381,26 @@ CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFloc
    // Calculate tangential component
    if(cNormal.Length() > 0.0f){
       cNormal.Normalize();
-      cTangential = cNormal.Rotate(CRadians::PI_OVER_TWO);
+      cTangential = VectorToWall().Rotate(CRadians::PI_OVER_TWO);
       cTangential.Normalize();
       cTangential *= 0.25f * m_sWheelTurningParams.MaxSpeed;
    }
 
    // Enforce the distance constraint
-   Real fDesiredDistance = 3; //TODO: Double check this value against maximum distance for the proximity sensor.
+   Real fDesiredDistance = 1; //TODO: Double check this value against maximum distance for the proximity sensor (10cm).
    Real fCurrentDistance = cNormal.Length();
-   // cNormal.Normalize(); //! Trying Normalization here instead of above
-   fCurrentDistance != fDesiredDistance ? cNormal *= (fDesiredDistance - fCurrentDistance) : cNormal = cNormal;
+   cNormal *= (fDesiredDistance - fCurrentDistance); //? I got rid of the if ( != ) conditional here. I think the value should be zero if we are at the desired distance. 
 
    // Project the flocking vector onto the tangential direction
    CVector2 cProjectedFlockingVector = ProjectVectorOnVector(FlockingVector(), cTangential);
 
-   if (m_unTicks % 20) LOG << GetId() << " cTangential: " << cTangential << std::endl;
+   // // Check if the projected flocking vector is in the opposite direction of the tangential vector
+   // if (cProjectedFlockingVector.DotProduct(cTangential) < 0) {
+   //    // Flip the direction if its in the opposite direction.
+   //    // This is to prevent the robot from rotating into the wall. 
+   //    cProjectedFlockingVector *= -1.0; 
+   // }
+
 
    // Combine the tangential vector, the projected flocking vector, and the normal vector
    CVector2 cCombinedVector = cTangential + cProjectedFlockingVector + cNormal;
@@ -391,7 +411,16 @@ CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFloc
       cCombinedVector *= m_sWheelTurningParams.MaxSpeed;
    }
 
-   return cTangential;
+   if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG   << "cNormal (angle): " << ToDegrees(cNormal.Angle()) << std::endl
+                                                      << "cNormal (length): " << cNormal.Length() << std::endl
+                                                      << "cTangential (angle): " << ToDegrees(cTangential.Angle()) << std::endl
+                                                      << "cTangential (length): " << cTangential.Length() << std::endl
+                                                      << "cProjectedFlockingVector (angle): " << ToDegrees(cProjectedFlockingVector.Angle()) << std::endl
+                                                      << "cProjectedFlockingVector (length): " << cProjectedFlockingVector.Length() << std::endl
+                                                      << "cCombinedVector (angle): " << ToDegrees(cCombinedVector.Angle()) << std::endl
+                                                      << "cCombinedVector (length): " << cCombinedVector.Length() << std::endl;
+
+   return cCombinedVector;
 }
 
 bool CFootBotHydroflock::CornerDetected(){
@@ -529,7 +558,7 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
    switch(f_state){
 
       case DEFAULT:
-         if (!m_bPrintState) {
+         if (!m_bPrintState && GetId() == "fb2") {
             LOG << GetId() << ": Setting state to DEFAULT" << std::endl;
             m_bPrintState = true;
          } 
@@ -539,7 +568,7 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
          break;
 
       case WALL_DISPERSION:
-         if (!m_bPrintState) {
+         if (!m_bPrintState && GetId() == "fb2") {
             LOG << GetId() << ": Setting state to WALL_DISPERSION" << std::endl;
             m_bPrintState = true;
          }
@@ -549,7 +578,7 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
          break;
 
       case WALL_FOLLOWING:
-         if (!m_bPrintState) {
+         if (!m_bPrintState && GetId() == "fb2") {
             LOG << GetId() << ": Setting state to WALL_FOLLOWING" << std::endl;
             m_bPrintState = true;
          }
@@ -559,7 +588,7 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
          break;
 
       case AGGREGATOR:
-         if (!m_bPrintState) {
+         if (!m_bPrintState && GetId() == "fb2") {
             LOG << GetId() << ": Setting state to AGGREGATOR" << std::endl;
             m_bPrintState = true;
          }
@@ -569,7 +598,7 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
          break;
 
       case AGGREGATEE:
-         if (!m_bPrintState) {
+         if (!m_bPrintState && GetId() == "fb2") {
             LOG << GetId() << ": Setting state to AGGREGATEE" << std::endl;
             m_bPrintState = true;
          }
@@ -591,6 +620,7 @@ void CFootBotHydroflock::StateUpdater(){
          if (DetectWall()){
 
             m_bPrintState = false;
+            if (GetId()=="fb2") LOG << "Initial vector to wall: " << ToDegrees(VectorToWall().Angle()) << std::endl;
             SetFlockingState(WALL_DISPERSION);
          } else {
             SetFlockingState(DEFAULT);
@@ -627,6 +657,9 @@ void CFootBotHydroflock::StateUpdater(){
          else {
             SetFlockingState(WALL_DISPERSION);
          }
+         // else {
+         //    LOGERR << GetId() << " Error: No state transition detected in WALL_DISPERSION state" << std::endl;
+         // }
          break;
 
       default:
@@ -935,8 +968,10 @@ CVector2 CFootBotHydroflock::FlockingVector() {
 void CFootBotHydroflock::SetWheelSpeedsFromVector(const CVector2& c_heading) {
    /* Get the heading angle */
    CRadians cHeadingAngle = c_heading.Angle().SignedNormalize();
+   // if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG << "cHeadingAngle: " << ToDegrees(cHeadingAngle) << std::endl;
    /* Get the length of the heading vector */
    Real fHeadingLength = c_heading.Length();
+   // if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG << "fHeadingLength: " << fHeadingLength << std::endl;
    /* Clamp the speed so that it's not greater than MaxSpeed */
    Real fBaseAngularWheelSpeed = Min<Real>(fHeadingLength, m_sWheelTurningParams.MaxSpeed);
    /* State transition logic */
