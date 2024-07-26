@@ -60,7 +60,7 @@ def add_enclosing_walls(root):
     arena_size = arena.get('size')
     width, length, height = map(float, arena_size.split(','))
 
-    # Define wall parameters based on arena size
+    # Define wall parameters
     wall_thickness = 0.1
     wall_height = 1.0
     
@@ -116,6 +116,47 @@ def add_cylinder_obstacles(root, test_case):
             ET.SubElement(entity, 'cylinder', attrib={'id': f'cylinder_{i}', 'radius': '0.25', 'height': '0.5', 'movable': 'false'})
     else:
         raise ValueError(f"Unknown test case: {test_case}")
+
+def add_wall_obstacle(root, test_case):
+
+    arena = root.find('.//arena')
+    if arena is None:
+        raise ValueError("No arena element found in the configuration file")
+    
+    if test_case == 0:
+        # Extract the arena size
+        arena_size = arena.get('size')
+        width, length, height = map(float, arena_size.split(','))
+
+        # Define obstacle parameters
+        fill_percentage = 0.8
+
+        # Define wall parameters
+        wall_thickness = 0.1
+        wall_height = 1.0
+        wall_length = width * fill_percentage
+
+        # Define wall coordinates
+        w_x = 0 - (width - wall_length) / 2
+        w_y = 0
+        w_z = 0
+        
+        # Define wall parameters
+        walls = [
+            {"id": "wall_middle", "position": f"{w_x},{w_y},{w_z}", "size": f"{wall_length},{wall_thickness},{wall_height}"}
+        ]
+
+        # Add walls to the arena
+        for wall in walls:
+            wall_element = ET.SubElement(arena, "box", attrib={
+                "id": wall["id"],
+                "size": wall["size"],
+                "movable": "false"
+            })
+            body_element = ET.SubElement(wall_element, "body", attrib={
+                "position": wall["position"],
+                "orientation": "0,0,0"
+            })
 
 def test_communication(root, set, test_case=0):
     """
@@ -258,10 +299,12 @@ if __name__ == "__main__":
 
     config_fp = './experiments/hydroflock_dev.argos'
     
-    tree, root = initialize(config_fp, comms_test=True)
+    tree, root = initialize(config_fp, comms_test=False)
 
-    # footbot_default_distribution(root)
+    footbot_default_distribution(root)
 
     # add_cylinder_obstacles(root, test_case = 1)
+
+    add_wall_obstacle(root, test_case = 0)
 
     finalize(tree, root, config_fp)

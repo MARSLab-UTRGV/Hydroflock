@@ -67,8 +67,14 @@ argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_sensor.h
 -
 argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_actuator.h
 -
+argos3/plugins/robots/foot-bot/control_interface/ci_footbot_proximity_sensor.h
+-
 rab_dsr.h
 -
 set
+-
+unordered_map
+-
+algorithm
 -
 

@@ -1,4 +1,32 @@
 
+
+
+/**
+ * Considering using the distance scanner (LiDAR) instaed of proximity sensor
+ * 
+ * Need to manage states and transition between states
+ * 
+ * Filtering out proximity readings that correlate with the omni-cam readings (other bots)
+ * 
+ * How to know when a corner has been reached?
+ * 
+ * Should I have a time buffer before switching to Aggregator state? Need to be sure that the vector is unobstructed.
+ * 
+ * How to do aggregation? Aggregator needs to wait for aggregatee to get close. Cannot loose sight/connection of aggregator
+ * 
+ */
+
+
+
+
+
+
+
+
+
+
+
+
 #ifndef FOOTBOT_HYDROFLOCK_H
 #define FOOTBOT_HYDROFLOCK_H
 
@@ -23,9 +51,13 @@
 #include <argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_sensor.h>
 /* Definition of the range and bearing actuator*/
 #include <argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_actuator.h>
+/* Definition of the foot-bot proximity sensor */
+#include <argos3/plugins/robots/foot-bot/control_interface/ci_footbot_proximity_sensor.h>
 
 #include <rab_dsr.h>
 #include <set>
+#include <unordered_map>
+#include <algorithm>
 
 
 
@@ -89,13 +121,33 @@ public:
       Real Gain;
       /* Exponent of the Lennard-Jones potential */
       Real Exponent;
+      /* GREEN -> RED Interaction Gain Modifier */
+      Real GR_GMod;
+      /* GREEN -> RED Interaction TargetDistance Modifier */
+      Real GR_TDMod;
+      /* RED -> GREEN Interaction Gain Modifier */
+      Real RG_GMod;
+      /* RED -> GREEN Interaction TargetDistance Modifier */
+      Real RG_TDMod;
+      /* RED -> RED Interaction Gain Modifier */
+      Real RR_GMod;
+      /* RED -> RED Interaction TargetDistance Modifier */
+      Real RR_TDMod;
 
       void Init(TConfigurationNode& t_node);
-      Real GeneralizedLennardJones(Real f_distance);
+      Real GeneralizedLennardJones( const Real& f_current_distance, const Real& f_target_distance, 
+                                    const Real& f_gain, const Real& f_exponent);
    };
 
-   /* Boolean used to keep robots in place for communication testing */
-   bool CommunicationTest;
+
+   enum FlockingState {
+      DEFAULT,             // Normal flocking with no modifications to Lennard-Jones potential
+      WALL_DISPERSION,     // Flocking with wall dispersion
+      WALL_FOLLOWING,      // Flocking with wall following (after max distance from all neighbors are reached in WALL_DISPERSION)
+      AGGREGATOR,          // The aggregator has found away around the wall
+      AGGREGATEE           // The aggregatee has not found a way but will aggregate toward the AGGREGATORS
+   } m_eFState = DEFAULT;
+
 
 public:
 
@@ -133,6 +185,8 @@ public:
     */
    virtual void Destroy() {}
 
+   CVector2 GetTargetLocation() { return m_cTargetPosition; };
+
 protected:
 
    /*
@@ -151,11 +205,6 @@ protected:
    void SetWheelSpeedsFromVector(const CVector2& c_heading);
 
    /**
-    * Perform search pattern when line-of-sight to light source is not available (Ryan Luna)
-    */
-   virtual CVector2 PerformSearchPattern();
-
-   /**
     * Search pattern helper function to get the robot ID
     */
    virtual size_t GetRobotIndex();
@@ -164,6 +213,66 @@ protected:
     * Search pattern helper function to get current position
     */
    virtual CVector2 GetCurrentPosition();
+
+   CRadians GetOrientation();
+
+   CVector2 VectorToTarget();
+
+   void SetFlockingState(const FlockingState& f_state);
+
+   void StateUpdater();
+
+   void GetNeighborStates();
+
+   /**
+    * Test function for the omni-cam
+    */
+   void OmniCameraTest();
+
+   bool DetectWall();
+
+   bool TargetVectorUnobstructed();
+
+   CVector2 CalculateWallRepulsion();
+
+   CVector2 CalculateTangentialMovement(const CVector2& f_cFlockingVector);
+
+   CVector2 VectorToWall();
+
+
+
+   void NormalFlocking();
+
+   void WallDispersion();
+
+   void WallFollowing();
+
+   void Aggregator();
+
+   void Aggregatee();
+
+
+
+   std::vector<size_t> GetRelevantProximitySensors(const CVector2& f_cTargetVector, const Real& f_fCustomThreshold = -1.0f);
+
+   bool RobotInProximity(const CRadians& f_cProximityAngle);
+
+   bool OuterCornerDetected();
+
+   bool InnerCornerDetected();
+
+   bool CornerDetected();
+
+   /**
+    * @brief Maps vector `f_cVectorA` onto vector `f_cVectorB`. When you project a vector
+    * onto another vector, you are essentially finding out how much of the first vector
+    * lies along the direction of the second vector.
+    * 
+    * @param f_cVectorA 
+    * @param f_cVectorB 
+    * @return The resulting vector after projection. 
+    */
+   CVector2 ProjectVectorOnVector(const CVector2& f_cVectorA, const CVector2& f_cVectorB);
 
 private:
 
@@ -181,30 +290,46 @@ private:
    CCI_RangeAndBearingSensor* m_pcRABSens;
    /* Pointer to the range and bearing actuator */
    CCI_RangeAndBearingActuator* m_pcRABActuator;
+   /* Pointer to the proximity sensor */
+   CCI_FootBotProximitySensor* m_pcProximity;
+
+
+   /* Boolean used to keep robots in place for communication testing */
+   bool m_bCommunicationTest;
+   /* Last vector to wall */
+   CVector2 m_cLastVectorToWall;
+   /* Angle threshold for proximity sensor readings */
+   CDegrees m_cAlpha;
+
+   bool m_bPrintState;
+
+   /* Boolean set when maximum distance from neighbors is reached */
+   bool m_bReachedTargetDistanceFromNeighbors;
+
+   /* The target location */
+   CVector2 m_cTargetPosition;
 
    /* The turning parameters. */
    SWheelTurningParams m_sWheelTurningParams;
    /* The flocking interaction parameters. */
    SFlockingInteractionParams m_sFlockingParams;
 
-   /* Last known vector to the light source. *///     + (7/1/24 by Ryan Luna)
-   CVector2 m_cLastVectorToLight;
+   CVector2 m_cLastVectorToTarget;
    /* Simulation time step. */
    Real TimeStep;
    /* Acceptable range for correlating positions from RAB and omni-cam sensors. */
    Real m_fAcceptableRange;
 
+   bool m_bHasGreenNeighbor, m_bHasRedNeighbor, m_bHasPurpleNeighbor, m_bHasBlueNeighbor, m_bHasMagentaNeighbor;
+
    /* Variable to count simulation ticks */
    UInt32 m_unTicks;
-
    
    CDynamicSourceRouting m_cRab_Dsr;
 
-   /**
-    * Test function for the omni-cam
-    */
-   void OmniCameraTest();
-   
+   /* Vector of previous proximity readings used for corner detection */
+   std::vector<Real> m_vecPreviousProximityReadings;
+
 };
 
 #endif

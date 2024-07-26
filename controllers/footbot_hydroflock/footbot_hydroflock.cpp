@@ -36,6 +36,12 @@ void CFootBotHydroflock::SFlockingInteractionParams::Init(TConfigurationNode& t_
       GetNodeAttribute(t_node, "target_distance", TargetDistance);
       GetNodeAttribute(t_node, "gain", Gain);
       GetNodeAttribute(t_node, "exponent", Exponent);
+      GetNodeAttribute(t_node, "GreenToRed_GainModifier", GR_GMod);
+      GetNodeAttribute(t_node, "GreenToRed_TargetDistanceModifier", GR_TDMod);
+      GetNodeAttribute(t_node, "RedToGreen_GainModifier", RG_GMod);
+      GetNodeAttribute(t_node, "RedToGreen_TargetDistanceModifier", RG_TDMod);
+      GetNodeAttribute(t_node, "RedToRed_GainModifier", RR_GMod);
+      GetNodeAttribute(t_node, "RedToRed_TargetDistanceModifier", RR_TDMod);
    }
    catch(CARGoSException& ex) {
       THROW_ARGOSEXCEPTION_NESTED("Error initializing controller flocking parameters.", ex);
@@ -48,9 +54,12 @@ void CFootBotHydroflock::SFlockingInteractionParams::Init(TConfigurationNode& t_
 /*
  * This function is a generalization of the Lennard-Jones potential
  */
-Real CFootBotHydroflock::SFlockingInteractionParams::GeneralizedLennardJones(Real f_distance) {
-   Real fNormDistExp = ::pow(TargetDistance / f_distance, Exponent);
-   return -Gain / f_distance * (fNormDistExp * fNormDistExp - fNormDistExp);
+Real CFootBotHydroflock::SFlockingInteractionParams::GeneralizedLennardJones( const Real& f_current_distance, const Real& f_target_distance, 
+                                                                              const Real& f_gain, const Real& f_exponent) {
+
+   // F_LJ = -G / d * ((d / D)^(2*exp) - (d / D)^exp)
+   Real fNormDistExp = ::pow(f_target_distance / f_current_distance, f_exponent);
+   return -f_gain / f_current_distance * (fNormDistExp * fNormDistExp - fNormDistExp);
 }
 
 /****************************************/
@@ -63,7 +72,11 @@ CFootBotHydroflock::CFootBotHydroflock() :
    m_pcCamera(NULL),
    m_pcRABActuator(NULL),
    m_pcRABSens(NULL),
-   m_cRab_Dsr(GetId()) {}
+   m_pcProximity(NULL),
+   m_cRab_Dsr(GetId()),
+   m_cTargetPosition(CVector2()),
+   m_cAlpha(20.0),
+   m_bReachedTargetDistanceFromNeighbors(false){}
 
 /****************************************/
 /****************************************/
@@ -97,6 +110,7 @@ void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
    m_pcPosition      = GetSensor    <CCI_PositioningSensor                       >("positioning");
    m_pcRABActuator   = GetActuator  <CCI_RangeAndBearingActuator                 >("range_and_bearing");
    m_pcRABSens       = GetSensor    <CCI_RangeAndBearingSensor                   >("range_and_bearing");
+   m_pcProximity     = GetSensor    <CCI_FootBotProximitySensor                  >("footbot_proximity");
 
    /*
     * Parse the config file
@@ -109,7 +123,9 @@ void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
       /* Other settings */
       TConfigurationNode& tSettingsNode = GetNode(t_node, "settings");
       GetNodeAttribute(tSettingsNode, "time_step", TimeStep);
-      GetNodeAttribute(tSettingsNode, "communication_test", CommunicationTest);
+      GetNodeAttribute(tSettingsNode, "communication_test", m_bCommunicationTest);
+      GetNodeAttribute(tSettingsNode, "target_position", m_cTargetPosition);
+      GetNodeAttribute(tSettingsNode, "AngleThresholdInDegrees", m_cAlpha);
    }
    catch(CARGoSException& ex) {
       THROW_ARGOSEXCEPTION_NESTED("Error parsing the controller parameters.", ex);
@@ -120,80 +136,34 @@ void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
    */
    m_fAcceptableRange = m_sWheelTurningParams.MaxSpeed * TimeStep;
 
-   /*
-    * Other init stuff
-    */
-   // Reset();
+   /* Enable camera filtering */
+   m_pcCamera->Enable();
+   /* Set beacon color to all red to be visible for other robots */
+   m_pcLEDs->SetSingleColor(12, CColor::GREEN);
 
    // Initialize the ticks
    m_unTicks = 0;
 
-   // m_pcRABActuator->Reset();
-   // m_pcRABSens->Reset();
-   // if (GetId() == "fb1" || GetId() == "fb2"){
-   //    CByteArray data;
-   //    data.Resize(m_pcRABActuator->GetSize());
-   //    for (size_t i = 0; i < m_pcRABActuator->GetSize(); i++){
-   //       if (GetId() == "fb1"){
-   //          data[i]=1;
-   //       }else{
-   //          data[i]=2;
-   //       }
-   //    }
-   //    m_pcRABActuator->SetData(data);
-   // }
-
+   // Initialize RAB-DSR object
    m_cRab_Dsr.Init(m_pcRABSens, m_pcRABActuator);
 
-   m_pcRABActuator->ClearData();
-   // LOG << "RAB Actuator cleared for robot: " << GetId() << std::endl;
+   // Initialize the vector of previous proximity readings
+   m_vecPreviousProximityReadings = std::vector<Real>(m_pcProximity->GetReadings().size(), 0.0);
+
+   // Initialize the state
+   m_eFState = DEFAULT;
+
 }
 
 /****************************************/
 /****************************************/
 
-// modified (Ryan Luna)
 void CFootBotHydroflock::ControlStep() {
 
-   // LOG << "Start of control step for robot: " << GetId() << std::endl;
-   // std::cout << "Start of control step for robot: " << GetId() << std::endl;
-
-   // std::vector<CCI_RangeAndBearingSensor::SPacket> readings = m_pcRABSens->GetReadings();
-
-   // if (readings.empty()) {
-   //    LOG << "No signals received" << std::endl;
-   //    std::cout << "No signals received" << std::endl;
-   // } else {
-   //    LOG << "Signals received: " << readings.size() << std::endl;
-   //    std::cout << "Signals received: " << readings.size() << std::endl;
-   //    for (const auto& packet: readings) {
-   //       std::cout << "Signal Data: " << packet.Data;
-
-   //       // Assuming you have the following inputs
-   //       argos::CVector2 robot_position = GetCurrentPosition(); // Robot's position in global frame
-   //       CRadians cZAngle, cYAngle, cXAngle;
-   //       CQuaternion robot_orientation = m_pcPosition->GetReading().Orientation;
-   //       robot_orientation.ToEulerAngles( cZAngle, 
-   //                                        cYAngle, 
-   //                                        cXAngle);         // Robot's orientation in global frame (theta in radians)
-   //       CRadians robot_heading = cZAngle;                  // Robot's heading in global frame
-   //       float range = packet.Range;                        // Range reading
-   //       CRadians bearing = packet.HorizontalBearing;       // Bearing reading in radians relative to robot's heading
-
-   //       // Convert bearing to global angle
-   //       CRadians global_theta = robot_heading + bearing;
-
-   //       // Calculate global coordinates
-   //       float global_x = robot_position.GetX() + range * cos(global_theta.GetValue());
-   //       float global_y = robot_position.GetY() + range * sin(global_theta.GetValue());
-
-   //       // Output the global coordinates
-   //       std::cout << "Signal Source: (" << global_x << ", " << global_y << ")" << std::endl;
-   //    }
-   //    exit(1);
-   // }
-
-   if (CommunicationTest){
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   /**************** COMS TEST ****************/
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   if (m_bCommunicationTest){
 
       std::vector<CDynamicSourceRouting::Packet> incomingPackets = m_cRab_Dsr.ListenAndUpdate();
 
@@ -219,23 +189,15 @@ void CFootBotHydroflock::ControlStep() {
       for (const auto& packet: incomingPackets){
          LOG << "Packet received from " << packet.GetSource() << " at " << packet.GetPosition() << " with message: " << packet.GetPayload() << std::endl;
       }
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   /*************** END COMS TEST *************/
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    }else{
 
-      CVector2 cVectorToLight = VectorToLight();
-      CVector2 cFlockingVector = FlockingVector();
-
-      if (cVectorToLight.Length() > 0.0f){
-         /* Light source is detected */
-         m_cLastVectorToLight = cVectorToLight;
-         SetWheelSpeedsFromVector(cVectorToLight + FlockingVector());
-      } else {
-         /* Light source is not detected, performm search pattern  */
-         CVector2 cSearchVector = PerformSearchPattern();
-         SetWheelSpeedsFromVector(cSearchVector + FlockingVector());
-      }
+      StateUpdater();
    }
-
+   
    m_unTicks++;
 }
 
@@ -246,33 +208,496 @@ void CFootBotHydroflock::Reset() {
    /* Enable camera filtering */
    m_pcCamera->Enable();
    /* Set beacon color to all red to be visible for other robots */
-   m_pcLEDs->SetSingleColor(12, CColor::RED);
+   m_pcLEDs->SetSingleColor(12, CColor::GREEN);
 }
 
 /****************************************/
 /****************************************/
 
-CVector2 CFootBotHydroflock::PerformSearchPattern(){
-
-   // Calculate the perpendicular vector to the last known vector to the light source
-   CVector2 cPerpendicularVector(-m_cLastVectorToLight.GetY(), m_cLastVectorToLight.GetX());
-   cPerpendicularVector.Normalize();
-
-   // Spread out along the perpendicular vector
-   static Real fSpacing = 1.0; // Define the desired spacing between robots
-   size_t unRobotIndex = GetRobotIndex(); // Get unique index for this robot
-
-   CVector2 cTargetPosition = cPerpendicularVector * unRobotIndex * fSpacing;
-   cTargetPosition += GetCurrentPosition(); // Adjust target position relative to the current position
-
-   // Calculate the heading to the target position
-   CVector2 cHeading = cTargetPosition - GetCurrentPosition();
-   cHeading.Normalize();
-   cHeading *= 0.25f * m_sWheelTurningParams.MaxSpeed;
-
-   return cHeading; 
+bool CFootBotHydroflock::DetectWall() {
+   const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
+   for(size_t i = 0; i < tProxReads.size(); ++i) {
+      if(tProxReads[i].Value > 0.5 && !RobotInProximity(tProxReads[i].Angle)) { // Threshold value, adjust as necessary;
+         return true;        
+      }
+   }
+   return false;
 }
 
+bool CFootBotHydroflock::TargetVectorUnobstructed() {
+
+   // Get the indices of the proximity sensors relevant to the target vector
+   std::vector<size_t> vRelevantSensors = GetRelevantProximitySensors(VectorToTarget());
+
+   const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
+
+   // Check if the relevant sensors have a non-zero reading
+   for (auto i : vRelevantSensors){
+      if (tProxReads[i].Value != 0 && !RobotInProximity(tProxReads[i].Angle)) return false;  // If so, and is not a robot, return false
+   }
+
+   // Else, return true
+   return true;
+}
+
+bool CFootBotHydroflock::RobotInProximity(const CRadians& f_cProximityAngle){
+
+   // Get blob list from camera
+   const std::vector<CCI_ColoredBlobOmnidirectionalCameraSensor::SBlob*>& sBlobList = m_pcCamera->GetReadings().BlobList;
+
+   // Set the threshold angle for proximity
+   const CRadians cAngleThreshold = ToRadians(CDegrees(20.0f));
+
+   for (const auto& blob : sBlobList){
+      if (Abs(blob->Angle - f_cProximityAngle) <= cAngleThreshold){
+         return true;
+      }
+   }
+   return false;
+
+}
+
+std::vector<size_t> CFootBotHydroflock::GetRelevantProximitySensors(const CVector2& f_cTargetVector, const Real& f_cCustomThreshold){
+
+   // Get the angle of the target vector
+   CRadians cTargetAngle = f_cTargetVector.Angle();
+
+   // List to store the indices of relevant proximity sensors
+   std::vector<size_t> vRelevantSensors;
+
+   CRadians cAngleThreshold = ToRadians(CDegrees(m_cAlpha));
+
+   // Threshold to determine if a sensor is facing the target direction
+   if (f_cCustomThreshold > -0.01f){ // if we have a positive value, this signifies that we are using a custom threshold
+      cAngleThreshold = ToRadians(CDegrees(f_cCustomThreshold));
+   } 
+
+   const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
+
+   // Iterate through the proximity sensor readings
+   for (size_t i = 0; i < tProxReads.size(); ++i) {
+      // Get the angle of the current proximity sensor
+      CRadians cSensorAngle = tProxReads[i].Angle;
+
+      // Check if the sensor's angle is within the threshold of the target angle
+      if (Abs(cSensorAngle - cTargetAngle) <= cAngleThreshold) {
+         // Add the index of the relevant sensor to the list
+         vRelevantSensors.push_back(i);
+      }
+   }
+
+   // Return the list of relevant sensor indices
+   return vRelevantSensors;
+}
+
+CVector2 CFootBotHydroflock::CalculateWallRepulsion() {
+    const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
+    CVector2 cRepulsion;
+
+    for(size_t i = 0; i < tProxReads.size(); ++i) {
+        if(tProxReads[i].Value > 0.0f) {
+            CRadians cAngle = tProxReads[i].Angle;
+            Real fValue = tProxReads[i].Value;
+            
+            // Repulsion vector to maintain distance from the wall
+            cRepulsion += CVector2(fValue, cAngle).Rotate(CRadians::PI);
+        }
+    }
+
+    if(cRepulsion.Length() > 0.0f) {
+        cRepulsion.Normalize();
+        cRepulsion *= m_sWheelTurningParams.MaxSpeed; // Strong repulsive force
+    }
+
+    return cRepulsion;
+}
+
+CVector2 CFootBotHydroflock::ProjectVectorOnVector(const CVector2& f_cVectorA, const CVector2& f_cVectorB){
+
+   /**
+    * *   Proj_B(A) = [(A • B) / (B • B)] * B
+    */
+
+   // Calculate the dot product of the two vectors
+   Real fDotProduct = f_cVectorA.DotProduct(f_cVectorB);
+
+   // Calculate the magnitude of the vector B
+   Real fMagnitude = f_cVectorB.Length();
+   
+   // Calculate the projection of vector A onto vector B
+   CVector2 cProjection = f_cVectorB * (fDotProduct / (fMagnitude * fMagnitude));
+
+   return cProjection;
+}
+
+CVector2 CFootBotHydroflock::VectorToWall(){
+
+   const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
+   CVector2 cWallVector;
+
+   if (DetectWall()){
+
+      // Calculate vector to wall
+      for(size_t i = 0; i < tProxReads.size(); ++i) {
+         if(tProxReads[i].Value > 0.0f) {
+            CRadians cAngle = tProxReads[i].Angle;
+            Real fValue = tProxReads[i].Value;
+            cWallVector+= CVector2(fValue, cAngle);
+         }
+      }
+      return cWallVector;
+   } else {
+      return CVector2();
+   }
+}
+
+CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFlockingVector) {
+
+   /**
+    * We want to calculate the tangential movement along the wall during wall dispersion.
+    * 
+    * Projecting the flocking vector onto the tangential direction will prevent the flocking vector
+    * from pushing the robot into or away from the wall. It will only push in the direction tangent to the wall.
+    */
+
+   CVector2 cTangential;
+   CVector2 cNormal = VectorToWall().Rotate(CRadians::PI);
+
+   // Calculate tangential component
+   if(cNormal.Length() > 0.0f){
+      cNormal.Normalize();
+      cTangential = cNormal.Rotate(CRadians::PI_OVER_TWO);
+      cTangential.Normalize();
+      cTangential *= 0.25f * m_sWheelTurningParams.MaxSpeed;
+   }
+
+   // Enforce the distance constraint
+   Real fDesiredDistance = 3; //TODO: Double check this value against maximum distance for the proximity sensor.
+   Real fCurrentDistance = cNormal.Length();
+   // cNormal.Normalize(); //! Trying Normalization here instead of above
+   fCurrentDistance != fDesiredDistance ? cNormal *= (fDesiredDistance - fCurrentDistance) : cNormal = cNormal;
+
+   // Project the flocking vector onto the tangential direction
+   CVector2 cProjectedFlockingVector = ProjectVectorOnVector(FlockingVector(), cTangential);
+
+   if (m_unTicks % 20) LOG << GetId() << " cTangential: " << cTangential << std::endl;
+
+   // Combine the tangential vector, the projected flocking vector, and the normal vector
+   CVector2 cCombinedVector = cTangential + cProjectedFlockingVector + cNormal;
+
+   // Ensure the combined vector does not exceed the maximum speed
+   if(cCombinedVector.Length() > m_sWheelTurningParams.MaxSpeed) {
+      cCombinedVector.Normalize();
+      cCombinedVector *= m_sWheelTurningParams.MaxSpeed;
+   }
+
+   return cTangential;
+}
+
+bool CFootBotHydroflock::CornerDetected(){
+   
+   if (OuterCornerDetected() || InnerCornerDetected()){
+      return true;
+   }
+
+   return false;
+}
+
+bool CFootBotHydroflock::OuterCornerDetected(){
+
+   //TODO: Transition to gradient-based approach for outer corner detection
+   /**
+    * * Empirical testing through plotting collected data on the gradients of the proximity sensor readings
+    */
+
+   /**
+    * Current implementation is a straightforward approach checking if sensors facing the wall (previously non-zero)
+    * become zero while other relevant sensors are still non-zero.
+    * 
+    * 
+    *                 _______________________________    /
+    *        Wall--> |_______________________________|  /
+    *                                              \   /  <-- Sensor facing wall (value: zero)
+    *      Sensor facing wall (value: non-zero)-->  \ /
+    *                                                X  <-- Robot
+    */
+   
+   const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
+   std::vector<size_t> vRelevantSensors = GetRelevantProximitySensors(VectorToWall());  // The relevant sensors are those facing the wall
+   bool bCornerDetected = false;
+
+   // loop through the relevant sensors
+   for (size_t i : vRelevantSensors) {
+      // Check if the current sensor reading is zero and the previous was non-zero
+      if (m_vecPreviousProximityReadings[i] > 0.0f && tProxReads[i].Value == 0.0f) {
+            size_t nextIndex = (i + 1) % tProxReads.size();    // Get the index of the next sensor (goes back to 0 if at the end)
+            size_t prevIndex = (i == 0) ? tProxReads.size() - 1 : i - 1;   // Get the index of the previous sensor (goes to the last index if at 0)
+
+            // Check if adjacent sensors still have non-zero readings
+            if (tProxReads[nextIndex].Value > 0.0f || tProxReads[prevIndex].Value > 0.0f) {
+               bCornerDetected = true;
+               break;
+            }
+      }
+   }
+
+   // Update previous readings
+   for (size_t i : vRelevantSensors) {
+      m_vecPreviousProximityReadings[i] = tProxReads[i].Value;
+   }
+
+   return bCornerDetected;
+
+}
+
+bool CFootBotHydroflock::InnerCornerDetected(){
+
+   //TODO: Transition to gradient-based approach for inner corner detection
+   /**
+    * * Empirical testing through plotting collected data on the gradients of the proximity sensor readings
+    */
+
+   /**
+    * Current implementation is a straightforward approach checking if not facing the wall (previously zero)
+    * become non-zero while other relevant sensors (not facing the wall) are still zero.
+    * 
+    * 
+    *                            _______________________________   
+    *                Wall 1 --> |_______________________________| 
+    *                                              \   /      | |
+    *   Sensors facing Wall 1 (value: non-zero)-->  \ /       | |
+    *                                      Robot--> (0)__ __ <|-|---- Sensor facing away from Wall 1  (value: zero)
+    *                                                 \       | |                                     (facing Wall 2)
+    *    Sensor facing away from Wall 1 (non-zero)-->  \      |_| <-- Wall 2                          (previously non-zero)
+    */
+   
+   const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
+   std::vector<size_t> vIrrelevantSensors = GetRelevantProximitySensors(VectorToWall());  // The irrelevant sensor are those facing the wall
+   bool bCornerDetected = false;
+
+   // Get relevant sensors
+   std::vector<size_t> vRelevantSensors;
+   for (size_t i = 0; i < tProxReads.size(); ++i){
+      if (std::find(vIrrelevantSensors.begin(), vIrrelevantSensors.end(), i) == vIrrelevantSensors.end()){
+         vRelevantSensors.push_back(i);
+      }
+   }
+
+   // loop through the relevant sensors
+   for (size_t i : vRelevantSensors) {
+      // Check if the current sensor reading is non-zero and the previous was zero
+      if (m_vecPreviousProximityReadings[i] == 0.0f && tProxReads[i].Value > 0.0f) {
+
+            /**
+             *!   I don't think I need to check adjacent sensors for inner corner detection
+             *!   I will leave this here for now and remove it later if it is not needed.
+             *
+             **   I am essentially just checking if any other sensors detect a wall. 😄
+             *
+             *?   I might need to specifically check if sensors facing DIRECTLY away from the 
+             *?   wall are non-zero. (Hallway scenario)
+             */
+
+            // size_t nextIndex = (i + 1) % tProxReads.size();    // Get the index of the next sensor (goes back to 0 if at the end)
+            // size_t prevIndex = (i == 0) ? tProxReads.size() - 1 : i - 1;   // Get the index of the previous sensor (goes to the last index if at 0)
+
+            // // Check if adjacent sensors still have non-zero readings
+            // if (tProxReads[nextIndex].Value > 0.0f || tProxReads[prevIndex].Value > 0.0f) {
+            //    bCornerDetected = true;
+            //    break;
+            // }
+
+         bCornerDetected = true;
+         break;
+      }
+   }
+
+   // Update previous readings
+   for (size_t i : vRelevantSensors) {
+      m_vecPreviousProximityReadings[i] = tProxReads[i].Value;
+   }
+
+   return bCornerDetected;
+
+}
+
+/****************************************/
+/****************************************/
+
+void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
+
+   switch(f_state){
+
+      case DEFAULT:
+         if (!m_bPrintState) {
+            LOG << GetId() << ": Setting state to DEFAULT" << std::endl;
+            m_bPrintState = true;
+         } 
+         m_pcLEDs->SetSingleColor(12, CColor::GREEN);
+         NormalFlocking();
+         m_eFState = DEFAULT;
+         break;
+
+      case WALL_DISPERSION:
+         if (!m_bPrintState) {
+            LOG << GetId() << ": Setting state to WALL_DISPERSION" << std::endl;
+            m_bPrintState = true;
+         }
+         m_pcLEDs->SetSingleColor(12, CColor::RED);
+         WallDispersion();
+         m_eFState = WALL_DISPERSION;
+         break;
+
+      case WALL_FOLLOWING:
+         if (!m_bPrintState) {
+            LOG << GetId() << ": Setting state to WALL_FOLLOWING" << std::endl;
+            m_bPrintState = true;
+         }
+         m_pcLEDs->SetSingleColor(12, CColor::BLUE);
+         WallFollowing();
+         m_eFState = WALL_FOLLOWING;
+         break;
+
+      case AGGREGATOR:
+         if (!m_bPrintState) {
+            LOG << GetId() << ": Setting state to AGGREGATOR" << std::endl;
+            m_bPrintState = true;
+         }
+         m_pcLEDs->SetSingleColor(12, CColor::MAGENTA);
+         Aggregator();
+         m_eFState = AGGREGATOR;
+         break;
+
+      case AGGREGATEE:
+         if (!m_bPrintState) {
+            LOG << GetId() << ": Setting state to AGGREGATEE" << std::endl;
+            m_bPrintState = true;
+         }
+         m_pcLEDs->SetSingleColor(12, CColor::PURPLE);
+         Aggregatee();
+         m_eFState = AGGREGATEE;
+         break;
+   }
+}
+
+void CFootBotHydroflock::StateUpdater(){
+
+   GetNeighborStates();
+   
+   switch (m_eFState){
+
+      case DEFAULT:  // Green
+
+         if (DetectWall()){
+
+            m_bPrintState = false;
+            SetFlockingState(WALL_DISPERSION);
+         } else {
+            SetFlockingState(DEFAULT);
+         }
+         break;
+
+      case WALL_DISPERSION: // Red
+
+         if(m_bHasMagentaNeighbor || m_bHasPurpleNeighbor){
+
+            m_bPrintState = false;
+            SetFlockingState(AGGREGATEE);
+
+         } else if (OuterCornerDetected()){
+
+            if (TargetVectorUnobstructed()){
+
+               m_bPrintState = false;
+               SetFlockingState(AGGREGATOR);
+
+            } else {
+               //TODO: Need to navigate flock around corner
+            }
+         } else if (InnerCornerDetected()){
+
+            //TODO: Compute new tangent vector here or in CalculateTangentialMovement()?
+
+         } 
+         // else if (m_bReachedTargetDistanceFromNeighbors){
+
+         //    m_bPrintState = false;
+         //    SetFlockingState(WALL_FOLLOWING);
+         // } 
+         else {
+            SetFlockingState(WALL_DISPERSION);
+         }
+         break;
+
+      default:
+         break;
+   }
+}
+
+void CFootBotHydroflock::GetNeighborStates(){
+
+   const CCI_ColoredBlobOmnidirectionalCameraSensor::SReadings& sReadings = m_pcCamera->GetReadings();
+
+   size_t iRedCount=0, iGreenCount=0, iPurpleCount=0, iBlueCount=0, iMagentaCount=0;
+
+   for(int i = 0; i < sReadings.BlobList.size(); i++){
+      // We only consider neighbors within 180% of the target distance like the FlockingVector function.
+      if (sReadings.BlobList[i]->Distance < m_sFlockingParams.TargetDistance * 1.80f){
+         if(sReadings.BlobList[i]->Color == CColor::RED){
+            iRedCount++;
+         } else if(sReadings.BlobList[i]->Color == CColor::GREEN){
+            iGreenCount++;
+         } else if(sReadings.BlobList[i]->Color == CColor::PURPLE){
+            iPurpleCount++;
+         } else if(sReadings.BlobList[i]->Color == CColor::BLUE){
+            iBlueCount++;
+         } else if(sReadings.BlobList[i]->Color == CColor::MAGENTA){
+            iMagentaCount++;
+         }
+      }
+   }
+
+   m_bHasRedNeighbor = iRedCount > 0;
+   m_bHasGreenNeighbor = iGreenCount > 0;
+   m_bHasPurpleNeighbor = iPurpleCount > 0;
+   m_bHasBlueNeighbor = iBlueCount > 0;
+   m_bHasMagentaNeighbor = iMagentaCount > 0;
+}
+
+void CFootBotHydroflock::NormalFlocking(){
+   
+      // Get the vector to the target
+      CVector2 cVectorToTarget = VectorToTarget();
+   
+      // Get the flocking vector
+      CVector2 cFlockingVector = FlockingVector();
+   
+      // Combine the two vectors
+      CVector2 cCombinedVector = cVectorToTarget + cFlockingVector;
+   
+      // Set the wheel speeds based on the combined vector
+      SetWheelSpeedsFromVector(cCombinedVector);
+}
+
+void CFootBotHydroflock::WallDispersion(){
+
+   // Move along the wall and spread out using Lennard-Jones potential
+   CVector2 cTangentialMovementVector = CalculateTangentialMovement(FlockingVector());
+
+   SetWheelSpeedsFromVector(cTangentialMovementVector);
+}
+
+void CFootBotHydroflock::WallFollowing(){
+
+}
+
+void CFootBotHydroflock::Aggregator(){
+
+}
+
+void CFootBotHydroflock::Aggregatee(){
+
+}
 /****************************************/
 /****************************************/
 
@@ -292,6 +717,26 @@ CVector2 CFootBotHydroflock::VectorToLight() {
    return cAccum;
 }
 
+CVector2 CFootBotHydroflock::VectorToTarget() {
+
+    // Compute the vector in the global frame
+    CVector2 cVectorGlobal = m_cTargetPosition - GetCurrentPosition();
+
+    // Get the robot's heading angle (orientation)
+    CRadians cRobotOrientation = GetOrientation(); // Assume this function exists
+
+    // Compute the cosine and sine of the orientation angle
+    Real cosTheta = Cos(cRobotOrientation);
+    Real sinTheta = Sin(cRobotOrientation);
+
+    // Transform the vector to the robot's frame of reference
+    Real x = cVectorGlobal.GetX() * cosTheta + cVectorGlobal.GetY() * sinTheta;
+    Real y = -cVectorGlobal.GetX() * sinTheta + cVectorGlobal.GetY() * cosTheta;
+
+    // Return the transformed vector
+    return CVector2(x, y);
+}
+
 /****************************************/
 /****************************************/
 
@@ -307,30 +752,165 @@ CVector2 CFootBotHydroflock::FlockingVector() {
       for(size_t i = 0; i < sReadings.BlobList.size(); ++i) {
 
          /*
-          * The camera perceives the light as a yellow blob
-          * The robots have their red beacon on
-          * So, consider only red blobs
-          * In addition: consider only the closest neighbors, to avoid
+          * Consider only the closest neighbors, to avoid
           * attraction to the farthest ones. Taking 180% of the target
           * distance is a good rule of thumb.
           */
-         if(sReadings.BlobList[i]->Color == CColor::RED &&
-            sReadings.BlobList[i]->Distance < m_sFlockingParams.TargetDistance * 1.80f) {
-            /*
-             * Take the blob distance and angle
-             * With the distance, calculate the Lennard-Jones interaction force
-             * Form a 2D vector with the interaction force and the angle
-             * Sum such vector to the accumulator
+         Real fcutOffDistance = m_sFlockingParams.TargetDistance * 1.80f;
+         Real fblobDistance = sReadings.BlobList[i]->Distance;
+
+         CColor ledColor = sReadings.BlobList[i]->Color;
+
+         if (fblobDistance < fcutOffDistance){
+
+            /** 
+             * * Take the blob distance and angle
+             * * With the distance, calculate the Lennard-Jones interaction force
+             * * Form a 2D vector with the interaction force and the angle
+             * * Sum such vector to the accumulator
+             * 
+             * The flocking behavior is divided into states
+             * Case dependent on the LED color of neighbors
              */
-            /* Calculate LJ */
-            fLJ = m_sFlockingParams.GeneralizedLennardJones(sReadings.BlobList[i]->Distance);
-            /* Sum to accumulator */
-            cAccum += CVector2(fLJ,
-                               sReadings.BlobList[i]->Angle);
-            /* Increment the blobs seen counter */
-            ++unBlobsSeen;
+            switch (m_eFState){
+
+               case DEFAULT:
+
+                  if (ledColor == CColor::GREEN){  // Neighbor is in DEFAULT state
+
+                     /**
+                      * * Normal Flocking Behavior
+                      */
+
+                     /* Calculate LJ with modified Gain and TargetDistance*/
+                     Real fTargetDistance = m_sFlockingParams.TargetDistance;
+                     Real fGain = m_sFlockingParams.Gain;
+                     Real fExponent = m_sFlockingParams.Exponent;
+
+                     fLJ = m_sFlockingParams.GeneralizedLennardJones(   fblobDistance,    fTargetDistance, 
+                                                                                          fGain,
+                                                                                          fExponent);
+
+                     // Check if the robot is within +- 20% of the target distance from neighbors
+                     if (  fblobDistance < fTargetDistance * 1.20f && 
+                           fblobDistance > fTargetDistance * 0.80f){
+                        m_bReachedTargetDistanceFromNeighbors = true;
+                     } else {
+                        m_bReachedTargetDistanceFromNeighbors = false;
+                     }
+
+                     /* Sum to accumulator */
+                     cAccum += CVector2(fLJ,sReadings.BlobList[i]->Angle);
+                     /* Increment the blobs seen counter */
+                     ++unBlobsSeen;
+
+                  } else if (ledColor == CColor::RED){   // Neighbor is in WALL_DISPERSION state
+
+                     /**
+                      * * GREEN -> RED Flocking Behavior
+                      * 
+                      * Robots in DEFAULT flocking state (GREEN) should have weak or low repulsion from 
+                      * robots in Wall Dispersion state (RED). This should allow the DEFAULT state robots
+                      * to reach the wall without being pushed away too strongly by robots in WALL_DISPERSION state.
+                      */
+                     
+                     /* Calculate LJ with modified Gain and TargetDistance*/
+                     Real fTargetDistance = m_sFlockingParams.TargetDistance * m_sFlockingParams.GR_TDMod;
+                     Real fGain = m_sFlockingParams.Gain * m_sFlockingParams.GR_GMod;
+                     Real fExponent = m_sFlockingParams.Exponent;
+
+                     fLJ = m_sFlockingParams.GeneralizedLennardJones(   fblobDistance,    fTargetDistance, 
+                                                                                          fGain,
+                                                                                          fExponent);
+
+                     // Check if the robot is within +- 20% of the target distance from neighbors
+                     if (  fblobDistance < fTargetDistance * 1.20f && 
+                           fblobDistance > fTargetDistance * 0.80f){
+                        m_bReachedTargetDistanceFromNeighbors = true;
+                     } else {
+                        m_bReachedTargetDistanceFromNeighbors = false;
+                     }
+
+                     /* Sum to accumulator */
+                     cAccum += CVector2(fLJ,sReadings.BlobList[i]->Angle);
+                     /* Increment the blobs seen counter */
+                     ++unBlobsSeen;
+                  }
+
+                  break;
+
+               case WALL_DISPERSION:
+
+                  if (ledColor == CColor::GREEN){
+
+                     /**
+                      * * RED -> GREEN Flocking Behavior
+                      * 
+                      * Robots in WALL_DISPERSION flocking state (RED) should have weak or low repulsion from 
+                      * robots in DEFAULT state (GREEN). This should preven the WALL_DISPERSION state robots
+                      * from being pushed into the wall by robots in DEFAULT state.
+                      */
+                     
+                     /* Calculate LJ with modified Gain and TargetDistance*/
+                     Real fTargetDistance = m_sFlockingParams.TargetDistance * m_sFlockingParams.RG_TDMod;
+                     Real fGain = m_sFlockingParams.Gain * m_sFlockingParams.RG_GMod;
+                     Real fExponent = m_sFlockingParams.Exponent;
+
+                     fLJ = m_sFlockingParams.GeneralizedLennardJones(   fblobDistance,    fTargetDistance, 
+                                                                                          fGain,
+                                                                                          fExponent);
+
+                     // Check if the robot is within +- 20% of the target distance from neighbors
+                     if (  fblobDistance < fTargetDistance * 1.20f && 
+                           fblobDistance > fTargetDistance * 0.80f){
+                        m_bReachedTargetDistanceFromNeighbors = true;
+                     } else {
+                        m_bReachedTargetDistanceFromNeighbors = false;
+                     }
+
+                     /* Sum to accumulator */
+                     cAccum += CVector2(fLJ,sReadings.BlobList[i]->Angle);
+                     /* Increment the blobs seen counter */
+                     ++unBlobsSeen;
+
+                  } else if (ledColor == CColor::RED){
+
+                     /**
+                      * * Currently just Normal Flocking Behavior 
+                      * ⚠️ Subject to change. I'm thinking of increasing distance for better wall coverage.
+                      */
+
+                     /* Calculate LJ with modified Gain and TargetDistance*/
+                     Real fTargetDistance = m_sFlockingParams.TargetDistance;
+                     Real fGain = m_sFlockingParams.Gain;
+                     Real fExponent = m_sFlockingParams.Exponent;
+
+                     fLJ = m_sFlockingParams.GeneralizedLennardJones(   fblobDistance,    fTargetDistance, 
+                                                                                          fGain,
+                                                                                          fExponent);
+
+                     // Check if the robot is within +- 20% of the target distance from neighbors
+                     if (  fblobDistance < fTargetDistance * 1.20f && 
+                           fblobDistance > fTargetDistance * 0.80f){
+                        m_bReachedTargetDistanceFromNeighbors = true;
+                     } else {
+                        m_bReachedTargetDistanceFromNeighbors = false;
+                     }
+
+                     /* Sum to accumulator */
+                     cAccum += CVector2(fLJ,sReadings.BlobList[i]->Angle);
+                     /* Increment the blobs seen counter */
+                     ++unBlobsSeen;
+                  }
+                  break;
+
+               default:
+                  //TODO: Do i need an error message here?
+                  break;
+            }
          }
       }
+
       if(unBlobsSeen > 0) {
          /* Divide the accumulator by the number of blobs seen */
          cAccum /= unBlobsSeen;
@@ -420,6 +1000,7 @@ void CFootBotHydroflock::SetWheelSpeedsFromVector(const CVector2& c_heading) {
    m_pcWheels->SetLinearVelocity(fLeftWheelSpeed, fRightWheelSpeed);
 }
 
+
 /****************************************/
 /****************************************/
 
@@ -427,6 +1008,7 @@ size_t CFootBotHydroflock::GetRobotIndex(){
    std::string strID = GetId(); // Get the robot's unique ID
    return std::stoul(strID.substr(2)); // The ID format should be in "fbX" where X is the index
 }
+
 /****************************************/
 /****************************************/
 
@@ -435,6 +1017,19 @@ CVector2 CFootBotHydroflock::GetCurrentPosition(){
    return CVector2(sReading.Position.GetX(), sReading.Position.GetY());
 }
 
+CRadians CFootBotHydroflock::GetOrientation(){
+   const CCI_PositioningSensor::SReading& sReading = m_pcPosition->GetReading();
+
+   CQuaternion q = sReading.Orientation;
+
+   // Declare CRadians for Euler angles
+   CRadians cOrientation, cTemp1, cTemp2;
+
+   // Convert quaternion to Euler angles
+   q.ToEulerAngles(cOrientation, cTemp1, cTemp2);
+
+   return cOrientation;
+}
 
 /****************************************/
 /****************************************/
@@ -477,7 +1072,6 @@ void CFootBotHydroflock::OmniCameraTest(){
 
 /****************************************/
 /****************************************/
-
 
 
 /****************************************/
