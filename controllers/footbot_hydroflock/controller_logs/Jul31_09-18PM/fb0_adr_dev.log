@@ -1,0 +1,404 @@
+Tick: 0	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-63.8713)
+	fHeadingLength: 14.967
+	Turning Mechanism: 1
+	
+Tick: 0	In SetFlockingState
+	Setting state to DEFAULT
+	
+Tick: 10	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-17.767)
+	fHeadingLength: 13.5255
+	Turning Mechanism: 1
+	
+Tick: 20	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(23.1108)
+	fHeadingLength: 7.1074
+	Turning Mechanism: 1
+	
+Tick: 30	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(25.5969)
+	fHeadingLength: 5.17055
+	Turning Mechanism: 1
+	
+Tick: 40	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(16.4958)
+	fHeadingLength: 5.04421
+	Turning Mechanism: 1
+	
+Tick: 50	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-5.07957)
+	fHeadingLength: 3.88949
+	Turning Mechanism: 1
+	
+Tick: 60	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-64.5538)
+	fHeadingLength: 5.8971
+	Turning Mechanism: 1
+	
+Tick: 70	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-36.5824)
+	fHeadingLength: 7.24499
+	Turning Mechanism: 1
+	
+Tick: 80	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-19.7222)
+	fHeadingLength: 7.3885
+	Turning Mechanism: 1
+	
+Tick: 90	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-10.526)
+	fHeadingLength: 7.10621
+	Turning Mechanism: 1
+	
+Tick: 100	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-5.53051)
+	fHeadingLength: 6.7859
+	Turning Mechanism: 1
+	
+Tick: 110	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.79624)
+	fHeadingLength: 6.55928
+	Turning Mechanism: 0
+	
+Tick: 120	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.81759)
+	fHeadingLength: 6.45684
+	Turning Mechanism: 0
+	
+Tick: 130	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.96218)
+	fHeadingLength: 6.40097
+	Turning Mechanism: 0
+	
+Tick: 140	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-5.05864)
+	fHeadingLength: 6.34616
+	Turning Mechanism: 1
+	
+Tick: 150	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-5.04875)
+	fHeadingLength: 6.28723
+	Turning Mechanism: 1
+	
+Tick: 160	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.95199)
+	fHeadingLength: 6.22556
+	Turning Mechanism: 0
+	
+Tick: 170	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.79533)
+	fHeadingLength: 6.16285
+	Turning Mechanism: 0
+	
+Tick: 180	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.85665)
+	fHeadingLength: 6.09917
+	Turning Mechanism: 0
+	
+Tick: 190	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.87649)
+	fHeadingLength: 6.03601
+	Turning Mechanism: 0
+	
+Tick: 200	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.86158)
+	fHeadingLength: 5.97308
+	Turning Mechanism: 0
+	
+Tick: 210	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.81879)
+	fHeadingLength: 5.9112
+	Turning Mechanism: 0
+	
+Tick: 220	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.78397)
+	fHeadingLength: 5.8503
+	Turning Mechanism: 0
+	
+Tick: 230	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.92407)
+	fHeadingLength: 5.78926
+	Turning Mechanism: 0
+	
+Tick: 240	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.82106)
+	fHeadingLength: 5.72966
+	Turning Mechanism: 0
+	
+Tick: 250	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.96013)
+	fHeadingLength: 5.6712
+	Turning Mechanism: 0
+	
+Tick: 260	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.84048)
+	fHeadingLength: 5.61615
+	Turning Mechanism: 0
+	
+Tick: 270	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.79812)
+	fHeadingLength: 5.54711
+	Turning Mechanism: 0
+	
+Tick: 280	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.79692)
+	fHeadingLength: 5.48379
+	Turning Mechanism: 0
+	
+Tick: 290	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.21156)
+	fHeadingLength: 5.19536
+	Turning Mechanism: 0
+	
+Tick: 300	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.61477)
+	fHeadingLength: 5.21606
+	Turning Mechanism: 0
+	
+Tick: 310	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.66835)
+	fHeadingLength: 5.19143
+	Turning Mechanism: 0
+	
+Tick: 320	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-4.26708)
+	fHeadingLength: 5.127
+	Turning Mechanism: 0
+	
+Tick: 330	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-3.2873)
+	fHeadingLength: 5.02272
+	Turning Mechanism: 0
+	
+Tick: 340	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.41666)
+	fHeadingLength: 4.87813
+	Turning Mechanism: 0
+	
+Tick: 350	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.54118)
+	fHeadingLength: 4.6935
+	Turning Mechanism: 0
+	
+Tick: 360	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(5.31458)
+	fHeadingLength: 4.4819
+	Turning Mechanism: 1
+	
+Tick: 370	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(10.7197)
+	fHeadingLength: 4.05822
+	Turning Mechanism: 1
+	
+Tick: 380	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(22.1164)
+	fHeadingLength: 3.66408
+	Turning Mechanism: 1
+	
+Tick: 390	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(23.0699)
+	fHeadingLength: 3.54822
+	Turning Mechanism: 1
+	
+Tick: 400	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(22.5183)
+	fHeadingLength: 3.44578
+	Turning Mechanism: 1
+	
+Tick: 410	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(22.6638)
+	fHeadingLength: 3.361
+	Turning Mechanism: 1
+	
+Tick: 420	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(44.1835)
+	fHeadingLength: 4.79739
+	Turning Mechanism: 1
+	
+Tick: 430	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(28.8851)
+	fHeadingLength: 5.1679
+	Turning Mechanism: 1
+	
+Tick: 440	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(13.8504)
+	fHeadingLength: 4.77519
+	Turning Mechanism: 1
+	
+Tick: 450	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-7.1854)
+	fHeadingLength: 3.51458
+	Turning Mechanism: 1
+	
+Tick: 460	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-31.9867)
+	fHeadingLength: 2.84394
+	Turning Mechanism: 1
+	
+Tick: 470	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-29.233)
+	fHeadingLength: 2.63175
+	Turning Mechanism: 1
+	
+Tick: 480	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-37.0757)
+	fHeadingLength: 2.72934
+	Turning Mechanism: 1
+	
+Tick: 490	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-29.6101)
+	fHeadingLength: 2.56796
+	Turning Mechanism: 1
+	
+Tick: 500	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-16.9851)
+	fHeadingLength: 2.27411
+	Turning Mechanism: 1
+	
+Tick: 510	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-5.55143)
+	fHeadingLength: 2.0497
+	Turning Mechanism: 1
+	
+Tick: 520	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.30965)
+	fHeadingLength: 1.98068
+	Turning Mechanism: 0
+	
+Tick: 530	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(7.99796)
+	fHeadingLength: 2.01666
+	Turning Mechanism: 1
+	
+Tick: 540	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(14.4561)
+	fHeadingLength: 2.19412
+	Turning Mechanism: 1
+	
+Tick: 550	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(16.4857)
+	fHeadingLength: 2.48543
+	Turning Mechanism: 1
+	
+Tick: 560	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(10.8226)
+	fHeadingLength: 2.76681
+	Turning Mechanism: 1
+	
+Tick: 570	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(33.2316)
+	fHeadingLength: 5.22516
+	Turning Mechanism: 1
+	
+Tick: 580	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(12.7445)
+	fHeadingLength: 8.19089
+	Turning Mechanism: 1
+	
+Tick: 590	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.66909)
+	fHeadingLength: 8.79422
+	Turning Mechanism: 0
+	
+Tick: 600	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-19.5931)
+	fHeadingLength: 6.1311
+	Turning Mechanism: 1
+	
+Tick: 610	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-32.3204)
+	fHeadingLength: 5.09709
+	Turning Mechanism: 1
+	
+Tick: 620	In VectorToWall
+	Sensor angle: CDegrees(-82.5)
+	Sensor value: 0.115375
+	Sensor angle: CDegrees(-67.5)
+	Sensor value: 0.129851
+	Sensor angle: CDegrees(-52.5)
+	Sensor value: 0.126714
+	Sensor angle: CDegrees(-37.5)
+	Sensor value: 0.107395
+	
+Tick: 620	In CalculateTangentialMovement
+	Initial cNormal (angle): CDegrees(119.569)
+	Initial cNormal (length): 0.115049
+	Upscaled cNormal (angle): CDegrees(-60.4312)
+	Upscaled cNormal (length): 0.337378
+	Final cNormal (angle): CDegrees(119.569)
+	Final cNormal (length): 0.337378
+	cTangential (angle): CDegrees(-150.431)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(29.5688)
+	cProjectedFlockingVector (length): 6.7809
+	cCombinedVector (angle): CDegrees(34.075)
+	cCombinedVector (length): 4.29418
+	
+Tick: 620	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(34.075)
+	fHeadingLength: 4.29418
+	Turning Mechanism: 1
+	
+Tick: 630	In VectorToWall
+	Sensor angle: CDegrees(-97.5)
+	Sensor value: 0.120979
+	Sensor angle: CDegrees(-82.5)
+	Sensor value: 0.146931
+	Sensor angle: CDegrees(-67.5)
+	Sensor value: 0.153417
+	Sensor angle: CDegrees(-52.5)
+	Sensor value: 0.137106
+	Sensor angle: CDegrees(-37.5)
+	Sensor value: 0.105942
+	
+Tick: 630	In CalculateTangentialMovement
+	Initial cNormal (angle): CDegrees(111.577)
+	Initial cNormal (length): 0.124875
+	Upscaled cNormal (angle): CDegrees(-68.4234)
+	Upscaled cNormal (length): 0.312812
+	Final cNormal (angle): CDegrees(111.577)
+	Final cNormal (length): 0.312812
+	cTangential (angle): CDegrees(-158.423)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(21.5766)
+	cProjectedFlockingVector (length): 4.11377
+	cCombinedVector (angle): CDegrees(32.5468)
+	cCombinedVector (length): 1.64381
+	
+Tick: 630	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(32.5468)
+	fHeadingLength: 1.64381
+	Turning Mechanism: 1
+	
+Tick: 640	In VectorToWall
+	Sensor angle: CDegrees(-97.5)
+	Sensor value: 0.135752
+	Sensor angle: CDegrees(-82.5)
+	Sensor value: 0.15946
+	Sensor angle: CDegrees(-67.5)
+	Sensor value: 0.159883
+	Sensor angle: CDegrees(-52.5)
+	Sensor value: 0.136792
+	Sensor angle: CDegrees(-37.5)
+	Sensor value: 0.101271
+	
+Tick: 640	In CalculateTangentialMovement
+	Initial cNormal (angle): CDegrees(110.468)
+	Initial cNormal (length): 0.130343
+	Upscaled cNormal (angle): CDegrees(-69.5319)
+	Upscaled cNormal (length): 0.299142
+	Final cNormal (angle): CDegrees(110.468)
+	Final cNormal (length): 0.299142
+	cTangential (angle): CDegrees(-159.532)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(20.4681)
+	cProjectedFlockingVector (length): 3.20211
+	cCombinedVector (angle): CDegrees(43.545)
+	cCombinedVector (length): 0.76318
+	
+Tick: 640	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(43.545)
+	fHeadingLength: 0.76318
+	Turning Mechanism: 1
+	

@@ -1,0 +1,137 @@
+Using most recently created log directory: [0;35m./controllers/footbot_hydroflock/controller_logs/[0m[0;36mAug01_03-17PM[0m
+Processing ./controllers/footbot_hydroflock/controller_logs/Aug01_03-17PM/fb4_adr_dev.log...
+Tick: 570	In ReorientTowardsWall
+	Current position: -2.22318,-0.248052
+	Current heading: CDegrees(-69.8513)
+	Last vector to wall (local): CDegrees(142.5)
+	Last wall contact heading: CDegrees(-52.0308)
+	cNormal_Global: CDegrees(90.4692)
+	Last wall contact position: -2.23618,-0.234488
+	Vector to last position (angle): CRadians(-0.806564 -> -46.2127 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(1.57898 -> 90.4692 degrees)
+	Normal displacement global (length): 1.81889
+	Normal displacement local (angle): CRadians(2.79812 -> 160.32 degrees)
+	Normal displacement local (length): 1.81889
+	
+
+Tick: 580	In ReorientTowardsWall
+	Current position: -2.22559,-0.249836
+	Current heading: CDegrees(-146.221)
+	Last vector to wall (local): CDegrees(142.5)
+	Last wall contact heading: CDegrees(-52.0308)
+	cNormal_Global: CDegrees(90.4692)
+	Last wall contact position: -2.23618,-0.234488
+	Vector to last position (angle): CRadians(-0.96682 -> -55.3947 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(1.57898 -> 90.4692 degrees)
+	Normal displacement global (length): 2.06927
+	Normal displacement local (angle): CRadians(-2.15217 -> -123.31 degrees)
+	Normal displacement local (length): 2.06927
+	
+
+Tick: 590	In ReorientTowardsWall
+	Current position: -2.2581,-0.264371
+	Current heading: CDegrees(-167.011)
+	Last vector to wall (local): CDegrees(142.5)
+	Last wall contact heading: CDegrees(-52.0308)
+	cNormal_Global: CDegrees(90.4692)
+	Last wall contact position: -2.23618,-0.234488
+	Vector to last position (angle): CRadians(-2.20363 -> -126.259 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(1.57898 -> 90.4692 degrees)
+	Normal displacement global (length): 2.00371
+	Normal displacement local (angle): CRadians(-1.78931 -> -102.52 degrees)
+	Normal displacement local (length): 2.00371
+	
+
+Tick: 600	In ReorientTowardsWall
+	Current position: -2.28554,-0.26793
+	Current heading: CDegrees(174.53)
+	Last vector to wall (local): CDegrees(142.5)
+	Last wall contact heading: CDegrees(-52.0308)
+	cNormal_Global: CDegrees(90.4692)
+	Last wall contact position: -2.23618,-0.234488
+	Vector to last position (angle): CRadians(-2.54608 -> -145.88 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(1.57898 -> 90.4692 degrees)
+	Normal displacement global (length): 1.38534
+	Normal displacement local (angle): CRadians(-1.46713 -> -84.0603 degrees)
+	Normal displacement local (length): 1.38534
+	
+
+Tick: 610	In ReorientTowardsWall
+	Current position: -2.28782,-0.265867
+	Current heading: CDegrees(102.064)
+	Last vector to wall (local): CDegrees(142.5)
+	Last wall contact heading: CDegrees(-52.0308)
+	cNormal_Global: CDegrees(90.4692)
+	Last wall contact position: -2.23618,-0.234488
+	Vector to last position (angle): CRadians(-2.59559 -> -148.716 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(1.57898 -> 90.4692 degrees)
+	Normal displacement global (length): 1.28066
+	Normal displacement local (angle): CRadians(-0.202361 -> -11.5944 degrees)
+	Normal displacement local (length): 1.28066
+	
+
+Tick: 620	In ReorientTowardsWall
+	Current position: -2.28649,-0.241833
+	Current heading: CDegrees(78.3443)
+	Last vector to wall (local): CDegrees(142.5)
+	Last wall contact heading: CDegrees(-52.0308)
+	cNormal_Global: CDegrees(90.4692)
+	Last wall contact position: -2.23618,-0.234488
+	Vector to last position (angle): CRadians(-2.99662 -> -171.693 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(1.57898 -> 90.4692 degrees)
+	Normal displacement global (length): 0.340908
+	Normal displacement local (angle): CRadians(0.211618 -> 12.1248 degrees)
+	Normal displacement local (length): 0.340908
+	
+
+Tick: 1190	In ReorientTowardsWall
+	Current position: -3.38878,-0.235854
+	Current heading: CDegrees(-87.7131)
+	Last vector to wall (local): CDegrees(157.5)
+	Last wall contact heading: CDegrees(-65.6063)
+	cNormal_Global: CDegrees(91.8937)
+	Last wall contact position: -3.38992,-0.233306
+	Vector to last position (angle): CRadians(-1.14854 -> -65.8066 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(1.60385 -> 91.8937 degrees)
+	Normal displacement global (length): 2.31303
+	Normal displacement local (angle): CRadians(3.13473 -> 179.607 degrees)
+	Normal displacement local (length): 2.31303
+	
+
+Tick: 1200	In ReorientTowardsWall
+	Current position: -3.39183,-0.237397
+	Current heading: CDegrees(-163.478)
+	Last vector to wall (local): CDegrees(157.5)
+	Last wall contact heading: CDegrees(-65.6063)
+	cNormal_Global: CDegrees(91.8937)
+	Last wall contact position: -3.38992,-0.233306
+	Vector to last position (angle): CRadians(-2.00741 -> -115.016 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(1.60385 -> 91.8937 degrees)
+	Normal displacement global (length): 2.2293
+	Normal displacement local (angle): CRadians(-1.82611 -> -104.628 degrees)
+	Normal displacement local (length): 2.2293
+	
+
+Tick: 1210	In ReorientTowardsWall
+	Current position: -3.40318,-0.235154
+	Current heading: CDegrees(146.012)
+	Last vector to wall (local): CDegrees(157.5)
+	Last wall contact heading: CDegrees(-65.6063)
+	cNormal_Global: CDegrees(91.8937)
+	Last wall contact position: -3.38992,-0.233306
+	Vector to last position (angle): CRadians(-3.00314 -> -172.067 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(1.60385 -> 91.8937 degrees)
+	Normal displacement global (length): 0.263004
+	Normal displacement local (angle): CRadians(-0.944549 -> -54.1187 degrees)
+	Normal displacement local (length): 0.263004
+	
+

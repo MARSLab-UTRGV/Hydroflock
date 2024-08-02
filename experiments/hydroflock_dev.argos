@@ -19,9 +19,9 @@
                 <footbot_proximity implementation="default" show_rays="true"/>
             </sensors>
             <params>
-                <wheel_turning hard_turn_angle_threshold="90" soft_turn_angle_threshold="70" no_turn_angle_threshold="10" max_speed="10"/>
+                <wheel_turning hard_turn_angle_threshold="90" soft_turn_angle_threshold="70" no_turn_angle_threshold="0.1" max_speed="10"/>
                 <flocking target_distance="75" gain="1250" exponent="2" GreenToRed_GainModifier="0.25" GreenToRed_TargetDistanceModifier="1" RedToGreen_GainModifier="0.1" RedToGreen_TargetDistanceModifier="1" RedToRed_GainModifier="1.5" RedToRed_TargetDistanceModifier="2"/>
-                <settings communication_test="false" time_step="0.1" target_position="0,4.5,0" AngleThresholdInDegrees="20.0"/>
+                <settings communication_test="false" time_step="0.1" target_position="0,4.5,0" AngleThresholdInDegrees="20.0" EnableLogging="true" LogFrequency="10"/>
             </params>
         </footbot_hydroflock_controller>
     </controllers>

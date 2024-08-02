@@ -51,6 +51,59 @@ void CFootBotHydroflock::SFlockingInteractionParams::Init(TConfigurationNode& t_
 /****************************************/
 /****************************************/
 
+void CFootBotHydroflock::LogInit(){
+
+   const std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();   // get the current time
+
+   const std::time_t t_c = std::chrono::system_clock::to_time_t(now);   // convert the current time to a time_t object
+
+   std::stringstream dir;  // create a string stream to hold the directory name
+
+   dir << std::put_time(std::localtime(&t_c), "%b%d_%I-%M%p"); // log directory name format: {Month}{Day}_{Hour}-{Minute}{AM/PM}
+
+   std::string sLogDir = m_sLogPath + dir.str();   // append the directory name to create the full path
+
+   struct stat sb;   // struct to hold file information
+
+   if (stat(sLogDir.c_str(), &sb) != 0){    // directory doesn't exist, create it
+
+      if (mkdir(sLogDir.c_str(), 0777) != 0){  // create the directory, print error and terminate if it fails
+         std::cerr << "Error creating directory: " << sLogDir << std::endl;
+         exit(1);
+      } else {
+         LOG << "Log Directory: " << sLogDir << std::endl;
+         LOG << "Log Frequency: Every " << m_fLogFrequency << " tick(s)" << std::endl;
+      }
+
+   }
+
+   m_sLogFilePath = sLogDir + "/" + GetId() + "_adr_dev" + m_sLogFileExt;  // create the log file path
+}
+
+void CFootBotHydroflock::LogThis(const std::string& f_sMessage, const std::string& f_sFunctionName){
+
+   m_Log.open(m_sLogFilePath, std::ios::out | std::ios::app);  // open the log file
+   if (!m_Log.is_open()){  // print error and terminate if file cannot be opened
+      std::cerr << "Error opening log file: " << m_sLogFilePath << std::endl;
+      exit(1);
+   } else {
+      if (m_unTicks % m_fLogFrequency == 0 && !f_sMessage.empty()){
+         std::string sHeader = "Tick: " + std::to_string(m_unTicks) + "\tIn " + f_sFunctionName + "\n";
+
+         std::string sModString = sHeader + f_sMessage;
+         size_t pos = 0;
+
+         while ((pos = sModString.find("\n", pos)) != std::string::npos){
+            sModString.insert(pos+1, "\t");
+            pos += 2;
+         }
+         m_Log << sModString << std::endl;
+         m_Log.flush();
+      }
+      m_Log.close();
+   } 
+}
+
 /*
  * This function is a generalization of the Lennard-Jones potential
  */
@@ -75,14 +128,16 @@ CFootBotHydroflock::CFootBotHydroflock() :
    m_pcProximity(NULL),
    m_cRab_Dsr(GetId()),
    m_cTargetPosition(CVector2()),
+   m_cLastVectorToWall(CVector2()),
    m_cAlpha(20.0),
-   m_bReachedTargetDistanceFromNeighbors(false){}
+   m_bReachedTargetDistanceFromNeighbors(false),
+   m_fLogFrequency(1){}
 
 /****************************************/
 /****************************************/
 
 void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
-   /*
+   /**
     * Get sensor/actuator handles
     *
     * The passed string (ex. "differential_steering") corresponds to the XML tag of the
@@ -126,14 +181,14 @@ void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
       GetNodeAttribute(tSettingsNode, "communication_test", m_bCommunicationTest);
       GetNodeAttribute(tSettingsNode, "target_position", m_cTargetPosition);
       GetNodeAttribute(tSettingsNode, "AngleThresholdInDegrees", m_cAlpha);
+      GetNodeAttribute(tSettingsNode, "EnableLogging", m_bLoggingEnabled);
+      GetNodeAttribute(tSettingsNode, "LogFrequency", m_fLogFrequency);
    }
    catch(CARGoSException& ex) {
       THROW_ARGOSEXCEPTION_NESTED("Error parsing the controller parameters.", ex);
    }
 
-   /*
-   * Initialize acceptable range for RAB and omni-cam correlation
-   */
+   /* Initialize acceptable range for RAB and omni-cam correlation */
    m_fAcceptableRange = m_sWheelTurningParams.MaxSpeed * TimeStep;
 
    /* Enable camera filtering */
@@ -152,6 +207,9 @@ void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
 
    // Initialize the state
    m_eFState = DEFAULT;
+
+   // Initialize the log file
+   LogInit();
 
 }
 
@@ -214,13 +272,20 @@ void CFootBotHydroflock::Reset() {
 /****************************************/
 /****************************************/
 
+void CFootBotHydroflock::Destroy(){
+
+}
+
+/****************************************/
+/****************************************/
+
 bool CFootBotHydroflock::DetectWall() {
 
    //TODO: This is not a reliable method differentiate between walls and robots. Need to implement a more robust method.
    const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
    bool bWallDetected = false;
    for(size_t i = 0; i < tProxReads.size(); ++i) {
-      if(tProxReads[i].Value > 0.1){
+      if(tProxReads[i].Value > 0.01){
          if(!RobotInProximity(tProxReads[i].Angle)) { // Threshold value, adjust as necessary;
             bWallDetected = true;
          }
@@ -351,6 +416,8 @@ CVector2 CFootBotHydroflock::ProjectVectorOnVector(const CVector2& f_cVectorA, c
 
 CVector2 CFootBotHydroflock::VectorToWall(){
 
+   std::stringstream logstream;
+
    const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
    CVector2 cWallVector;
    bool bPrintSensor = false;
@@ -359,19 +426,78 @@ CVector2 CFootBotHydroflock::VectorToWall(){
 
    // Calculate vector to wall
    for(size_t i = 0; i < tProxReads.size(); ++i) {
+
       if(tProxReads[i].Value > 0.0f) {
+
          CRadians cAngle = tProxReads[i].Angle;
          Real fValue = tProxReads[i].Value;
-         if (GetId() == "fb2" && bPrintSensor) LOG    << "Sensor angle: " << ToDegrees(cAngle) << std::endl
-                                                      << "Sensor value: " << fValue << std::endl;
+
+         logstream   << "Sensor angle: " << ToDegrees(cAngle) << std::endl
+                     << "Sensor value: " << fValue << std::endl;
+
          cWallVector+= CVector2(fValue, cAngle);
+
          count++;
       }
    }
+
+   if (m_bLoggingEnabled) LOG(logstream.str());
    return cWallVector/count;
 }
 
+CVector2 CFootBotHydroflock::ReorientTowardsWall(){
+
+   std::stringstream logstream;
+
+   // Get current pose
+   CVector2 cCurrentPosition = GetCurrentPosition();
+   CRadians cCurrentHeading = GetOrientation();
+
+   logstream   << "Current position: " << cCurrentPosition           << std::endl
+               << "Current heading: "  << ToDegrees(cCurrentHeading) << std::endl;
+
+   // Translate the last vector to wall to the global frame
+   CVector2 cNormal_Global = m_cLastVectorToWall;
+   cNormal_Global.Rotate(m_cLastWallContactHeading);
+   cNormal_Global.Normalize();
+   cNormal_Global *= 0.25f * m_sWheelTurningParams.MaxSpeed;
+
+   logstream   << "Last vector to wall (local): "  << ToDegrees(m_cLastVectorToWall.Angle()) << std::endl
+               << "Last wall contact heading: "    << ToDegrees(m_cLastWallContactHeading)   << std::endl
+               << "cNormal_Global: "               << ToDegrees(cNormal_Global.Angle())      << std::endl;
+
+   // Calculate the vector to the last wall contact position
+   CVector2 cVectorToLastPosition = cCurrentPosition - m_cLastWallContactPosition;
+   cVectorToLastPosition.Normalize();
+   cVectorToLastPosition *= 0.25f * m_sWheelTurningParams.MaxSpeed;
+
+   logstream   << "Last wall contact position: "         << m_cLastWallContactPosition       << std::endl
+               << "Vector to last position (angle): "    << cVectorToLastPosition.Angle()    << std::endl
+               << "Vector to last position (length): "   << cVectorToLastPosition.Length()   << std::endl;
+
+   // Project the vector to the last wall contact position onto the global normal vector
+   CVector2 cNormalDisplacement_Global = ProjectVectorOnVector(cVectorToLastPosition, cNormal_Global);
+
+   // Ensure the normal displacement vector points towards the wall
+   if (cNormalDisplacement_Global.DotProduct(cNormal_Global) < 0.0f) cNormalDisplacement_Global = -cNormalDisplacement_Global;
+
+   logstream   << "Normal displacement global (angle): "  << cNormalDisplacement_Global.Angle()   << std::endl
+               << "Normal displacement global (length): " << cNormalDisplacement_Global.Length()  << std::endl;
+
+   // Translate back into robot frame
+   CVector2 cNormalDisplacement = cNormalDisplacement_Global;
+   cNormalDisplacement.Rotate(-cCurrentHeading);
+
+   logstream   << "Normal displacement local (angle): "  << cNormalDisplacement.Angle()   << std::endl
+               << "Normal displacement local (length): " << cNormalDisplacement.Length()  << std::endl;
+
+   if (m_bLoggingEnabled) LOG(logstream.str());
+   return cNormalDisplacement;
+}
+
 CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFlockingVector) {
+
+   std::stringstream logstream;
 
    /**
     * We want to calculate the tangential movement along the wall during wall dispersion.
@@ -382,41 +508,56 @@ CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFloc
 
    CVector2 cTangential;
    CVector2 cNormal = VectorToWall().Rotate(CRadians::PI);
+   CVector2 cCombinedVector;
+   bool bOffWall = !DetectWall();
 
-   // Calculate tangential component
-   if(cNormal.Length() > 0.0f){
-      // cNormal.Normalize();    //? I'm getting the average now in VectorToWall() 
-                                 //? Normalizing just makes the value 1 if it has any value at all...
-                                 //? I don't think thats right for what i need.
-      cTangential = cNormal;
-      cTangential.Rotate(CRadians::PI_OVER_TWO);
-      cTangential.Normalize();
-      cTangential *= 0.25f * m_sWheelTurningParams.MaxSpeed;
+   logstream << "Off wall: " << bOffWall << std::endl;
+
+   if (bOffWall){ // if the robot is no longer touching the wall
+      cNormal = ReorientTowardsWall();
+
+   } else {
+      m_cLastVectorToWall = cNormal;
+      m_cLastVectorToWall.Rotate(CRadians::PI); // Rotate the vector to point back to the wall for term consistency vector "TO" wall.
+      m_cLastWallContactPosition = GetCurrentPosition();
+      m_cLastWallContactHeading = GetOrientation();
    }
 
-   // Enforce the distance constraint
-   Real fDesiredSensorValue = 0.25;  // Desired sensor value for 7.5 cm away from the wall
-   Real fCurrentSensorValue = cNormal.Length();
-   CRadians fCurrentAngle = cNormal.Angle();
-   if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG   << "Initial cNormal (angle): "   << ToDegrees(cNormal.Angle()) << std::endl
-                                                      << "Initial cNormal (length): "  << cNormal.Length()           << std::endl
-                                                      << "fDesiredSensorValue: "       << fDesiredSensorValue        << std::endl
-                                                      << "fCurrentSensorValue: "       << fCurrentSensorValue        << std::endl
-                                                      << "fCurrentAngle: "             << ToDegrees(fCurrentAngle)   << std::endl;
-   
-   //TODO I think i need a conditional here to maybe to create a boundary. 
-   //~ I need the robot to stay with the proximity sensors active.
-   //? Maybe if I just set the state back to normal flocking? Or a maybe a substate to get back to the wall using the
-   //? last known vector to the wall? State transition conditions are getting complex.
+   cTangential = cNormal;
+   cTangential.Rotate(CRadians::PI_OVER_TWO);
+   cTangential.Normalize();
+   cTangential *= 0.25f * m_sWheelTurningParams.MaxSpeed;
 
-   Real fDistanceError = fCurrentSensorValue*(fCurrentSensorValue - fDesiredSensorValue);
-   cNormal = CVector2(fDistanceError, fCurrentAngle);
+   // Enforce the distance constraint if the robot is touching the wall
+   if (!bOffWall){
+
+      Real fDesiredSensorValue = 0.25;  // Desired sensor value for 7.5 cm away from the wall
+      Real fCurrentSensorValue = cNormal.Length();
+      CRadians fCurrentAngle = cNormal.Angle();
+
+      logstream   << "Initial cNormal (angle): "   << ToDegrees(cNormal.Angle()) << std::endl
+                  << "Initial cNormal (length): "  << cNormal.Length()           << std::endl;
+
+      Real fDistanceError = fCurrentSensorValue - fDesiredSensorValue;
+      cNormal = CVector2(fDistanceError, fCurrentAngle);
+
+      if (fDistanceError < 0.0f) cNormal.Rotate(CRadians::PI);
+   }
+
+   // // Normalize the normal vector //? idk if i should be doing this but i'm testing it...
+   // cNormal.Normalize();
+   // Real fScalingFactor = 0.25f * cTangential.Length();   // scale the normal vector to 25% of the tangential vector
+   // cNormal = CVector2(cNormal.Length()*fScalingFactor, cNormal.Angle());   // we do it like this to make sure we keep the same angle
+   //                                                                         //? sometimes the angle changes when multiplying the vector by a scalar
 
    // Project the flocking vector onto the tangential direction
    CVector2 cProjectedFlockingVector = ProjectVectorOnVector(FlockingVector(), cTangential);
 
+   // Let the tangent vector direction be the direction of the projected flocking vector //? Trying this out...
+   cTangential = CVector2(cTangential.Length(), cProjectedFlockingVector.Angle());
+
    // Combine the tangential vector, the projected flocking vector, and the normal vector
-   CVector2 cCombinedVector = cTangential + cProjectedFlockingVector + cNormal;
+   cCombinedVector = cTangential + cProjectedFlockingVector + cNormal;
 
    // Ensure the combined vector does not exceed the maximum speed
    if(cCombinedVector.Length() > m_sWheelTurningParams.MaxSpeed) {
@@ -424,17 +565,22 @@ CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFloc
       cCombinedVector *= m_sWheelTurningParams.MaxSpeed;
    }
 
-   if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG   << "Final cNormal (angle): " << ToDegrees(cNormal.Angle()) << std::endl
-                                                      << "Final cNormal (length): " << cNormal.Length() << std::endl
-                                                      << "cTangential (angle): " << ToDegrees(cTangential.Angle()) << std::endl
-                                                      << "cTangential (length): " << cTangential.Length() << std::endl
-                                                      << "cProjectedFlockingVector (angle): " << ToDegrees(cProjectedFlockingVector.Angle()) << std::endl
-                                                      << "cProjectedFlockingVector (length): " << cProjectedFlockingVector.Length() << std::endl
-                                                      << "cCombinedVector (angle): " << ToDegrees(cCombinedVector.Angle()) << std::endl
-                                                      << "cCombinedVector (length): " << cCombinedVector.Length() << std::endl;
+   logstream   << "Final cNormal (angle): " << ToDegrees(cNormal.Angle()) << std::endl
+               << "Final cNormal (length): " << cNormal.Length() << std::endl
+               << "cTangential (angle): " << ToDegrees(cTangential.Angle()) << std::endl
+               << "cTangential (length): " << cTangential.Length() << std::endl
+               << "cProjectedFlockingVector (angle): " << ToDegrees(cProjectedFlockingVector.Angle()) << std::endl
+               << "cProjectedFlockingVector (length): " << cProjectedFlockingVector.Length() << std::endl
+               << "cCombinedVector (angle): " << ToDegrees(cCombinedVector.Angle()) << std::endl
+               << "cCombinedVector (length): " << cCombinedVector.Length() << std::endl;
 
+
+   if(m_bLoggingEnabled) LOG(logstream.str());
+   if(GetId()=="fb4") LOG << logstream.str() << std::endl;
    return cCombinedVector;
 }
+
+
 
 bool CFootBotHydroflock::CornerDetected(){
    
@@ -568,12 +714,13 @@ bool CFootBotHydroflock::InnerCornerDetected(){
 
 void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
 
+   std::stringstream logstream;
+
    switch(f_state){
 
       case DEFAULT:
-         // if (!m_bPrintState){
-         if (!m_bPrintState && GetId() == "fb2") {
-            LOG << GetId() << ": Setting state to DEFAULT" << std::endl;
+         if (!m_bPrintState){
+            logstream << "Setting state to DEFAULT" << std::endl;
             m_bPrintState = true;
          } 
          m_pcLEDs->SetSingleColor(12, CColor::GREEN);
@@ -582,9 +729,8 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
          break;
 
       case WALL_DISPERSION:
-         //if (!m_bPrintState){
-         if (!m_bPrintState && GetId() == "fb2") {
-            LOG << GetId() << ": Setting state to WALL_DISPERSION" << std::endl;
+         if (!m_bPrintState){
+            logstream << ": Setting state to WALL_DISPERSION" << std::endl;
             m_bPrintState = true;
          }
          m_pcLEDs->SetSingleColor(12, CColor::RED);
@@ -593,9 +739,8 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
          break;
 
       case WALL_FOLLOWING:
-         // if (!m_bPrintState){
-         if (!m_bPrintState && GetId() == "fb2") {
-            LOG << GetId() << ": Setting state to WALL_FOLLOWING" << std::endl;
+         if (!m_bPrintState){
+            logstream << ": Setting state to WALL_FOLLOWING" << std::endl;
             m_bPrintState = true;
          }
          m_pcLEDs->SetSingleColor(12, CColor::BLUE);
@@ -604,9 +749,8 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
          break;
 
       case AGGREGATOR:
-         // if (!m_bPrintState){
-         if (!m_bPrintState && GetId() == "fb2") {
-            LOG << GetId() << ": Setting state to AGGREGATOR" << std::endl;
+         if (!m_bPrintState){
+            logstream << ": Setting state to AGGREGATOR" << std::endl;
             m_bPrintState = true;
          }
          m_pcLEDs->SetSingleColor(12, CColor::MAGENTA);
@@ -615,9 +759,8 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
          break;
 
       case AGGREGATEE:
-         // if (!m_bPrintState){
-         if (!m_bPrintState && GetId() == "fb2") {
-            LOG << GetId() << ": Setting state to AGGREGATEE" << std::endl;
+         if (!m_bPrintState){
+            logstream << ": Setting state to AGGREGATEE" << std::endl;
             m_bPrintState = true;
          }
          m_pcLEDs->SetSingleColor(12, CColor::PURPLE);
@@ -625,9 +768,13 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
          m_eFState = AGGREGATEE;
          break;
    }
+
+   if(m_bLoggingEnabled) LOG(logstream.str());
 }
 
 void CFootBotHydroflock::StateUpdater(){
+
+   std::stringstream logstream;
 
    GetNeighborStates();
    
@@ -638,7 +785,7 @@ void CFootBotHydroflock::StateUpdater(){
          if (DetectWall()){
 
             m_bPrintState = false;
-            if (GetId()=="fb2") LOG << "Initial vector to wall: " << ToDegrees(VectorToWall().Angle()) << std::endl;
+            logstream << "Initial vector to wall: " << ToDegrees(VectorToWall().Angle()) << std::endl;
             SetFlockingState(WALL_DISPERSION);
          } else {
             SetFlockingState(DEFAULT);
@@ -647,12 +794,12 @@ void CFootBotHydroflock::StateUpdater(){
 
       case WALL_DISPERSION: // Red
 
-         if(m_bHasMagentaNeighbor || m_bHasPurpleNeighbor){
+         // if(m_bHasMagentaNeighbor || m_bHasPurpleNeighbor){
 
-            m_bPrintState = false;
-            SetFlockingState(AGGREGATEE);
+         //    m_bPrintState = false;
+         //    SetFlockingState(AGGREGATEE);
          
-         }
+         // }
          // } else if (OuterCornerDetected()){
 
          //    if (TargetVectorUnobstructed()){
@@ -675,10 +822,10 @@ void CFootBotHydroflock::StateUpdater(){
          //    SetFlockingState(WALL_FOLLOWING);
          //    if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG << "Reached target distance from neighbors" << std::endl;
          // } 
-         else {
+         // else {
             SetFlockingState(WALL_DISPERSION);
             // if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG << "test" << std::endl;
-         }
+         // }
          // else {
          //    LOGERR << GetId() << " Error: No state transition detected in WALL_DISPERSION state" << std::endl;
          // }
@@ -687,6 +834,7 @@ void CFootBotHydroflock::StateUpdater(){
       default:
          break;
    }
+   if(m_bLoggingEnabled) LOG(logstream.str());
 }
 
 void CFootBotHydroflock::GetNeighborStates(){
@@ -738,6 +886,10 @@ void CFootBotHydroflock::WallDispersion(){
 
    // Move along the wall and spread out using Lennard-Jones potential
    CVector2 cTangentialMovementVector = CalculateTangentialMovement(FlockingVector());
+
+   if (cTangentialMovementVector.Length() <= 0.0f){
+      LOGERR << GetId() << " Error: Tangential movement vector is zero" << std::endl;
+   }
 
    SetWheelSpeedsFromVector(cTangentialMovementVector);
 }
@@ -989,12 +1141,15 @@ CVector2 CFootBotHydroflock::FlockingVector() {
 /****************************************/
 
 void CFootBotHydroflock::SetWheelSpeedsFromVector(const CVector2& c_heading) {
+
+   std::stringstream logstream;
+
    /* Get the heading angle */
    CRadians cHeadingAngle = c_heading.Angle().SignedNormalize();
-   // if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG << "cHeadingAngle: " << ToDegrees(cHeadingAngle) << std::endl;
+   logstream << "cHeadingAngle: " << ToDegrees(cHeadingAngle) << std::endl;
    /* Get the length of the heading vector */
    Real fHeadingLength = c_heading.Length();
-   // if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG << "fHeadingLength: " << fHeadingLength << std::endl;
+   logstream << "fHeadingLength: " << fHeadingLength << std::endl;
    /* Clamp the speed so that it's not greater than MaxSpeed */
    Real fBaseAngularWheelSpeed = Min<Real>(fHeadingLength, m_sWheelTurningParams.MaxSpeed);
    /* State transition logic */
@@ -1019,6 +1174,7 @@ void CFootBotHydroflock::SetWheelSpeedsFromVector(const CVector2& c_heading) {
          m_sWheelTurningParams.TurningMechanism = SWheelTurningParams::SOFT_TURN;
       }
    }
+   logstream << "Turning Mechanism: " << m_sWheelTurningParams.TurningMechanism << std::endl;
    /* Wheel speeds based on current turning state */
    Real fSpeed1, fSpeed2;
    switch(m_sWheelTurningParams.TurningMechanism) {
@@ -1056,6 +1212,7 @@ void CFootBotHydroflock::SetWheelSpeedsFromVector(const CVector2& c_heading) {
    }
    /* Finally, set the wheel speeds */
    m_pcWheels->SetLinearVelocity(fLeftWheelSpeed, fRightWheelSpeed);
+   if (m_bLoggingEnabled) LOG(logstream.str());
 }
 
 

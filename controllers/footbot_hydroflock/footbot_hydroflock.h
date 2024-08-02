@@ -59,23 +59,23 @@
 #include <unordered_map>
 #include <algorithm>
 
-
-
-
-/*
- * All the ARGoS stuff in the 'argos' namespace.
- * With this statement, you save typing argos:: every time.
- */
 using namespace argos;
 
-/*
- * A controller is simply an implementation of the CCI_Controller class.
- */
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <fstream>
+
+#define LOG(str) LogThis(str, __FUNCTION__)
+
+
 class CFootBotHydroflock : public CCI_Controller {
 
 public:
 
-   /*
+   /**
     * The following variables are used as parameters for
     * turning during navigation. You can set their value
     * in the <parameters> section of the XML configuration
@@ -84,7 +84,7 @@ public:
     * section.
     */
    struct SWheelTurningParams {
-      /*
+      /**
        * The turning mechanism.
        * The robot can be in three different turning states.
        */
@@ -94,7 +94,7 @@ public:
          SOFT_TURN,   // both wheels are turning forwards, but at different speeds
          HARD_TURN    // wheels are turning with opposite speeds
       } TurningMechanism;
-      /*
+      /**
        * Angular thresholds to change turning state.
        */
       CRadians HardTurnOnAngleThreshold;
@@ -106,7 +106,7 @@ public:
       void Init(TConfigurationNode& t_tree);
    };
 
-   /*
+   /**
     * The following variables are used as parameters for
     * flocking interaction. You can set their value
     * in the <parameters> section of the XML configuration
@@ -183,7 +183,7 @@ public:
     * In this example controller there is no need for clean anything up, so
     * the function could have been omitted. It's here just for completeness.
     */
-   virtual void Destroy() {}
+   virtual void Destroy();
 
    CVector2 GetTargetLocation() { return m_cTargetPosition; };
 
@@ -238,6 +238,8 @@ protected:
    CVector2 CalculateTangentialMovement(const CVector2& f_cFlockingVector);
 
    CVector2 VectorToWall();
+
+   CVector2 ReorientTowardsWall();
 
 
 
@@ -298,6 +300,10 @@ private:
    bool m_bCommunicationTest;
    /* Last vector to wall */
    CVector2 m_cLastVectorToWall;
+   /* Last known position when in contact with wall */
+   CVector2 m_cLastWallContactPosition;
+   /* Last known heading when in contact with wall */
+   CRadians m_cLastWallContactHeading;
    /* Angle threshold for proximity sensor readings */
    CDegrees m_cAlpha;
 
@@ -329,6 +335,20 @@ private:
 
    /* Vector of previous proximity readings used for corner detection */
    std::vector<Real> m_vecPreviousProximityReadings;
+
+
+   /**
+    * * Log File Stuff
+    */
+   bool m_bLoggingEnabled;
+   std::ofstream m_Log;
+   size_t m_fLogFrequency;
+   const std::string m_sLogPath = "./controllers/footbot_hydroflock/controller_logs/";
+   std::string m_sLogFileExt = ".log";
+   std::string m_sLogFilePath;
+   void LogInit();
+   void LogThis(const std::string& f_sMessage, const std::string& f_sFunctionName);
+
 
 };
 

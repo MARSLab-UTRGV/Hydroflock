@@ -1,0 +1,4941 @@
+Tick: 0	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-118.754)
+	fHeadingLength: 15.488
+	Turning Mechanism: 2
+	
+Tick: 0	In SetFlockingState
+	Setting state to DEFAULT
+	
+Tick: 10	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-50.7608)
+	fHeadingLength: 14.769
+	Turning Mechanism: 1
+	
+Tick: 20	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-14.9351)
+	fHeadingLength: 15.3621
+	Turning Mechanism: 1
+	
+Tick: 30	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-6.85819)
+	fHeadingLength: 15.1738
+	Turning Mechanism: 1
+	
+Tick: 40	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.56938)
+	fHeadingLength: 15.1192
+	Turning Mechanism: 1
+	
+Tick: 50	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(8.66761)
+	fHeadingLength: 13.1826
+	Turning Mechanism: 1
+	
+Tick: 60	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(5.49291)
+	fHeadingLength: 11.1152
+	Turning Mechanism: 1
+	
+Tick: 70	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.04049)
+	fHeadingLength: 9.86805
+	Turning Mechanism: 1
+	
+Tick: 80	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.74059)
+	fHeadingLength: 8.69273
+	Turning Mechanism: 1
+	
+Tick: 90	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.0954)
+	fHeadingLength: 7.97974
+	Turning Mechanism: 1
+	
+Tick: 100	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.13123)
+	fHeadingLength: 7.45251
+	Turning Mechanism: 1
+	
+Tick: 110	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.88005)
+	fHeadingLength: 7.07886
+	Turning Mechanism: 1
+	
+Tick: 120	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.47491)
+	fHeadingLength: 6.81654
+	Turning Mechanism: 1
+	
+Tick: 130	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.03896)
+	fHeadingLength: 6.62758
+	Turning Mechanism: 1
+	
+Tick: 140	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.650617)
+	fHeadingLength: 6.48637
+	Turning Mechanism: 1
+	
+Tick: 150	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.347899)
+	fHeadingLength: 6.37685
+	Turning Mechanism: 1
+	
+Tick: 160	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.141317)
+	fHeadingLength: 6.28791
+	Turning Mechanism: 1
+	
+Tick: 170	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.0482445)
+	fHeadingLength: 6.21099
+	Turning Mechanism: 0
+	
+Tick: 180	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.00190684)
+	fHeadingLength: 6.13989
+	Turning Mechanism: 0
+	
+Tick: 190	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.0253926)
+	fHeadingLength: 6.07126
+	Turning Mechanism: 0
+	
+Tick: 200	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.0270163)
+	fHeadingLength: 6.00348
+	Turning Mechanism: 0
+	
+Tick: 210	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.0159584)
+	fHeadingLength: 5.93609
+	Turning Mechanism: 0
+	
+Tick: 220	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.000731096)
+	fHeadingLength: 5.86959
+	Turning Mechanism: 0
+	
+Tick: 230	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.0136043)
+	fHeadingLength: 5.80455
+	Turning Mechanism: 0
+	
+Tick: 240	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.0240978)
+	fHeadingLength: 5.74103
+	Turning Mechanism: 0
+	
+Tick: 250	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.0310155)
+	fHeadingLength: 5.67875
+	Turning Mechanism: 0
+	
+Tick: 260	In VectorToWall
+	Sensor angle: CDegrees(7.5)
+	Sensor value: 0.11399
+	Sensor angle: CDegrees(22.5)
+	Sensor value: 0.115996
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.10312
+	
+Tick: 260	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-157.995)
+	Initial cNormal (length): 0.108573
+	Final cNormal (angle): CDegrees(-157.995)
+	Final cNormal (length): 0.141427
+	cTangential (angle): CDegrees(-67.9949)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-67.9949)
+	cProjectedFlockingVector (length): 0.0990738
+	cCombinedVector (angle): CDegrees(-71.1095)
+	cCombinedVector (length): 2.60292
+	
+Tick: 260	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-71.1095)
+	fHeadingLength: 2.60292
+	Turning Mechanism: 1
+	
+Tick: 270	In VectorToWall
+	Sensor angle: CDegrees(7.5)
+	Sensor value: 0.130034
+	Sensor angle: CDegrees(22.5)
+	Sensor value: 0.156552
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.161208
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.141498
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.107221
+	
+Tick: 270	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-143.839)
+	Initial cNormal (length): 0.13095
+	Final cNormal (angle): CDegrees(-143.839)
+	Final cNormal (length): 0.11905
+	cTangential (angle): CDegrees(-53.8392)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-53.8392)
+	cProjectedFlockingVector (length): 0.198982
+	cCombinedVector (angle): CDegrees(-56.3648)
+	cCombinedVector (length): 2.70161
+	
+Tick: 270	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-56.3648)
+	fHeadingLength: 2.70161
+	Turning Mechanism: 1
+	
+Tick: 280	In VectorToWall
+	Sensor angle: CDegrees(7.5)
+	Sensor value: 0.134451
+	Sensor angle: CDegrees(22.5)
+	Sensor value: 0.1949
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.240439
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.242966
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.20061
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.140398
+	
+Tick: 280	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-134.669)
+	Initial cNormal (length): 0.177124
+	Final cNormal (angle): CDegrees(-134.669)
+	Final cNormal (length): 0.0728759
+	cTangential (angle): CDegrees(-44.6692)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-44.6692)
+	cProjectedFlockingVector (length): 0.300206
+	cCombinedVector (angle): CDegrees(-46.16)
+	cCombinedVector (length): 2.80115
+	
+Tick: 280	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-46.16)
+	fHeadingLength: 2.80115
+	Turning Mechanism: 1
+	
+Tick: 290	In VectorToWall
+	Sensor angle: CDegrees(7.5)
+	Sensor value: 0.129557
+	Sensor angle: CDegrees(22.5)
+	Sensor value: 0.225443
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.344345
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.424503
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.38849
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.274573
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.165796
+	
+Tick: 290	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-125.511)
+	Initial cNormal (length): 0.253616
+	Final cNormal (angle): CDegrees(-125.511)
+	Final cNormal (length): 0.00361577
+	cTangential (angle): CDegrees(-35.511)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-35.511)
+	cProjectedFlockingVector (length): 0.148173
+	cCombinedVector (angle): CDegrees(-35.5893)
+	cCombinedVector (length): 2.64818
+	
+Tick: 290	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-35.5893)
+	fHeadingLength: 2.64818
+	Turning Mechanism: 1
+	
+Tick: 300	In VectorToWall
+	Sensor angle: CDegrees(7.5)
+	Sensor value: 0.118609
+	Sensor angle: CDegrees(22.5)
+	Sensor value: 0.247884
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.494886
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.886229
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.677446
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.34997
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.171988
+	
+Tick: 300	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-116.995)
+	Initial cNormal (length): 0.45117
+	Final cNormal (angle): CDegrees(-116.995)
+	Final cNormal (length): 0.20117
+	cTangential (angle): CDegrees(-26.9951)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-26.9951)
+	cProjectedFlockingVector (length): 0.346567
+	cCombinedVector (angle): CDegrees(-31.0375)
+	cCombinedVector (length): 2.85367
+	
+Tick: 300	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-31.0375)
+	fHeadingLength: 2.85367
+	Turning Mechanism: 1
+	
+Tick: 310	In VectorToWall
+	Sensor angle: CDegrees(22.5)
+	Sensor value: 0.228816
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.580659
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.355299
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.147058
+	
+Tick: 310	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-107.409)
+	Initial cNormal (length): 0.600783
+	Final cNormal (angle): CDegrees(-107.409)
+	Final cNormal (length): 0.350783
+	cTangential (angle): CDegrees(-17.4094)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-17.4094)
+	cProjectedFlockingVector (length): 0.591061
+	cCombinedVector (angle): CDegrees(-23.8838)
+	cCombinedVector (length): 3.1109
+	
+Tick: 310	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-23.8838)
+	fHeadingLength: 3.1109
+	Turning Mechanism: 1
+	
+Tick: 320	In VectorToWall
+	Sensor angle: CDegrees(22.5)
+	Sensor value: 0.158894
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.385582
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.530778
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.211868
+	
+Tick: 320	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-103.438)
+	Initial cNormal (length): 0.598141
+	Final cNormal (angle): CDegrees(-103.438)
+	Final cNormal (length): 0.348141
+	cTangential (angle): CDegrees(-13.4382)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-13.4382)
+	cProjectedFlockingVector (length): 0.632889
+	cCombinedVector (angle): CDegrees(-19.7792)
+	cCombinedVector (length): 3.15217
+	
+Tick: 320	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-19.7792)
+	fHeadingLength: 3.15217
+	Turning Mechanism: 1
+	
+Tick: 330	In VectorToWall
+	Sensor angle: CDegrees(22.5)
+	Sensor value: 0.119949
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.288833
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.771276
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.741427
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.279882
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.11617
+	
+Tick: 330	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-97.8735)
+	Initial cNormal (length): 0.470271
+	Final cNormal (angle): CDegrees(-97.8735)
+	Final cNormal (length): 0.220271
+	cTangential (angle): CDegrees(-7.87354)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-7.87354)
+	cProjectedFlockingVector (length): 0.679932
+	cCombinedVector (angle): CDegrees(-11.836)
+	cCombinedVector (length): 3.18755
+	
+Tick: 330	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-11.836)
+	fHeadingLength: 3.18755
+	Turning Mechanism: 1
+	
+Tick: 340	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.240857
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.617135
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.939811
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.336731
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.139647
+	
+Tick: 340	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-93.2925)
+	Initial cNormal (length): 0.596413
+	Final cNormal (angle): CDegrees(-93.2925)
+	Final cNormal (length): 0.346413
+	cTangential (angle): CDegrees(-3.29246)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-3.29246)
+	cProjectedFlockingVector (length): 0.605181
+	cCombinedVector (angle): CDegrees(-9.65804)
+	cCombinedVector (length): 3.12444
+	
+Tick: 340	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-9.65804)
+	fHeadingLength: 3.12444
+	Turning Mechanism: 1
+	
+Tick: 350	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.208643
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.52148
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.39199
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.16136
+	
+Tick: 350	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-91.3941)
+	Initial cNormal (length): 0.597752
+	Final cNormal (angle): CDegrees(-91.3941)
+	Final cNormal (length): 0.347752
+	cTangential (angle): CDegrees(-1.39408)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-1.39408)
+	cProjectedFlockingVector (length): 0.440485
+	cCombinedVector (angle): CDegrees(-8.13874)
+	cCombinedVector (length): 2.96098
+	
+Tick: 350	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-8.13874)
+	fHeadingLength: 2.96098
+	Turning Mechanism: 1
+	
+Tick: 360	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.185502
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.456513
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.445689
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.181537
+	
+Tick: 360	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.1169)
+	Initial cNormal (length): 0.596233
+	Final cNormal (angle): CDegrees(-90.1169)
+	Final cNormal (length): 0.346233
+	cTangential (angle): CDegrees(-0.116934)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-0.116934)
+	cProjectedFlockingVector (length): 0.338655
+	cCombinedVector (angle): CDegrees(-7.07099)
+	cCombinedVector (length): 2.85969
+	
+Tick: 360	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-7.07099)
+	fHeadingLength: 2.85969
+	Turning Mechanism: 1
+	
+Tick: 370	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.168204
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.402812
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.46161
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.190659
+	
+Tick: 370	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.3513)
+	Initial cNormal (length): 0.591901
+	Final cNormal (angle): CDegrees(-89.3513)
+	Final cNormal (length): 0.341901
+	cTangential (angle): CDegrees(0.648674)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.648674)
+	cProjectedFlockingVector (length): 9.30547
+	cCombinedVector (angle): CDegrees(-1.01022)
+	cCombinedVector (length): 10
+	
+Tick: 370	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.01022)
+	fHeadingLength: 10
+	Turning Mechanism: 1
+	
+Tick: 380	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.150806
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.342868
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.834771
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.423303
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.185086
+	
+Tick: 380	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-88.2219)
+	Initial cNormal (length): 0.56156
+	Final cNormal (angle): CDegrees(-88.2219)
+	Final cNormal (length): 0.31156
+	cTangential (angle): CDegrees(1.77805)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.77805)
+	cProjectedFlockingVector (length): 5.52872
+	cCombinedVector (angle): CDegrees(-0.444237)
+	cCombinedVector (length): 8.03477
+	
+Tick: 380	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.444237)
+	fHeadingLength: 8.03477
+	Turning Mechanism: 1
+	
+Tick: 390	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.139862
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.305146
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.672293
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.842499
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.380448
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.175069
+	
+Tick: 390	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-88.068)
+	Initial cNormal (length): 0.515044
+	Final cNormal (angle): CDegrees(-88.068)
+	Final cNormal (length): 0.265044
+	cTangential (angle): CDegrees(1.93196)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.93196)
+	cProjectedFlockingVector (length): 3.78345
+	cCombinedVector (angle): CDegrees(-0.483424)
+	cCombinedVector (length): 6.28904
+	
+Tick: 390	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.483424)
+	fHeadingLength: 6.28904
+	Turning Mechanism: 1
+	
+Tick: 400	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.130647
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.275746
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.565743
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 1
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.70218
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.34661
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.16639
+	
+Tick: 400	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-88.1494)
+	Initial cNormal (length): 0.478859
+	Final cNormal (angle): CDegrees(-88.1494)
+	Final cNormal (length): 0.228859
+	cTangential (angle): CDegrees(1.85055)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.85055)
+	cProjectedFlockingVector (length): 3.40161
+	cCombinedVector (angle): CDegrees(-0.370205)
+	cCombinedVector (length): 5.90605
+	
+Tick: 400	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.370205)
+	fHeadingLength: 5.90605
+	Turning Mechanism: 1
+	
+Tick: 410	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.123461
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.253191
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.4914
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.831827
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.914027
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.598849
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.316326
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.157447
+	
+Tick: 410	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-88.0021)
+	Initial cNormal (length): 0.420382
+	Final cNormal (angle): CDegrees(-88.0021)
+	Final cNormal (length): 0.170382
+	cTangential (angle): CDegrees(1.9979)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.9979)
+	cProjectedFlockingVector (length): 2.81239
+	cCombinedVector (angle): CDegrees(0.16091)
+	cCombinedVector (length): 5.31512
+	
+Tick: 410	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.16091)
+	fHeadingLength: 5.31512
+	Turning Mechanism: 1
+	
+Tick: 420	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.118912
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.237968
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.442548
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.705785
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.761343
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.523434
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.289984
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.148407
+	
+Tick: 420	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-88.1758)
+	Initial cNormal (length): 0.366262
+	Final cNormal (angle): CDegrees(-88.1758)
+	Final cNormal (length): 0.116262
+	cTangential (angle): CDegrees(1.82417)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.82417)
+	cProjectedFlockingVector (length): 2.58845
+	cCombinedVector (angle): CDegrees(0.515286)
+	cCombinedVector (length): 5.08977
+	
+Tick: 420	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.515286)
+	fHeadingLength: 5.08977
+	Turning Mechanism: 1
+	
+Tick: 430	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.115932
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.227285
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.408846
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.624135
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.66255
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.469
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.268625
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.140352
+	
+Tick: 430	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-88.423)
+	Initial cNormal (length): 0.329643
+	Final cNormal (angle): CDegrees(-88.423)
+	Final cNormal (length): 0.0796435
+	cTangential (angle): CDegrees(1.57697)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.57697)
+	cProjectedFlockingVector (length): 2.48229
+	cCombinedVector (angle): CDegrees(0.661158)
+	cCombinedVector (length): 4.98293
+	
+Tick: 430	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.661158)
+	fHeadingLength: 4.98293
+	Turning Mechanism: 1
+	
+Tick: 440	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.11394
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.219657
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.385087
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.569182
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.596432
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.429969
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.252044
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.133682
+	
+Tick: 440	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-88.6792)
+	Initial cNormal (length): 0.304284
+	Final cNormal (angle): CDegrees(-88.6792)
+	Final cNormal (length): 0.0542838
+	cTangential (angle): CDegrees(1.3208)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.3208)
+	cProjectedFlockingVector (length): 2.31469
+	cCombinedVector (angle): CDegrees(0.674836)
+	cCombinedVector (length): 4.815
+	
+Tick: 440	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.674836)
+	fHeadingLength: 4.815
+	Turning Mechanism: 1
+	
+Tick: 450	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.112597
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.21423
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.368374
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.531859
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.55184
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.402454
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.239703
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.128492
+	
+Tick: 450	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-88.9067)
+	Initial cNormal (length): 0.286737
+	Final cNormal (angle): CDegrees(-88.9067)
+	Final cNormal (length): 0.0367367
+	cTangential (angle): CDegrees(1.09326)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.09326)
+	cProjectedFlockingVector (length): 1.99374
+	cCombinedVector (angle): CDegrees(0.624873)
+	cCombinedVector (length): 4.4939
+	
+Tick: 450	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.624873)
+	fHeadingLength: 4.4939
+	Turning Mechanism: 1
+	
+Tick: 460	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.111689
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.210391
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.356642
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.506305
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.521479
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.38316
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.230715
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.124591
+	
+Tick: 460	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.0939)
+	Initial cNormal (length): 0.274568
+	Final cNormal (angle): CDegrees(-89.0939)
+	Final cNormal (length): 0.024568
+	cTangential (angle): CDegrees(0.906131)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.906131)
+	cProjectedFlockingVector (length): 1.64602
+	cCombinedVector (angle): CDegrees(0.566618)
+	cCombinedVector (length): 4.14609
+	
+Tick: 460	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.566618)
+	fHeadingLength: 4.14609
+	Turning Mechanism: 1
+	
+Tick: 470	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.111083
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.207397
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.347237
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.485847
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.496992
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.367104
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.222945
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.121098
+	
+Tick: 470	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.2837)
+	Initial cNormal (length): 0.264665
+	Final cNormal (angle): CDegrees(-89.2837)
+	Final cNormal (length): 0.0146648
+	cTangential (angle): CDegrees(0.716257)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.716257)
+	cProjectedFlockingVector (length): 2.17237
+	cCombinedVector (angle): CDegrees(0.536428)
+	cCombinedVector (length): 4.67239
+	
+Tick: 470	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.536428)
+	fHeadingLength: 4.67239
+	Turning Mechanism: 1
+	
+Tick: 480	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.110721
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.205255
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.340325
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.470823
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.478921
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.354974
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.216902
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.118308
+	
+Tick: 480	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.4496)
+	Initial cNormal (length): 0.257304
+	Final cNormal (angle): CDegrees(-89.4496)
+	Final cNormal (length): 0.00730386
+	cTangential (angle): CDegrees(0.550363)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.550363)
+	cProjectedFlockingVector (length): 2.3735
+	cCombinedVector (angle): CDegrees(0.464495)
+	cCombinedVector (length): 4.8735
+	
+Tick: 480	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.464495)
+	fHeadingLength: 4.8735
+	Turning Mechanism: 1
+	
+Tick: 490	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.11054
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.203776
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.335341
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.459894
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.465658
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.345882
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.212256
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.11611
+	
+Tick: 490	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.5915)
+	Initial cNormal (length): 0.251886
+	Final cNormal (angle): CDegrees(-89.5915)
+	Final cNormal (length): 0.00188625
+	cTangential (angle): CDegrees(0.40854)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.40854)
+	cProjectedFlockingVector (length): 2.19791
+	cCombinedVector (angle): CDegrees(0.385535)
+	cCombinedVector (length): 4.69791
+	
+Tick: 490	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.385535)
+	fHeadingLength: 4.69791
+	Turning Mechanism: 1
+	
+Tick: 500	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.110471
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.202841
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.332042
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.452581
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.456708
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.339645
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.209007
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.114545
+	
+Tick: 500	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.699)
+	Initial cNormal (length): 0.248227
+	Final cNormal (angle): CDegrees(-89.699)
+	Final cNormal (length): 0.00177294
+	cTangential (angle): CDegrees(0.301022)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.301022)
+	cProjectedFlockingVector (length): 1.9179
+	cCombinedVector (angle): CDegrees(0.278028)
+	cCombinedVector (length): 4.4179
+	
+Tick: 500	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.278028)
+	fHeadingLength: 4.4179
+	Turning Mechanism: 1
+	
+Tick: 510	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.110362
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.202091
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.329623
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.447454
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.450597
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.335444
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.206839
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.113511
+	
+Tick: 510	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.766)
+	Initial cNormal (length): 0.245692
+	Final cNormal (angle): CDegrees(-89.766)
+	Final cNormal (length): 0.0043077
+	cTangential (angle): CDegrees(0.233965)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.233965)
+	cProjectedFlockingVector (length): 1.69953
+	cCombinedVector (angle): CDegrees(0.175194)
+	cCombinedVector (length): 4.19954
+	
+Tick: 510	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.175194)
+	fHeadingLength: 4.19954
+	Turning Mechanism: 1
+	
+Tick: 520	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.110204
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.20141
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.327662
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.44354
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.446111
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.332442
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.205325
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.112809
+	
+Tick: 520	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8057)
+	Initial cNormal (length): 0.243794
+	Final cNormal (angle): CDegrees(-89.8057)
+	Final cNormal (length): 0.00620582
+	cTangential (angle): CDegrees(0.194309)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.194309)
+	cProjectedFlockingVector (length): 1.51881
+	cCombinedVector (angle): CDegrees(0.105834)
+	cCombinedVector (length): 4.01882
+	
+Tick: 520	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.105834)
+	fHeadingLength: 4.01882
+	Turning Mechanism: 1
+	
+Tick: 530	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.109888
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.200563
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.325683
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.440089
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.442548
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.330269
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.204332
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.112403
+	
+Tick: 530	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8118)
+	Initial cNormal (length): 0.242208
+	Final cNormal (angle): CDegrees(-89.8118)
+	Final cNormal (length): 0.00779187
+	cTangential (angle): CDegrees(0.188228)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.188228)
+	cProjectedFlockingVector (length): 1.41516
+	cCombinedVector (angle): CDegrees(0.0741995)
+	cCombinedVector (length): 3.91517
+	
+Tick: 530	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.0741995)
+	fHeadingLength: 3.91517
+	Turning Mechanism: 0
+	
+Tick: 540	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.109536
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.199668
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.323663
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.436661
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.439086
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.3282
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.203409
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.112039
+	
+Tick: 540	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.812)
+	Initial cNormal (length): 0.240647
+	Final cNormal (angle): CDegrees(-89.812)
+	Final cNormal (length): 0.00935289
+	cTangential (angle): CDegrees(0.18797)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.18797)
+	cProjectedFlockingVector (length): 1.57309
+	cCombinedVector (angle): CDegrees(0.0564042)
+	cCombinedVector (length): 4.0731
+	
+Tick: 540	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.0564042)
+	fHeadingLength: 4.0731
+	Turning Mechanism: 0
+	
+Tick: 550	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.109168
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.198732
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.321559
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.433102
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.435492
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.326044
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.202445
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.111658
+	
+Tick: 550	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8123)
+	Initial cNormal (length): 0.239023
+	Final cNormal (angle): CDegrees(-89.8123)
+	Final cNormal (length): 0.0109768
+	cTangential (angle): CDegrees(0.1877)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.1877)
+	cProjectedFlockingVector (length): 1.85455
+	cCombinedVector (angle): CDegrees(0.0432714)
+	cCombinedVector (length): 4.35457
+	
+Tick: 550	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.0432714)
+	fHeadingLength: 4.35457
+	Turning Mechanism: 0
+	
+Tick: 560	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.108787
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.197766
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.319395
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.429456
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.43181
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.323828
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.20145
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.111264
+	
+Tick: 560	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8126)
+	Initial cNormal (length): 0.237356
+	Final cNormal (angle): CDegrees(-89.8126)
+	Final cNormal (length): 0.012644
+	cTangential (angle): CDegrees(0.187421)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.187421)
+	cProjectedFlockingVector (length): 1.80701
+	cCombinedVector (angle): CDegrees(0.0192196)
+	cCombinedVector (length): 4.30703
+	
+Tick: 560	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.0192196)
+	fHeadingLength: 4.30703
+	Turning Mechanism: 0
+	
+Tick: 570	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.108421
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.196841
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.31733
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.425987
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.428307
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.321713
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.200496
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.110885
+	
+Tick: 570	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8128)
+	Initial cNormal (length): 0.235766
+	Final cNormal (angle): CDegrees(-89.8128)
+	Final cNormal (length): 0.0142339
+	cTangential (angle): CDegrees(0.187153)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.187153)
+	cProjectedFlockingVector (length): 1.5944
+	cCombinedVector (angle): CDegrees(-0.0120319)
+	cCombinedVector (length): 4.09443
+	
+Tick: 570	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.0120319)
+	fHeadingLength: 4.09443
+	Turning Mechanism: 0
+	
+Tick: 580	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.108076
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.195973
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.315399
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.422753
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.425042
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.319736
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.199602
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.110529
+	
+Tick: 580	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8131)
+	Initial cNormal (length): 0.234281
+	Final cNormal (angle): CDegrees(-89.8131)
+	Final cNormal (length): 0.0157187
+	cTangential (angle): CDegrees(0.1869)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.1869)
+	cProjectedFlockingVector (length): 1.36929
+	cCombinedVector (angle): CDegrees(-0.0458589)
+	cCombinedVector (length): 3.86932
+	
+Tick: 580	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.0458589)
+	fHeadingLength: 3.86932
+	Turning Mechanism: 0
+	
+Tick: 590	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.107752
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.195158
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.313592
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.419737
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.421996
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.317886
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.198763
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.110194
+	
+Tick: 590	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8133)
+	Initial cNormal (length): 0.232893
+	Final cNormal (angle): CDegrees(-89.8133)
+	Final cNormal (length): 0.0171066
+	cTangential (angle): CDegrees(0.186663)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.186663)
+	cProjectedFlockingVector (length): 1.17704
+	cCombinedVector (angle): CDegrees(-0.07989)
+	cCombinedVector (length): 3.67708
+	
+Tick: 590	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.07989)
+	fHeadingLength: 3.67708
+	Turning Mechanism: 0
+	
+Tick: 600	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.107397
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.194315
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.311797
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.416838
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.419154
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.31621
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.198031
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.10992
+	
+Tick: 600	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8066)
+	Initial cNormal (length): 0.231577
+	Final cNormal (angle): CDegrees(-89.8066)
+	Final cNormal (length): 0.0184228
+	cTangential (angle): CDegrees(0.193448)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.193448)
+	cProjectedFlockingVector (length): 1.05307
+	cCombinedVector (angle): CDegrees(-0.10363)
+	cCombinedVector (length): 3.55312
+	
+Tick: 600	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.10363)
+	fHeadingLength: 3.55312
+	Turning Mechanism: 1
+	
+Tick: 610	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.106913
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.193267
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.309723
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.413706
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.416284
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.31465
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.197428
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.109745
+	
+Tick: 610	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.7821)
+	Initial cNormal (length): 0.2302
+	Final cNormal (angle): CDegrees(-89.7821)
+	Final cNormal (length): 0.0198
+	cTangential (angle): CDegrees(0.217851)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.217851)
+	cProjectedFlockingVector (length): 0.957263
+	cCombinedVector (angle): CDegrees(-0.110283)
+	cCombinedVector (length): 3.45732
+	
+Tick: 610	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.110283)
+	fHeadingLength: 3.45732
+	Turning Mechanism: 1
+	
+Tick: 620	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.106395
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.192144
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.307499
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.410339
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.413182
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.312946
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.196761
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.109546
+	
+Tick: 620	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.7568)
+	Initial cNormal (length): 0.228713
+	Final cNormal (angle): CDegrees(-89.7568)
+	Final cNormal (length): 0.021287
+	cTangential (angle): CDegrees(0.243183)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.243183)
+	cProjectedFlockingVector (length): 0.872065
+	cCombinedVector (angle): CDegrees(-0.118506)
+	cCombinedVector (length): 3.37213
+	
+Tick: 620	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.118506)
+	fHeadingLength: 3.37213
+	Turning Mechanism: 1
+	
+Tick: 630	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.105843
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.190943
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.305122
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.406742
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.409853
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.311103
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.196031
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.109324
+	
+Tick: 630	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.7303)
+	Initial cNormal (length): 0.227117
+	Final cNormal (angle): CDegrees(-89.7303)
+	Final cNormal (length): 0.0228825
+	cTangential (angle): CDegrees(0.269738)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.269738)
+	cProjectedFlockingVector (length): 0.309215
+	cCombinedVector (angle): CDegrees(-0.196956)
+	cCombinedVector (length): 2.80931
+	
+Tick: 630	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.196956)
+	fHeadingLength: 2.80931
+	Turning Mechanism: 1
+	
+Tick: 640	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.105256
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.189689
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.302674
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.403083
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.406502
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.309269
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.19532
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.10912
+	
+Tick: 640	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.6994)
+	Initial cNormal (length): 0.2255
+	Final cNormal (angle): CDegrees(-89.6994)
+	Final cNormal (length): 0.0245003
+	cTangential (angle): CDegrees(0.300583)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.300583)
+	cProjectedFlockingVector (length): 1.05415
+	cCombinedVector (angle): CDegrees(-0.0943762)
+	cCombinedVector (length): 3.55423
+	
+Tick: 640	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.0943762)
+	fHeadingLength: 3.55423
+	Turning Mechanism: 0
+	
+Tick: 650	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.104727
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.188379
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.299828
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.398401
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.401753
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.306321
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.193952
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.108565
+	
+Tick: 650	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.6998)
+	Initial cNormal (length): 0.223314
+	Final cNormal (angle): CDegrees(-89.6998)
+	Final cNormal (length): 0.0266863
+	cTangential (angle): CDegrees(0.300189)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.300189)
+	cProjectedFlockingVector (length): 1.94833
+	cCombinedVector (angle): CDegrees(-0.0435348)
+	cCombinedVector (length): 4.44841
+	
+Tick: 650	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.0435348)
+	fHeadingLength: 4.44841
+	Turning Mechanism: 0
+	
+Tick: 660	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.104133
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.186915
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.296658
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.393211
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.396485
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.303033
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.192417
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.10794
+	
+Tick: 660	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.7005)
+	Initial cNormal (length): 0.220882
+	Final cNormal (angle): CDegrees(-89.7005)
+	Final cNormal (length): 0.0291184
+	cTangential (angle): CDegrees(0.299477)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.299477)
+	cProjectedFlockingVector (length): 2.0412
+	cCombinedVector (angle): CDegrees(-0.067901)
+	cCombinedVector (length): 4.54129
+	
+Tick: 660	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.067901)
+	fHeadingLength: 4.54129
+	Turning Mechanism: 0
+	
+Tick: 670	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.103486
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.185397
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.293496
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.388191
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.391517
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.300003
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.191043
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.107408
+	
+Tick: 670	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.6896)
+	Initial cNormal (length): 0.218552
+	Final cNormal (angle): CDegrees(-89.6896)
+	Final cNormal (length): 0.0314477
+	cTangential (angle): CDegrees(0.310427)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.310427)
+	cProjectedFlockingVector (length): 1.72825
+	cCombinedVector (angle): CDegrees(-0.115705)
+	cCombinedVector (length): 4.22836
+	
+Tick: 670	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.115705)
+	fHeadingLength: 4.22836
+	Turning Mechanism: 1
+	
+Tick: 680	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.102703
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.183706
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.290189
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.383227
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.386857
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.297322
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.189928
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.107043
+	
+Tick: 680	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.6545)
+	Initial cNormal (length): 0.216303
+	Final cNormal (angle): CDegrees(-89.6545)
+	Final cNormal (length): 0.0336967
+	cTangential (angle): CDegrees(0.345499)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.345499)
+	cProjectedFlockingVector (length): 1.26966
+	cCombinedVector (angle): CDegrees(-0.16665)
+	cCombinedVector (length): 3.76982
+	
+Tick: 680	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.16665)
+	fHeadingLength: 3.76982
+	Turning Mechanism: 1
+	
+Tick: 690	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.101879
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.181972
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.286881
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.37837
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.382384
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.294804
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.18892
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.106744
+	
+Tick: 690	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.6105)
+	Initial cNormal (length): 0.214118
+	Final cNormal (angle): CDegrees(-89.6105)
+	Final cNormal (length): 0.0358823
+	cTangential (angle): CDegrees(0.389501)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.389501)
+	cProjectedFlockingVector (length): 0.823198
+	cCombinedVector (angle): CDegrees(-0.229128)
+	cCombinedVector (length): 3.32339
+	
+Tick: 690	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.229128)
+	fHeadingLength: 3.32339
+	Turning Mechanism: 1
+	
+Tick: 700	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.101015
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.180192
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.283546
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.373556
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.378014
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.292383
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.18798
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.10649
+	
+Tick: 700	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.5591)
+	Initial cNormal (length): 0.211961
+	Final cNormal (angle): CDegrees(-89.5591)
+	Final cNormal (length): 0.0380387
+	cTangential (angle): CDegrees(0.440913)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.440913)
+	cProjectedFlockingVector (length): 1.32729
+	cCombinedVector (angle): CDegrees(-0.128521)
+	cCombinedVector (length): 3.82748
+	
+Tick: 700	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.128521)
+	fHeadingLength: 3.82748
+	Turning Mechanism: 1
+	
+Tick: 710	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100608
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.178909
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.28043
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.368027
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.371881
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.288112
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.185725
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.105424
+	
+Tick: 710	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.6093)
+	Initial cNormal (length): 0.209199
+	Final cNormal (angle): CDegrees(-89.6093)
+	Final cNormal (length): 0.0408013
+	cTangential (angle): CDegrees(0.390734)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.390734)
+	cProjectedFlockingVector (length): 1.30548
+	cCombinedVector (angle): CDegrees(-0.223553)
+	cCombinedVector (length): 3.8057
+	
+Tick: 710	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.223553)
+	fHeadingLength: 3.8057
+	Turning Mechanism: 1
+	
+Tick: 720	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100526
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.17826
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.278448
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.364078
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.367124
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.284544
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.183695
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.104381
+	
+Tick: 720	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.6854)
+	Initial cNormal (length): 0.207126
+	Final cNormal (angle): CDegrees(-89.6854)
+	Final cNormal (length): 0.0428744
+	cTangential (angle): CDegrees(0.314567)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.314567)
+	cProjectedFlockingVector (length): 0.752038
+	cCombinedVector (angle): CDegrees(-0.440769)
+	cCombinedVector (length): 3.25232
+	
+Tick: 720	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.440769)
+	fHeadingLength: 3.25232
+	Turning Mechanism: 1
+	
+Tick: 730	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.177615
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.276865
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.361264
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.363987
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.282329
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.182503
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.103807
+	
+Tick: 730	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-86.8293)
+	Initial cNormal (length): 0.226714
+	Final cNormal (angle): CDegrees(-86.8293)
+	Final cNormal (length): 0.023286
+	cTangential (angle): CDegrees(3.17069)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(3.17069)
+	cProjectedFlockingVector (length): 0.426804
+	cCombinedVector (angle): CDegrees(2.71485)
+	cCombinedVector (length): 2.9269
+	
+Tick: 730	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.71485)
+	fHeadingLength: 2.9269
+	Turning Mechanism: 1
+	
+Tick: 740	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100413
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.177458
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.276055
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.359374
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.361501
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.280332
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.181295
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.103147
+	
+Tick: 740	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.7754)
+	Initial cNormal (length): 0.204662
+	Final cNormal (angle): CDegrees(-89.7754)
+	Final cNormal (length): 0.0453385
+	cTangential (angle): CDegrees(0.224638)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.224638)
+	cProjectedFlockingVector (length): 0.186368
+	cCombinedVector (angle): CDegrees(-0.742265)
+	cCombinedVector (length): 2.68675
+	
+Tick: 740	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.742265)
+	fHeadingLength: 2.68675
+	Turning Mechanism: 1
+	
+Tick: 750	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100419
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.177249
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.275317
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.35783
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.359584
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.27885
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.180424
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.102685
+	
+Tick: 750	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8134)
+	Initial cNormal (length): 0.203834
+	Final cNormal (angle): CDegrees(-89.8134)
+	Final cNormal (length): 0.0461662
+	cTangential (angle): CDegrees(0.186635)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.186635)
+	cProjectedFlockingVector (length): 0.0724123
+	cCombinedVector (angle): CDegrees(-0.841521)
+	cCombinedVector (length): 2.57283
+	
+Tick: 750	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.841521)
+	fHeadingLength: 2.57283
+	Turning Mechanism: 1
+	
+Tick: 760	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100377
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.177018
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.274662
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.35658
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.358116
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.27776
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.179806
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.102369
+	
+Tick: 760	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8356)
+	Initial cNormal (length): 0.203184
+	Final cNormal (angle): CDegrees(-89.8356)
+	Final cNormal (length): 0.0468162
+	cTangential (angle): CDegrees(0.164384)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.836)
+	cProjectedFlockingVector (length): 0.0199222
+	cCombinedVector (angle): CDegrees(-0.917054)
+	cCombinedVector (length): 2.48052
+	
+Tick: 760	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.917054)
+	fHeadingLength: 2.48052
+	Turning Mechanism: 1
+	
+Tick: 770	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176756
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.274027
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.355465
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.356881
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.276886
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.179333
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.10214
+	
+Tick: 770	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-86.922)
+	Initial cNormal (length): 0.223167
+	Final cNormal (angle): CDegrees(-86.922)
+	Final cNormal (length): 0.0268334
+	cTangential (angle): CDegrees(3.078)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-176.922)
+	cProjectedFlockingVector (length): 0.0744594
+	cCombinedVector (angle): CDegrees(2.44417)
+	cCombinedVector (length): 2.42569
+	
+Tick: 770	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.44417)
+	fHeadingLength: 2.42569
+	Turning Mechanism: 1
+	
+Tick: 780	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100477
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176884
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.273887
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.354741
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.35568
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.275785
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.178597
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.101703
+	
+Tick: 780	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8985)
+	Initial cNormal (length): 0.20216
+	Final cNormal (angle): CDegrees(-89.8985)
+	Final cNormal (length): 0.0478403
+	cTangential (angle): CDegrees(0.101485)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.899)
+	cProjectedFlockingVector (length): 0.110382
+	cCombinedVector (angle): CDegrees(-1.04543)
+	cCombinedVector (length): 2.3901
+	
+Tick: 780	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.04543)
+	fHeadingLength: 2.3901
+	Turning Mechanism: 1
+	
+Tick: 790	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100378
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176644
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.273386
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.35395
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.354877
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.275261
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.178337
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.101591
+	
+Tick: 790	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.8995)
+	Initial cNormal (length): 0.201778
+	Final cNormal (angle): CDegrees(-89.8995)
+	Final cNormal (length): 0.0482218
+	cTangential (angle): CDegrees(0.100496)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.9)
+	cProjectedFlockingVector (length): 0.174972
+	cCombinedVector (angle): CDegrees(-1.08767)
+	cCombinedVector (length): 2.32553
+	
+Tick: 790	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.08767)
+	fHeadingLength: 2.32553
+	Turning Mechanism: 1
+	
+Tick: 800	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100502
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176732
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.273285
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.353443
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.354042
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.274497
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.177827
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.101287
+	
+Tick: 800	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9349)
+	Initial cNormal (length): 0.201456
+	Final cNormal (angle): CDegrees(-89.9349)
+	Final cNormal (length): 0.0485438
+	cTangential (angle): CDegrees(0.0650991)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.935)
+	cProjectedFlockingVector (length): 0.193668
+	cCombinedVector (angle): CDegrees(-1.14069)
+	cCombinedVector (length): 2.30684
+	
+Tick: 800	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.14069)
+	fHeadingLength: 2.30684
+	Turning Mechanism: 1
+	
+Tick: 810	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100376
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176485
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.272851
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.352854
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.353533
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.274226
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.177729
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.101268
+	
+Tick: 810	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.926)
+	Initial cNormal (length): 0.201194
+	Final cNormal (angle): CDegrees(-89.926)
+	Final cNormal (length): 0.0488064
+	cTangential (angle): CDegrees(0.0740189)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.926)
+	cProjectedFlockingVector (length): 0.17163
+	cCombinedVector (angle): CDegrees(-1.12682)
+	cCombinedVector (length): 2.32888
+	
+Tick: 810	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.12682)
+	fHeadingLength: 2.32888
+	Turning Mechanism: 1
+	
+Tick: 820	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100508
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.17661
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.272852
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.35254
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.352922
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.273627
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.177311
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.101012
+	
+Tick: 820	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9582)
+	Initial cNormal (length): 0.200971
+	Final cNormal (angle): CDegrees(-89.9582)
+	Final cNormal (length): 0.0490287
+	cTangential (angle): CDegrees(0.0417762)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.958)
+	cProjectedFlockingVector (length): 0.11708
+	cCombinedVector (angle): CDegrees(-1.13692)
+	cCombinedVector (length): 2.38342
+	
+Tick: 820	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.13692)
+	fHeadingLength: 2.38342
+	Turning Mechanism: 1
+	
+Tick: 830	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100411
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176423
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.272528
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.352111
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.352562
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.273442
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.17725
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.101005
+	
+Tick: 830	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9506)
+	Initial cNormal (length): 0.200782
+	Final cNormal (angle): CDegrees(-89.9506)
+	Final cNormal (length): 0.0492179
+	cTangential (angle): CDegrees(0.0493609)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.951)
+	cProjectedFlockingVector (length): 0.0426655
+	cCombinedVector (angle): CDegrees(-1.09806)
+	cCombinedVector (length): 2.45783
+	
+Tick: 830	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.09806)
+	fHeadingLength: 2.45783
+	Turning Mechanism: 1
+	
+Tick: 840	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176226
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.272203
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.351702
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.352242
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.273299
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.177219
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.101016
+	
+Tick: 840	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-86.9878)
+	Initial cNormal (length): 0.220848
+	Final cNormal (angle): CDegrees(-86.9878)
+	Final cNormal (length): 0.029152
+	cTangential (angle): CDegrees(3.01216)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(3.01216)
+	cProjectedFlockingVector (length): 0.0398788
+	cCombinedVector (angle): CDegrees(2.35457)
+	cCombinedVector (length): 2.54005
+	
+Tick: 840	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.35457)
+	fHeadingLength: 2.54005
+	Turning Mechanism: 1
+	
+Tick: 850	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100527
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176498
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.272412
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.351595
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.351732
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.272691
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176751
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100708
+	
+Tick: 850	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9849)
+	Initial cNormal (length): 0.200459
+	Final cNormal (angle): CDegrees(-89.9849)
+	Final cNormal (length): 0.0495408
+	cTangential (angle): CDegrees(0.0150987)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.0150987)
+	cProjectedFlockingVector (length): 0.131297
+	cCombinedVector (angle): CDegrees(-1.06351)
+	cCombinedVector (length): 2.63176
+	
+Tick: 850	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.06351)
+	fHeadingLength: 2.63176
+	Turning Mechanism: 1
+	
+Tick: 860	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100478
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.1764
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.272237
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.351354
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.35152
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.272574
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176705
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100697
+	
+Tick: 860	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9818)
+	Initial cNormal (length): 0.200351
+	Final cNormal (angle): CDegrees(-89.9818)
+	Final cNormal (length): 0.0496493
+	cTangential (angle): CDegrees(0.0182309)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.0182309)
+	cProjectedFlockingVector (length): 0.222174
+	cCombinedVector (angle): CDegrees(-1.02666)
+	cCombinedVector (length): 2.72263
+	
+Tick: 860	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.02666)
+	fHeadingLength: 2.72263
+	Turning Mechanism: 1
+	
+Tick: 870	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100504
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.17641
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.272188
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.351194
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.35128
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.272364
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176569
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100618
+	
+Tick: 870	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9905)
+	Initial cNormal (length): 0.200255
+	Final cNormal (angle): CDegrees(-89.9905)
+	Final cNormal (length): 0.0497454
+	cTangential (angle): CDegrees(0.00951854)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.00951854)
+	cProjectedFlockingVector (length): 0.40416
+	cCombinedVector (angle): CDegrees(-0.971805)
+	cCombinedVector (length): 2.90459
+	
+Tick: 870	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.971805)
+	fHeadingLength: 2.90459
+	Turning Mechanism: 1
+	
+Tick: 880	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100519
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176407
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.272128
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.351032
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.351056
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.272176
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176451
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100551
+	
+Tick: 880	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9974)
+	Initial cNormal (length): 0.200162
+	Final cNormal (angle): CDegrees(-89.9974)
+	Final cNormal (length): 0.0498378
+	cTangential (angle): CDegrees(0.00262392)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.00262392)
+	cProjectedFlockingVector (length): 0.558577
+	cCombinedVector (angle): CDegrees(-0.930895)
+	cCombinedVector (length): 3.05898
+	
+Tick: 880	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.930895)
+	fHeadingLength: 3.05898
+	Turning Mechanism: 1
+	
+Tick: 890	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100611
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176518
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.272212
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.350985
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350844
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271925
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176258
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100424
+	
+Tick: 890	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.0155)
+	Initial cNormal (length): 0.2001
+	Final cNormal (angle): CDegrees(-90.0155)
+	Final cNormal (length): 0.0498998
+	cTangential (angle): CDegrees(-0.0155423)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-0.0155423)
+	cProjectedFlockingVector (length): 0.633542
+	cCombinedVector (angle): CDegrees(-0.927867)
+	cCombinedVector (length): 3.13394
+	
+Tick: 890	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.927867)
+	fHeadingLength: 3.13394
+	Turning Mechanism: 1
+	
+Tick: 900	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176153
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271785
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.35072
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350949
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.272249
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176573
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100658
+	
+Tick: 900	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0132)
+	Initial cNormal (length): 0.220214
+	Final cNormal (angle): CDegrees(-87.0132)
+	Final cNormal (length): 0.0297865
+	cTangential (angle): CDegrees(2.98679)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(2.98679)
+	cProjectedFlockingVector (length): 0.652606
+	cCombinedVector (angle): CDegrees(2.44546)
+	cCombinedVector (length): 3.15275
+	
+Tick: 900	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.44546)
+	fHeadingLength: 3.15275
+	Turning Mechanism: 1
+	
+Tick: 910	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100463
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176291
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271914
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.350729
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350778
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.272015
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176383
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100529
+	
+Tick: 910	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9945)
+	Initial cNormal (length): 0.200023
+	Final cNormal (angle): CDegrees(-89.9945)
+	Final cNormal (length): 0.0499773
+	cTangential (angle): CDegrees(0.00548361)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.00548361)
+	cProjectedFlockingVector (length): 0.641756
+	cCombinedVector (angle): CDegrees(-0.905869)
+	cCombinedVector (length): 3.14215
+	
+Tick: 910	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.905869)
+	fHeadingLength: 3.14215
+	Turning Mechanism: 1
+	
+Tick: 920	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100521
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176361
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271967
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.3507
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350647
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271859
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176263
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.10045
+	
+Tick: 920	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.0058)
+	Initial cNormal (length): 0.199984
+	Final cNormal (angle): CDegrees(-90.0058)
+	Final cNormal (length): 0.0500156
+	cTangential (angle): CDegrees(-0.00583921)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-0.00583921)
+	cProjectedFlockingVector (length): 0.603665
+	cCombinedVector (angle): CDegrees(-0.929081)
+	cCombinedVector (length): 3.10407
+	
+Tick: 920	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.929081)
+	fHeadingLength: 3.10407
+	Turning Mechanism: 1
+	
+Tick: 930	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100601
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176465
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.272065
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.35071
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350524
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271688
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176123
+	
+Tick: 930	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-92.9835)
+	Initial cNormal (length): 0.220094
+	Final cNormal (angle): CDegrees(-92.9835)
+	Final cNormal (length): 0.0299063
+	cTangential (angle): CDegrees(-2.98351)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-2.98351)
+	cProjectedFlockingVector (length): 0.550805
+	cCombinedVector (angle): CDegrees(-3.54515)
+	cCombinedVector (length): 3.05095
+	
+Tick: 930	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-3.54515)
+	fHeadingLength: 3.05095
+	Turning Mechanism: 1
+	
+Tick: 940	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100447
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.17624
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271792
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.350516
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350544
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271849
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176293
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100485
+	
+Tick: 940	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9969)
+	Initial cNormal (length): 0.199916
+	Final cNormal (angle): CDegrees(-89.9969)
+	Final cNormal (length): 0.0500844
+	cTangential (angle): CDegrees(0.00313654)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.00313654)
+	cProjectedFlockingVector (length): 0.482623
+	cCombinedVector (angle): CDegrees(-0.958888)
+	cCombinedVector (length): 2.98304
+	
+Tick: 940	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.958888)
+	fHeadingLength: 2.98304
+	Turning Mechanism: 1
+	
+Tick: 950	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100481
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176275
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271801
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.350455
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350413
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271716
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176197
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100426
+	
+Tick: 950	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.0046)
+	Initial cNormal (length): 0.199869
+	Final cNormal (angle): CDegrees(-90.0046)
+	Final cNormal (length): 0.0501306
+	cTangential (angle): CDegrees(-0.00464494)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-0.00464494)
+	cProjectedFlockingVector (length): 0.406437
+	cCombinedVector (angle): CDegrees(-0.992793)
+	cCombinedVector (length): 2.90687
+	
+Tick: 950	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.992793)
+	fHeadingLength: 2.90687
+	Turning Mechanism: 1
+	
+Tick: 960	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100576
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176399
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271919
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.35047
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350272
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271517
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176034
+	
+Tick: 960	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-92.9855)
+	Initial cNormal (length): 0.219962
+	Final cNormal (angle): CDegrees(-92.9855)
+	Final cNormal (length): 0.0300375
+	cTangential (angle): CDegrees(-2.98552)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-2.98552)
+	cProjectedFlockingVector (length): 0.334104
+	cCombinedVector (angle): CDegrees(-3.59275)
+	cCombinedVector (length): 2.83426
+	
+Tick: 960	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-3.59275)
+	fHeadingLength: 2.83426
+	Turning Mechanism: 1
+	
+Tick: 970	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176036
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271501
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.350224
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350399
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271858
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176359
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100553
+	
+Tick: 970	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0164)
+	Initial cNormal (length): 0.219929
+	Final cNormal (angle): CDegrees(-87.0164)
+	Final cNormal (length): 0.0300712
+	cTangential (angle): CDegrees(2.98358)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(2.98358)
+	cProjectedFlockingVector (length): 0.271143
+	cCombinedVector (angle): CDegrees(2.36185)
+	cCombinedVector (length): 2.77131
+	
+Tick: 970	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.36185)
+	fHeadingLength: 2.77131
+	Turning Mechanism: 1
+	
+Tick: 980	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175891
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.27132
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.350086
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350395
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271947
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.17646
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100632
+	
+Tick: 980	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0036)
+	Initial cNormal (length): 0.219901
+	Final cNormal (angle): CDegrees(-87.0036)
+	Final cNormal (length): 0.0300991
+	cTangential (angle): CDegrees(2.99637)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(2.99637)
+	cProjectedFlockingVector (length): 0.228534
+	cCombinedVector (angle): CDegrees(2.36435)
+	cCombinedVector (length): 2.7287
+	
+Tick: 980	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.36435)
+	fHeadingLength: 2.7287
+	Turning Mechanism: 1
+	
+Tick: 990	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176024
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271442
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.350091
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350227
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271719
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176275
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100507
+	
+Tick: 990	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0196)
+	Initial cNormal (length): 0.219844
+	Final cNormal (angle): CDegrees(-87.0196)
+	Final cNormal (length): 0.0301563
+	cTangential (angle): CDegrees(2.98039)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(2.98039)
+	cProjectedFlockingVector (length): 0.191244
+	cCombinedVector (angle): CDegrees(2.3384)
+	cCombinedVector (length): 2.69141
+	
+Tick: 990	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.3384)
+	fHeadingLength: 2.69141
+	Turning Mechanism: 1
+	
+Tick: 1000	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175854
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.27124
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349956
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350258
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271855
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176412
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100611
+	
+Tick: 1000	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0037)
+	Initial cNormal (length): 0.219829
+	Final cNormal (angle): CDegrees(-87.0037)
+	Final cNormal (length): 0.0301714
+	cTangential (angle): CDegrees(2.99627)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(2.99627)
+	cProjectedFlockingVector (length): 0.153583
+	cCombinedVector (angle): CDegrees(2.34484)
+	cCombinedVector (length): 2.65375
+	
+Tick: 1000	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.34484)
+	fHeadingLength: 2.65375
+	Turning Mechanism: 1
+	
+Tick: 1010	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100594
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176377
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271789
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.350162
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349866
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271186
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.17583
+	
+Tick: 1010	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-92.996)
+	Initial cNormal (length): 0.219778
+	Final cNormal (angle): CDegrees(-92.996)
+	Final cNormal (length): 0.0302218
+	cTangential (angle): CDegrees(-2.99599)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-2.99599)
+	cProjectedFlockingVector (length): 0.11903
+	cCombinedVector (angle): CDegrees(-3.65712)
+	cCombinedVector (length): 2.6192
+	
+Tick: 1010	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-3.65712)
+	fHeadingLength: 2.6192
+	Turning Mechanism: 1
+	
+Tick: 1020	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175881
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271241
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349889
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350128
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271727
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176322
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100555
+	
+Tick: 1020	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0094)
+	Initial cNormal (length): 0.219771
+	Final cNormal (angle): CDegrees(-87.0094)
+	Final cNormal (length): 0.0302291
+	cTangential (angle): CDegrees(2.99058)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(2.99058)
+	cProjectedFlockingVector (length): 0.0785968
+	cCombinedVector (angle): CDegrees(2.31893)
+	cCombinedVector (length): 2.57877
+	
+Tick: 1020	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.31893)
+	fHeadingLength: 2.57877
+	Turning Mechanism: 1
+	
+Tick: 1030	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175947
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271297
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349878
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350027
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271599
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176221
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100488
+	
+Tick: 1030	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0177)
+	Initial cNormal (length): 0.219734
+	Final cNormal (angle): CDegrees(-87.0177)
+	Final cNormal (length): 0.030266
+	cTangential (angle): CDegrees(2.98228)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(2.98228)
+	cProjectedFlockingVector (length): 0.0431424
+	cCombinedVector (angle): CDegrees(2.30043)
+	cCombinedVector (length): 2.54332
+	
+Tick: 1030	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.30043)
+	fHeadingLength: 2.54332
+	Turning Mechanism: 1
+	
+Tick: 1040	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175848
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271175
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349788
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350028
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271663
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176291
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100542
+	
+Tick: 1040	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.009)
+	Initial cNormal (length): 0.219717
+	Final cNormal (angle): CDegrees(-87.009)
+	Final cNormal (length): 0.0302832
+	cTangential (angle): CDegrees(2.99105)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(2.99105)
+	cProjectedFlockingVector (length): 0.00932915
+	cCombinedVector (angle): CDegrees(2.29962)
+	cCombinedVector (length): 2.50951
+	
+Tick: 1040	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.29962)
+	fHeadingLength: 2.50951
+	Turning Mechanism: 1
+	
+Tick: 1050	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.17596
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271284
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349812
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349916
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271496
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176152
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100446
+	
+Tick: 1050	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0217)
+	Initial cNormal (length): 0.219683
+	Final cNormal (angle): CDegrees(-87.0217)
+	Final cNormal (length): 0.0303174
+	cTangential (angle): CDegrees(2.97835)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-177.022)
+	cProjectedFlockingVector (length): 0.0220834
+	cCombinedVector (angle): CDegrees(2.27736)
+	cCombinedVector (length): 2.4781
+	
+Tick: 1050	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.27736)
+	fHeadingLength: 2.4781
+	Turning Mechanism: 1
+	
+Tick: 1060	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175881
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271182
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349723
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349894
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271527
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176195
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100483
+	
+Tick: 1060	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0152)
+	Initial cNormal (length): 0.219658
+	Final cNormal (angle): CDegrees(-87.0152)
+	Final cNormal (length): 0.0303419
+	cTangential (angle): CDegrees(2.98475)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-177.015)
+	cProjectedFlockingVector (length): 0.0510379
+	cCombinedVector (angle): CDegrees(2.27491)
+	cCombinedVector (length): 2.44915
+	
+Tick: 1060	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.27491)
+	fHeadingLength: 2.44915
+	Turning Mechanism: 1
+	
+Tick: 1070	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175721
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.270995
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.34961
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349943
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271673
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176336
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100587
+	
+Tick: 1070	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-86.9997)
+	Initial cNormal (length): 0.219654
+	Final cNormal (angle): CDegrees(-86.9997)
+	Final cNormal (length): 0.0303464
+	cTangential (angle): CDegrees(3.00031)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-177)
+	cProjectedFlockingVector (length): 0.0776078
+	cCombinedVector (angle): CDegrees(2.28258)
+	cCombinedVector (length): 2.42258
+	
+Tick: 1070	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.28258)
+	fHeadingLength: 2.42258
+	Turning Mechanism: 1
+	
+Tick: 1080	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100516
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176224
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.27152
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349801
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349554
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271019
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175769
+	
+Tick: 1080	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-92.9924)
+	Initial cNormal (length): 0.219594
+	Final cNormal (angle): CDegrees(-92.9924)
+	Final cNormal (length): 0.0304065
+	cTangential (angle): CDegrees(-2.99242)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(177.008)
+	cProjectedFlockingVector (length): 0.0989107
+	cCombinedVector (angle): CDegrees(-3.71795)
+	cCombinedVector (length): 2.40128
+	
+Tick: 1080	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-3.71795)
+	fHeadingLength: 2.40128
+	Turning Mechanism: 1
+	
+Tick: 1090	In VectorToWall
+	Sensor angle: CDegrees(37.5)
+	Sensor value: 0.100388
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176041
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271307
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349669
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349608
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271182
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175928
+	
+Tick: 1090	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-92.9751)
+	Initial cNormal (length): 0.219558
+	Final cNormal (angle): CDegrees(-92.9751)
+	Final cNormal (length): 0.0304417
+	cTangential (angle): CDegrees(-2.97505)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(177.025)
+	cProjectedFlockingVector (length): 0.121084
+	cCombinedVector (angle): CDegrees(-3.70819)
+	cCombinedVector (length): 2.37911
+	
+Tick: 1090	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-3.70819)
+	fHeadingLength: 2.37911
+	Turning Mechanism: 1
+	
+Tick: 1100	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175792
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271023
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349505
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.3497
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271421
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.176154
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100472
+	
+Tick: 1100	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0121)
+	Initial cNormal (length): 0.219549
+	Final cNormal (angle): CDegrees(-87.0121)
+	Final cNormal (length): 0.0304506
+	cTangential (angle): CDegrees(2.98789)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-177.012)
+	cProjectedFlockingVector (length): 0.144155
+	cCombinedVector (angle): CDegrees(2.24735)
+	cCombinedVector (length): 2.35604
+	
+Tick: 1100	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.24735)
+	fHeadingLength: 2.35604
+	Turning Mechanism: 1
+	
+Tick: 1110	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175968
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271194
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.34954
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.34952
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271155
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175932
+	
+Tick: 1110	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.0015)
+	Initial cNormal (length): 0.245554
+	Final cNormal (angle): CDegrees(-90.0015)
+	Final cNormal (length): 0.00444564
+	cTangential (angle): CDegrees(-0.00153002)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(179.998)
+	cProjectedFlockingVector (length): 0.161271
+	cCombinedVector (angle): CDegrees(-0.110442)
+	cCombinedVector (length): 2.33873
+	
+Tick: 1110	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.110442)
+	fHeadingLength: 2.33873
+	Turning Mechanism: 1
+	
+Tick: 1120	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175961
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271186
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349534
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349521
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.27116
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175938
+	
+Tick: 1120	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.001)
+	Initial cNormal (length): 0.245553
+	Final cNormal (angle): CDegrees(-90.001)
+	Final cNormal (length): 0.00444705
+	cTangential (angle): CDegrees(-0.000992882)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(179.999)
+	cProjectedFlockingVector (length): 0.177959
+	cCombinedVector (angle): CDegrees(-0.110722)
+	cCombinedVector (length): 2.32205
+	
+Tick: 1120	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.110722)
+	fHeadingLength: 2.32205
+	Turning Mechanism: 1
+	
+Tick: 1130	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.17595
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271172
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349522
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349518
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271164
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175943
+	
+Tick: 1130	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.0003)
+	Initial cNormal (length): 0.245548
+	Final cNormal (angle): CDegrees(-90.0003)
+	Final cNormal (length): 0.0044518
+	cTangential (angle): CDegrees(-0.000300298)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(180)
+	cProjectedFlockingVector (length): 0.193114
+	cCombinedVector (angle): CDegrees(-0.110869)
+	cCombinedVector (length): 2.30689
+	
+Tick: 1130	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.110869)
+	fHeadingLength: 2.30689
+	Turning Mechanism: 1
+	
+Tick: 1140	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175966
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271187
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349523
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.3495
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271139
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175923
+	
+Tick: 1140	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.0019)
+	Initial cNormal (length): 0.245543
+	Final cNormal (angle): CDegrees(-90.0019)
+	Final cNormal (length): 0.00445697
+	cTangential (angle): CDegrees(-0.00185458)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(179.998)
+	cProjectedFlockingVector (length): 0.206868
+	cCombinedVector (angle): CDegrees(-0.113215)
+	cCombinedVector (length): 2.29314
+	
+Tick: 1140	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.113215)
+	fHeadingLength: 2.29314
+	Turning Mechanism: 1
+	
+Tick: 1150	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.17595
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271165
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349504
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349493
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271144
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.17593
+	
+Tick: 1150	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.0008)
+	Initial cNormal (length): 0.245535
+	Final cNormal (angle): CDegrees(-90.0008)
+	Final cNormal (length): 0.00446509
+	cTangential (angle): CDegrees(-0.000832103)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(179.999)
+	cProjectedFlockingVector (length): 0.21935
+	cCombinedVector (angle): CDegrees(-0.113006)
+	cCombinedVector (length): 2.28065
+	
+Tick: 1150	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.113006)
+	fHeadingLength: 2.28065
+	Turning Mechanism: 1
+	
+Tick: 1160	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175932
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271141
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349483
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349487
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.27115
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.17594
+	
+Tick: 1160	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9996)
+	Initial cNormal (length): 0.245527
+	Final cNormal (angle): CDegrees(-89.9996)
+	Final cNormal (length): 0.0044733
+	cTangential (angle): CDegrees(0.000357175)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-180)
+	cProjectedFlockingVector (length): 0.230653
+	cCombinedVector (angle): CDegrees(-0.112583)
+	cCombinedVector (length): 2.26935
+	
+Tick: 1160	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.112583)
+	fHeadingLength: 2.26935
+	Turning Mechanism: 1
+	
+Tick: 1170	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175911
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271114
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349459
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349481
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271158
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175951
+	
+Tick: 1170	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9983)
+	Initial cNormal (length): 0.245518
+	Final cNormal (angle): CDegrees(-89.9983)
+	Final cNormal (length): 0.00448247
+	cTangential (angle): CDegrees(0.00168088)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.998)
+	cProjectedFlockingVector (length): 0.240899
+	cCombinedVector (angle): CDegrees(-0.112004)
+	cCombinedVector (length): 2.25911
+	
+Tick: 1170	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.112004)
+	fHeadingLength: 2.25911
+	Turning Mechanism: 1
+	
+Tick: 1180	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175889
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271084
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349432
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349471
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271164
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175962
+	
+Tick: 1180	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9969)
+	Initial cNormal (length): 0.245506
+	Final cNormal (angle): CDegrees(-89.9969)
+	Final cNormal (length): 0.00449366
+	cTangential (angle): CDegrees(0.0031146)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.997)
+	cProjectedFlockingVector (length): 0.250268
+	cCombinedVector (angle): CDegrees(-0.111329)
+	cCombinedVector (length): 2.24974
+	
+Tick: 1180	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.111329)
+	fHeadingLength: 2.24974
+	Turning Mechanism: 1
+	
+Tick: 1190	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175864
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.27105
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.3494
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349458
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271169
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175972
+	
+Tick: 1190	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-89.9954)
+	Initial cNormal (length): 0.245492
+	Final cNormal (angle): CDegrees(-89.9954)
+	Final cNormal (length): 0.00450763
+	cTangential (angle): CDegrees(0.00463484)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.995)
+	cProjectedFlockingVector (length): 0.25851
+	cCombinedVector (angle): CDegrees(-0.110587)
+	cCombinedVector (length): 2.24149
+	
+Tick: 1190	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.110587)
+	fHeadingLength: 2.24149
+	Turning Mechanism: 1
+	
+Tick: 1200	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175836
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271011
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349361
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.34944
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271171
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175982
+	Sensor angle: CDegrees(142.5)
+	Sensor value: 0.100367
+	
+Tick: 1200	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-87.0225)
+	Initial cNormal (length): 0.219432
+	Final cNormal (angle): CDegrees(-87.0225)
+	Final cNormal (length): 0.0305681
+	cTangential (angle): CDegrees(2.9775)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-177.023)
+	cProjectedFlockingVector (length): 0.266828
+	cCombinedVector (angle): CDegrees(2.19327)
+	cCombinedVector (length): 2.23338
+	
+Tick: 1200	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.19327)
+	fHeadingLength: 2.23338
+	Turning Mechanism: 1
+	
+Tick: 1210	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176052
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271238
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349449
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349283
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.2709
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175745
+	
+Tick: 1210	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.0131)
+	Initial cNormal (length): 0.245454
+	Final cNormal (angle): CDegrees(-90.0131)
+	Final cNormal (length): 0.0045463
+	cTangential (angle): CDegrees(-0.0131491)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(179.987)
+	cProjectedFlockingVector (length): 0.272916
+	cCombinedVector (angle): CDegrees(-0.130111)
+	cCombinedVector (length): 2.22709
+	
+Tick: 1210	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.130111)
+	fHeadingLength: 2.22709
+	Turning Mechanism: 1
+	
+Tick: 1220	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.175958
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.271161
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349472
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349437
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.271091
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175894
+	
+Tick: 1220	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.0027)
+	Initial cNormal (length): 0.245508
+	Final cNormal (angle): CDegrees(-90.0027)
+	Final cNormal (length): 0.00449208
+	cTangential (angle): CDegrees(-0.00273891)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(179.997)
+	cProjectedFlockingVector (length): 0.273008
+	cCombinedVector (angle): CDegrees(-0.11831)
+	cCombinedVector (length): 2.227
+	
+Tick: 1220	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.11831)
+	fHeadingLength: 2.227
+	Turning Mechanism: 1
+	
+Tick: 1230	In VectorToWall
+	Sensor angle: CDegrees(52.5)
+	Sensor value: 0.176098
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.27132
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.349562
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.349381
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.270953
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.175765
+	
+Tick: 1230	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-90.0143)
+	Initial cNormal (length): 0.245518
+	Final cNormal (angle): CDegrees(-90.0143)
+	Final cNormal (length): 0.00448162
+	cTangential (angle): CDegrees(-0.0142796)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(179.986)
+	cProjectedFlockingVector (length): 0.259868
+	cCombinedVector (angle): CDegrees(-0.128906)
+	cCombinedVector (length): 2.24014
+	
+Tick: 1230	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.128906)
+	fHeadingLength: 2.24014
+	Turning Mechanism: 1
+	
+Tick: 1240	In VectorToWall
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.275549
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.352202
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.348426
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.267879
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.172757
+	
+Tick: 1240	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-85.6379)
+	Initial cNormal (length): 0.267525
+	Final cNormal (angle): CDegrees(-85.6379)
+	Final cNormal (length): 0.0175254
+	cTangential (angle): CDegrees(4.36211)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-175.638)
+	cProjectedFlockingVector (length): 0.235116
+	cCombinedVector (angle): CDegrees(3.91877)
+	cCombinedVector (length): 2.26495
+	
+Tick: 1240	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(3.91877)
+	fHeadingLength: 2.26495
+	Turning Mechanism: 1
+	
+Tick: 1250	In VectorToWall
+	Sensor angle: CDegrees(67.5)
+	Sensor value: 0.283722
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.35916
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.350223
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.26564
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.169623
+	
+Tick: 1250	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-85.9537)
+	Initial cNormal (length): 0.269759
+	Final cNormal (angle): CDegrees(-85.9537)
+	Final cNormal (length): 0.0197586
+	cTangential (angle): CDegrees(4.04628)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-175.954)
+	cProjectedFlockingVector (length): 0.20335
+	cCombinedVector (angle): CDegrees(3.55337)
+	cCombinedVector (length): 2.29674
+	
+Tick: 1250	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(3.55337)
+	fHeadingLength: 2.29674
+	Turning Mechanism: 1
+	
+Tick: 1260	In VectorToWall
+	Sensor angle: CDegrees(82.5)
+	Sensor value: 0.374573
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.353101
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.259787
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.162275
+	
+Tick: 1260	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-79.8386)
+	Initial cNormal (length): 0.276894
+	Final cNormal (angle): CDegrees(-79.8386)
+	Final cNormal (length): 0.0268937
+	cTangential (angle): CDegrees(10.1614)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-169.839)
+	cProjectedFlockingVector (length): 0.172174
+	cCombinedVector (angle): CDegrees(9.49949)
+	cCombinedVector (length): 2.32798
+	
+Tick: 1260	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(9.49949)
+	fHeadingLength: 2.32798
+	Turning Mechanism: 1
+	
+Tick: 1270	In VectorToWall
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.362249
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.25509
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.154269
+	
+Tick: 1270	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-71.5835)
+	Initial cNormal (length): 0.251976
+	Final cNormal (angle): CDegrees(-71.5835)
+	Final cNormal (length): 0.00197553
+	cTangential (angle): CDegrees(18.4165)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-161.583)
+	cProjectedFlockingVector (length): 0.14305
+	cCombinedVector (angle): CDegrees(18.3685)
+	cCombinedVector (length): 2.35695
+	
+Tick: 1270	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(18.3685)
+	fHeadingLength: 2.35695
+	Turning Mechanism: 1
+	
+Tick: 1280	In VectorToWall
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.376384
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.245877
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.14082
+	
+Tick: 1280	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-72.1756)
+	Initial cNormal (length): 0.249316
+	Final cNormal (angle): CDegrees(-72.1756)
+	Final cNormal (length): 0.00068412
+	cTangential (angle): CDegrees(17.8244)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-162.176)
+	cProjectedFlockingVector (length): 0.116637
+	cCombinedVector (angle): CDegrees(17.8079)
+	cCombinedVector (length): 2.38336
+	
+Tick: 1280	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(17.8079)
+	fHeadingLength: 2.38336
+	Turning Mechanism: 1
+	
+Tick: 1290	In VectorToWall
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.211841
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.244723
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.130973
+	
+Tick: 1290	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-69.5816)
+	Initial cNormal (length): 0.192079
+	Final cNormal (angle): CDegrees(-69.5816)
+	Final cNormal (length): 0.0579214
+	cTangential (angle): CDegrees(20.4184)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-159.582)
+	cProjectedFlockingVector (length): 0.0969565
+	cCombinedVector (angle): CDegrees(19.0377)
+	cCombinedVector (length): 2.40374
+	
+Tick: 1290	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(19.0377)
+	fHeadingLength: 2.40374
+	Turning Mechanism: 1
+	
+Tick: 1300	In VectorToWall
+	Sensor angle: CDegrees(97.5)
+	Sensor value: 0.124755
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.248383
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.121487
+	
+Tick: 1300	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-67.5996)
+	Initial cNormal (length): 0.162078
+	Final cNormal (angle): CDegrees(-67.5996)
+	Final cNormal (length): 0.0879216
+	cTangential (angle): CDegrees(22.4004)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-157.6)
+	cProjectedFlockingVector (length): 0.0834003
+	cCombinedVector (angle): CDegrees(20.3167)
+	cCombinedVector (length): 2.4182
+	
+Tick: 1300	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(20.3167)
+	fHeadingLength: 2.4182
+	Turning Mechanism: 1
+	
+Tick: 1310	In VectorToWall
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.212344
+	Sensor angle: CDegrees(127.5)
+	Sensor value: 0.112688
+	
+Tick: 1310	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-62.3115)
+	Initial cNormal (length): 0.161257
+	Final cNormal (angle): CDegrees(-62.3115)
+	Final cNormal (length): 0.0887432
+	cTangential (angle): CDegrees(27.6885)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-152.312)
+	cProjectedFlockingVector (length): 0.0698932
+	cCombinedVector (angle): CDegrees(25.5971)
+	cCombinedVector (length): 2.43173
+	
+Tick: 1310	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(25.5971)
+	fHeadingLength: 2.43173
+	Turning Mechanism: 1
+	
+Tick: 1320	In VectorToWall
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.155528
+	
+Tick: 1320	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-67.5)
+	Initial cNormal (length): 0.155528
+	Final cNormal (angle): CDegrees(-67.5)
+	Final cNormal (length): 0.0944724
+	cTangential (angle): CDegrees(22.5)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-157.5)
+	cProjectedFlockingVector (length): 0.0614813
+	cCombinedVector (angle): CDegrees(20.2814)
+	cCombinedVector (length): 2.44035
+	
+Tick: 1320	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(20.2814)
+	fHeadingLength: 2.44035
+	Turning Mechanism: 1
+	
+Tick: 1330	In VectorToWall
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.122629
+	
+Tick: 1330	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-67.5)
+	Initial cNormal (length): 0.122629
+	Final cNormal (angle): CDegrees(-67.5)
+	Final cNormal (length): 0.127371
+	cTangential (angle): CDegrees(22.5)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-157.5)
+	cProjectedFlockingVector (length): 0.0481194
+	cCombinedVector (angle): CDegrees(19.5263)
+	cCombinedVector (length): 2.45519
+	
+Tick: 1330	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(19.5263)
+	fHeadingLength: 2.45519
+	Turning Mechanism: 1
+	
+Tick: 1340	In VectorToWall
+	Sensor angle: CDegrees(112.5)
+	Sensor value: 0.102663
+	
+Tick: 1340	In CalculateTangentialMovement
+	Off wall: 0
+	Initial cNormal (angle): CDegrees(-67.5)
+	Initial cNormal (length): 0.102663
+	Final cNormal (angle): CDegrees(-67.5)
+	Final cNormal (length): 0.147337
+	cTangential (angle): CDegrees(22.5)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(22.5)
+	cProjectedFlockingVector (length): 0.0713199
+	cCombinedVector (angle): CDegrees(19.2205)
+	cCombinedVector (length): 2.57554
+	
+Tick: 1340	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(19.2205)
+	fHeadingLength: 2.57554
+	Turning Mechanism: 1
+	
+Tick: 1350	In ReorientTowardsWall
+	Current position: 3.1766,-0.0885117
+	Current heading: CDegrees(35.1002)
+	Last vector to wall (local): CDegrees(127.5)
+	Last wall contact heading: CDegrees(34.2977)
+	cNormal_Global: CDegrees(161.798)
+	Last wall contact position: 3.17446,-0.0899623
+	Vector to last position (angle): CRadians(0.597201 -> 34.2171 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.8239 -> 161.798 degrees)
+	Normal displacement global (length): 1.52469
+	Normal displacement local (angle): CRadians(2.21129 -> 126.697 degrees)
+	Normal displacement local (length): 1.52469
+	
+Tick: 1350	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(126.697)
+	Final cNormal (length): 1.52469
+	cTangential (angle): CDegrees(-143.303)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(36.6975)
+	cProjectedFlockingVector (length): 0.0735869
+	cCombinedVector (angle): CDegrees(-175.447)
+	cCombinedVector (length): 2.86569
+	
+Tick: 1350	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-175.447)
+	fHeadingLength: 2.86569
+	Turning Mechanism: 2
+	
+Tick: 1360	In ReorientTowardsWall
+	Current position: 3.18681,-0.0880834
+	Current heading: CDegrees(-21.2968)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(0.0283003 -> 1.62149 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 2.42523
+	Normal displacement local (angle): CRadians(-2.98678 -> -171.13 degrees)
+	Normal displacement local (length): 2.42523
+	
+Tick: 1360	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-171.13)
+	Final cNormal (length): 2.42523
+	cTangential (angle): CDegrees(-81.1298)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(98.8702)
+	cProjectedFlockingVector (length): 0.22178
+	cCombinedVector (angle): CDegrees(-127.92)
+	cCombinedVector (length): 3.32747
+	
+Tick: 1360	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-127.92)
+	fHeadingLength: 3.32747
+	Turning Mechanism: 2
+	
+Tick: 1370	In ReorientTowardsWall
+	Current position: 3.18702,-0.094083
+	Current heading: CDegrees(-91.177)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-0.510511 -> -29.2501 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 2.393
+	Normal displacement local (angle): CRadians(-1.76714 -> -101.25 degrees)
+	Normal displacement local (length): 2.393
+	
+Tick: 1370	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-101.25)
+	Final cNormal (length): 2.393
+	cTangential (angle): CDegrees(-11.2496)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(168.75)
+	cProjectedFlockingVector (length): 0.566545
+	cCombinedVector (angle): CDegrees(-62.3127)
+	cCombinedVector (length): 3.07648
+	
+Tick: 1370	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-62.3127)
+	fHeadingLength: 3.07648
+	Turning Mechanism: 1
+	
+Tick: 1380	In ReorientTowardsWall
+	Current position: 3.18386,-0.121243
+	Current heading: CDegrees(-101.963)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.35948 -> -77.8922 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 1.0381
+	Normal displacement local (angle): CRadians(-1.57889 -> -90.4637 degrees)
+	Normal displacement local (length): 1.0381
+	
+Tick: 1380	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-90.4637)
+	Final cNormal (length): 1.0381
+	cTangential (angle): CDegrees(-0.463702)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(179.536)
+	cProjectedFlockingVector (length): 0.405375
+	cCombinedVector (angle): CDegrees(-26.8268)
+	cCombinedVector (length): 2.33776
+	
+Tick: 1380	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-26.8268)
+	fHeadingLength: 2.33776
+	Turning Mechanism: 1
+	
+Tick: 1390	In ReorientTowardsWall
+	Current position: 3.17858,-0.142486
+	Current heading: CDegrees(-106.064)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.53822 -> -88.1333 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.617216
+	Normal displacement local (angle): CRadians(-1.5073 -> -86.3622 degrees)
+	Normal displacement local (length): 0.617216
+	
+Tick: 1390	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-86.3622)
+	Final cNormal (length): 0.617216
+	cTangential (angle): CDegrees(3.63785)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-176.362)
+	cProjectedFlockingVector (length): 0.553363
+	cCombinedVector (angle): CDegrees(-13.9543)
+	cCombinedVector (length): 2.04214
+	
+Tick: 1390	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-13.9543)
+	fHeadingLength: 2.04214
+	Turning Mechanism: 1
+	
+Tick: 1400	In ReorientTowardsWall
+	Current position: 3.17282,-0.161299
+	Current heading: CDegrees(-107.956)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.62543 -> -93.1304 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.403845
+	Normal displacement local (angle): CRadians(-1.47429 -> -84.4704 degrees)
+	Normal displacement local (length): 0.403845
+	
+Tick: 1400	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-84.4704)
+	Final cNormal (length): 0.403845
+	cTangential (angle): CDegrees(5.52957)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-174.47)
+	cProjectedFlockingVector (length): 0.654225
+	cCombinedVector (angle): CDegrees(-6.81193)
+	cCombinedVector (length): 1.88944
+	
+Tick: 1400	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-6.81193)
+	fHeadingLength: 1.88944
+	Turning Mechanism: 1
+	
+Tick: 1410	In ReorientTowardsWall
+	Current position: 3.16699,-0.178859
+	Current heading: CDegrees(-108.745)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.67888 -> -96.1925 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.271476
+	Normal displacement local (angle): CRadians(-1.46052 -> -83.6819 degrees)
+	Normal displacement local (length): 0.271476
+	
+Tick: 1410	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-83.6819)
+	Final cNormal (length): 0.271476
+	cTangential (angle): CDegrees(6.31812)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-173.682)
+	cProjectedFlockingVector (length): 0.70888
+	cCombinedVector (angle): CDegrees(-2.30047)
+	cCombinedVector (length): 1.81158
+	
+Tick: 1410	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-2.30047)
+	fHeadingLength: 1.81158
+	Turning Mechanism: 1
+	
+Tick: 1420	In ReorientTowardsWall
+	Current position: 3.16096,-0.196522
+	Current heading: CDegrees(-108.851)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.7163 -> -98.3367 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.178305
+	Normal displacement local (angle): CRadians(-1.45866 -> -83.5753 degrees)
+	Normal displacement local (length): 0.178305
+	
+Tick: 1420	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-83.5753)
+	Final cNormal (length): 0.178305
+	cTangential (angle): CDegrees(6.42466)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-173.575)
+	cProjectedFlockingVector (length): 0.35317
+	cCombinedVector (angle): CDegrees(1.67686)
+	cCombinedVector (length): 2.15422
+	
+Tick: 1420	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.67686)
+	fHeadingLength: 2.15422
+	Turning Mechanism: 1
+	
+Tick: 1430	In ReorientTowardsWall
+	Current position: 3.15405,-0.216983
+	Current heading: CDegrees(-108.373)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.74595 -> -100.036 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.104294
+	Normal displacement local (angle): CRadians(-1.46701 -> -84.0533 degrees)
+	Normal displacement local (length): 0.104294
+	
+Tick: 1430	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-84.0533)
+	Final cNormal (length): 0.104294
+	cTangential (angle): CDegrees(5.94672)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-174.053)
+	cProjectedFlockingVector (length): 0.32881
+	cCombinedVector (angle): CDegrees(3.1966)
+	cCombinedVector (length): 2.17369
+	
+Tick: 1430	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(3.1966)
+	fHeadingLength: 2.17369
+	Turning Mechanism: 1
+	
+Tick: 1440	In ReorientTowardsWall
+	Current position: 3.14723,-0.23787
+	Current heading: CDegrees(-107.665)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.76611 -> -101.191 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0539255
+	Normal displacement local (angle): CRadians(-1.47937 -> -84.7614 degrees)
+	Normal displacement local (length): 0.0539255
+	
+Tick: 1440	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-84.7614)
+	Final cNormal (length): 0.0539255
+	cTangential (angle): CDegrees(5.23856)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-174.761)
+	cProjectedFlockingVector (length): 0.265167
+	cCombinedVector (angle): CDegrees(3.8563)
+	cCombinedVector (length): 2.23548
+	
+Tick: 1440	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(3.8563)
+	fHeadingLength: 2.23548
+	Turning Mechanism: 1
+	
+Tick: 1450	In ReorientTowardsWall
+	Current position: 3.14045,-0.259647
+	Current heading: CDegrees(-106.849)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.77999 -> -101.986 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0192244
+	Normal displacement local (angle): CRadians(-1.49362 -> -85.578 degrees)
+	Normal displacement local (length): 0.0192244
+	
+Tick: 1450	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-85.578)
+	Final cNormal (length): 0.0192244
+	cTangential (angle): CDegrees(4.42195)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-175.578)
+	cProjectedFlockingVector (length): 0.150217
+	cCombinedVector (angle): CDegrees(3.95321)
+	cCombinedVector (length): 2.34986
+	
+Tick: 1450	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(3.95321)
+	fHeadingLength: 2.34986
+	Turning Mechanism: 1
+	
+Tick: 1460	In ReorientTowardsWall
+	Current position: 3.13358,-0.282891
+	Current heading: CDegrees(-106.002)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.7895 -> -102.531 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0045498
+	Normal displacement local (angle): CRadians(-1.5084 -> -86.4247 degrees)
+	Normal displacement local (length): 0.0045498
+	
+Tick: 1460	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-86.4247)
+	Final cNormal (length): 0.0045498
+	cTangential (angle): CDegrees(3.57532)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(3.57532)
+	cProjectedFlockingVector (length): 0.0326047
+	cCombinedVector (angle): CDegrees(3.47239)
+	cCombinedVector (length): 2.53261
+	
+Tick: 1460	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(3.47239)
+	fHeadingLength: 2.53261
+	Turning Mechanism: 1
+	
+Tick: 1470	In ReorientTowardsWall
+	Current position: 3.12644,-0.308347
+	Current heading: CDegrees(-105.286)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.79591 -> -102.898 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0205681
+	Normal displacement local (angle): CRadians(-1.52089 -> -87.1405 degrees)
+	Normal displacement local (length): 0.0205681
+	
+Tick: 1470	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-87.1405)
+	Final cNormal (length): 0.0205681
+	cTangential (angle): CDegrees(2.85951)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(2.85951)
+	cProjectedFlockingVector (length): 0.303577
+	cCombinedVector (angle): CDegrees(2.43918)
+	cCombinedVector (length): 2.80365
+	
+Tick: 1470	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(2.43918)
+	fHeadingLength: 2.80365
+	Turning Mechanism: 1
+	
+Tick: 1480	In ReorientTowardsWall
+	Current position: 3.11877,-0.336934
+	Current heading: CDegrees(-104.721)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80021 -> -103.144 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0313094
+	Normal displacement local (angle): CRadians(-1.53075 -> -87.7053 degrees)
+	Normal displacement local (length): 0.0313094
+	
+Tick: 1480	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-87.7053)
+	Final cNormal (length): 0.0313094
+	cTangential (angle): CDegrees(2.29465)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(2.29465)
+	cProjectedFlockingVector (length): 0.678769
+	cCombinedVector (angle): CDegrees(1.73033)
+	cCombinedVector (length): 3.17892
+	
+Tick: 1480	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.73033)
+	fHeadingLength: 3.17892
+	Turning Mechanism: 1
+	
+Tick: 1490	In ReorientTowardsWall
+	Current position: 3.11029,-0.369709
+	Current heading: CDegrees(-104.261)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80299 -> -103.304 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0382673
+	Normal displacement local (angle): CRadians(-1.53877 -> -88.1651 degrees)
+	Normal displacement local (length): 0.0382673
+	
+Tick: 1490	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-88.1651)
+	Final cNormal (length): 0.0382673
+	cTangential (angle): CDegrees(1.83486)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.83486)
+	cProjectedFlockingVector (length): 1.16953
+	cCombinedVector (angle): CDegrees(1.23738)
+	cCombinedVector (length): 3.66973
+	
+Tick: 1490	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(1.23738)
+	fHeadingLength: 3.66973
+	Turning Mechanism: 1
+	
+Tick: 1500	In ReorientTowardsWall
+	Current position: 3.10074,-0.407751
+	Current heading: CDegrees(-103.88)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80461 -> -103.397 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0423299
+	Normal displacement local (angle): CRadians(-1.54542 -> -88.5462 degrees)
+	Normal displacement local (length): 0.0423299
+	
+Tick: 1500	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-88.5462)
+	Final cNormal (length): 0.0423299
+	cTangential (angle): CDegrees(1.45376)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.45376)
+	cProjectedFlockingVector (length): 1.75885
+	cCombinedVector (angle): CDegrees(0.884304)
+	cCombinedVector (length): 4.25906
+	
+Tick: 1500	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.884304)
+	fHeadingLength: 4.25906
+	Turning Mechanism: 1
+	
+Tick: 1510	In ReorientTowardsWall
+	Current position: 3.08938,-0.454257
+	Current heading: CDegrees(-103.541)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80534 -> -103.439 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0441511
+	Normal displacement local (angle): CRadians(-1.55135 -> -88.8859 degrees)
+	Normal displacement local (length): 0.0441511
+	
+Tick: 1510	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-88.8859)
+	Final cNormal (length): 0.0441511
+	cTangential (angle): CDegrees(1.11408)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(1.11408)
+	cProjectedFlockingVector (length): 3.34547
+	cCombinedVector (angle): CDegrees(0.681328)
+	cCombinedVector (length): 5.84564
+	
+Tick: 1510	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.681328)
+	fHeadingLength: 5.84564
+	Turning Mechanism: 1
+	
+Tick: 1520	In ReorientTowardsWall
+	Current position: 3.0747,-0.515957
+	Current heading: CDegrees(-103.217)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80521 -> -103.431 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0438219
+	Normal displacement local (angle): CRadians(-1.55699 -> -89.2092 degrees)
+	Normal displacement local (length): 0.0438219
+	
+Tick: 1520	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.2092)
+	Final cNormal (length): 0.0438219
+	cTangential (angle): CDegrees(0.7908)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.7908)
+	cProjectedFlockingVector (length): 4.35469
+	cCombinedVector (angle): CDegrees(0.424515)
+	cCombinedVector (length): 6.85483
+	
+Tick: 1520	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.424515)
+	fHeadingLength: 6.85483
+	Turning Mechanism: 1
+	
+Tick: 1530	In ReorientTowardsWall
+	Current position: 3.05884,-0.584025
+	Current heading: CDegrees(-103.005)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80445 -> -103.387 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0419245
+	Normal displacement local (angle): CRadians(-1.5607 -> -89.4217 degrees)
+	Normal displacement local (length): 0.0419245
+	
+Tick: 1530	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.4217)
+	Final cNormal (length): 0.0419245
+	cTangential (angle): CDegrees(0.578313)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.578313)
+	cProjectedFlockingVector (length): 4.52268
+	cCombinedVector (angle): CDegrees(0.236269)
+	cCombinedVector (length): 7.0228
+	
+Tick: 1530	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.236269)
+	fHeadingLength: 7.0228
+	Turning Mechanism: 1
+	
+Tick: 1540	In ReorientTowardsWall
+	Current position: 3.04351,-0.650705
+	Current heading: CDegrees(-102.893)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80355 -> -103.336 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.039662
+	Normal displacement local (angle): CRadians(-1.56266 -> -89.5338 degrees)
+	Normal displacement local (length): 0.039662
+	
+Tick: 1540	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.5338)
+	Final cNormal (length): 0.039662
+	cTangential (angle): CDegrees(0.466207)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.466207)
+	cProjectedFlockingVector (length): 4.0075
+	cCombinedVector (angle): CDegrees(0.117004)
+	cCombinedVector (length): 6.50762
+	
+Tick: 1540	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.117004)
+	fHeadingLength: 6.50762
+	Turning Mechanism: 1
+	
+Tick: 1550	In ReorientTowardsWall
+	Current position: 3.02983,-0.710542
+	Current heading: CDegrees(-102.879)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80279 -> -103.292 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.037759
+	Normal displacement local (angle): CRadians(-1.5629 -> -89.5478 degrees)
+	Normal displacement local (length): 0.037759
+	
+Tick: 1550	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.5478)
+	Final cNormal (length): 0.037759
+	cTangential (angle): CDegrees(0.452223)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.452223)
+	cProjectedFlockingVector (length): 3.13324
+	cCombinedVector (angle): CDegrees(0.0681814)
+	cCombinedVector (length): 5.63337
+	
+Tick: 1550	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.0681814)
+	fHeadingLength: 5.63337
+	Turning Mechanism: 0
+	
+Tick: 1560	In ReorientTowardsWall
+	Current position: 3.0182,-0.761402
+	Current heading: CDegrees(-102.879)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80224 -> -103.261 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0363989
+	Normal displacement local (angle): CRadians(-1.5629 -> -89.5478 degrees)
+	Normal displacement local (length): 0.0363989
+	
+Tick: 1560	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.5478)
+	Final cNormal (length): 0.0363989
+	cTangential (angle): CDegrees(0.452223)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.452223)
+	cProjectedFlockingVector (length): 2.19532
+	cCombinedVector (angle): CDegrees(0.00806596)
+	cCombinedVector (length): 4.69547
+	
+Tick: 1560	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(0.00806596)
+	fHeadingLength: 4.69547
+	Turning Mechanism: 0
+	
+Tick: 1570	In ReorientTowardsWall
+	Current position: 3.00858,-0.80346
+	Current heading: CDegrees(-102.879)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80185 -> -103.238 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0354201
+	Normal displacement local (angle): CRadians(-1.5629 -> -89.5478 degrees)
+	Normal displacement local (length): 0.0354201
+	
+Tick: 1570	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.5478)
+	Final cNormal (length): 0.0354201
+	cTangential (angle): CDegrees(0.452223)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.452223)
+	cProjectedFlockingVector (length): 1.3541
+	cCombinedVector (angle): CDegrees(-0.0743237)
+	cCombinedVector (length): 3.85427
+	
+Tick: 1570	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.0743237)
+	fHeadingLength: 3.85427
+	Turning Mechanism: 0
+	
+Tick: 1580	In ReorientTowardsWall
+	Current position: 3.00114,-0.835992
+	Current heading: CDegrees(-102.913)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80158 -> -103.223 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0347556
+	Normal displacement local (angle): CRadians(-1.56231 -> -89.5137 degrees)
+	Normal displacement local (length): 0.0347556
+	
+Tick: 1580	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.5137)
+	Final cNormal (length): 0.0347556
+	cTangential (angle): CDegrees(0.486278)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.486278)
+	cProjectedFlockingVector (length): 0.477764
+	cCombinedVector (angle): CDegrees(-0.18243)
+	cCombinedVector (length): 2.97797
+	
+Tick: 1580	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.18243)
+	fHeadingLength: 2.97797
+	Turning Mechanism: 1
+	
+Tick: 1590	In ReorientTowardsWall
+	Current position: 2.99483,-0.863449
+	Current heading: CDegrees(-102.963)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80141 -> -103.213 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0343095
+	Normal displacement local (angle): CRadians(-1.56144 -> -89.4638 degrees)
+	Normal displacement local (length): 0.0343095
+	
+Tick: 1590	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.4638)
+	Final cNormal (length): 0.0343095
+	cTangential (angle): CDegrees(0.536227)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(0.536227)
+	cProjectedFlockingVector (length): 0.129685
+	cCombinedVector (angle): CDegrees(-0.211269)
+	cCombinedVector (length): 2.62991
+	
+Tick: 1590	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.211269)
+	fHeadingLength: 2.62991
+	Turning Mechanism: 1
+	
+Tick: 1600	In ReorientTowardsWall
+	Current position: 2.98924,-0.887695
+	Current heading: CDegrees(-103.015)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80128 -> -103.206 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0340079
+	Normal displacement local (angle): CRadians(-1.56053 -> -89.412 degrees)
+	Normal displacement local (length): 0.0340079
+	
+Tick: 1600	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.412)
+	Final cNormal (length): 0.0340079
+	cTangential (angle): CDegrees(0.587956)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.412)
+	cProjectedFlockingVector (length): 0.189641
+	cCombinedVector (angle): CDegrees(-0.255362)
+	cCombinedVector (length): 2.31061
+	
+Tick: 1600	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.255362)
+	fHeadingLength: 2.31061
+	Turning Mechanism: 1
+	
+Tick: 1610	In ReorientTowardsWall
+	Current position: 2.98432,-0.908928
+	Current heading: CDegrees(-103.07)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80121 -> -103.202 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0338183
+	Normal displacement local (angle): CRadians(-1.55957 -> -89.3565 degrees)
+	Normal displacement local (length): 0.0338183
+	
+Tick: 1610	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.3565)
+	Final cNormal (length): 0.0338183
+	cTangential (angle): CDegrees(0.643499)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.357)
+	cProjectedFlockingVector (length): 0.480945
+	cCombinedVector (angle): CDegrees(-0.316091)
+	cCombinedVector (length): 2.01934
+	
+Tick: 1610	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.316091)
+	fHeadingLength: 2.01934
+	Turning Mechanism: 1
+	
+Tick: 1620	In ReorientTowardsWall
+	Current position: 2.98001,-0.927461
+	Current heading: CDegrees(-103.13)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80117 -> -103.199 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.033716
+	Normal displacement local (angle): CRadians(-1.55851 -> -89.2963 degrees)
+	Normal displacement local (length): 0.033716
+	
+Tick: 1620	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.2963)
+	Final cNormal (length): 0.033716
+	cTangential (angle): CDegrees(0.703713)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.296)
+	cProjectedFlockingVector (length): 0.739861
+	cCombinedVector (angle): CDegrees(-0.393672)
+	cCombinedVector (length): 1.76046
+	
+Tick: 1620	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.393672)
+	fHeadingLength: 1.76046
+	Turning Mechanism: 1
+	
+Tick: 1630	In ReorientTowardsWall
+	Current position: 2.97624,-0.943607
+	Current heading: CDegrees(-103.196)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80115 -> -103.199 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0336819
+	Normal displacement local (angle): CRadians(-1.55737 -> -89.231 degrees)
+	Normal displacement local (length): 0.0336819
+	
+Tick: 1630	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.231)
+	Final cNormal (length): 0.0336819
+	cTangential (angle): CDegrees(0.769031)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.231)
+	cProjectedFlockingVector (length): 0.967106
+	cCombinedVector (angle): CDegrees(-0.489712)
+	cCombinedVector (length): 1.53326
+	
+Tick: 1630	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.489712)
+	fHeadingLength: 1.53326
+	Turning Mechanism: 1
+	
+Tick: 1640	In ReorientTowardsWall
+	Current position: 2.97293,-0.957669
+	Current heading: CDegrees(-103.266)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80116 -> -103.199 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0337009
+	Normal displacement local (angle): CRadians(-1.55614 -> -89.1604 degrees)
+	Normal displacement local (length): 0.0337009
+	
+Tick: 1640	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.1604)
+	Final cNormal (length): 0.0337009
+	cTangential (angle): CDegrees(0.839634)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.16)
+	cProjectedFlockingVector (length): 1.16337
+	cCombinedVector (angle): CDegrees(-0.604678)
+	cCombinedVector (length): 1.33705
+	
+Tick: 1640	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.604678)
+	fHeadingLength: 1.33705
+	Turning Mechanism: 1
+	
+Tick: 1650	In ReorientTowardsWall
+	Current position: 2.97003,-0.969942
+	Current heading: CDegrees(-103.342)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80119 -> -103.2 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0337613
+	Normal displacement local (angle): CRadians(-1.55482 -> -89.0846 degrees)
+	Normal displacement local (length): 0.0337613
+	
+Tick: 1650	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.0846)
+	Final cNormal (length): 0.0337613
+	cTangential (angle): CDegrees(0.915404)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.085)
+	cProjectedFlockingVector (length): 1.33029
+	cCombinedVector (angle): CDegrees(-0.737859)
+	cCombinedVector (length): 1.1702
+	
+Tick: 1650	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.737859)
+	fHeadingLength: 1.1702
+	Turning Mechanism: 1
+	
+Tick: 1660	In ReorientTowardsWall
+	Current position: 2.96747,-0.98072
+	Current heading: CDegrees(-103.422)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80122 -> -103.202 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.033854
+	Normal displacement local (angle): CRadians(-1.55342 -> -89.0041 degrees)
+	Normal displacement local (length): 0.033854
+	
+Tick: 1660	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-89.0041)
+	Final cNormal (length): 0.033854
+	cTangential (angle): CDegrees(0.995873)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-179.004)
+	cProjectedFlockingVector (length): 1.46654
+	cCombinedVector (angle): CDegrees(-0.880342)
+	cCombinedVector (length): 1.03402
+	
+Tick: 1660	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-0.880342)
+	fHeadingLength: 1.03402
+	Turning Mechanism: 1
+	
+Tick: 1670	In ReorientTowardsWall
+	Current position: 2.96518,-0.990291
+	Current heading: CDegrees(-103.507)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80127 -> -103.205 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0339726
+	Normal displacement local (angle): CRadians(-1.55194 -> -88.9198 degrees)
+	Normal displacement local (length): 0.0339726
+	
+Tick: 1670	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-88.9198)
+	Final cNormal (length): 0.0339726
+	cTangential (angle): CDegrees(1.08022)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-178.92)
+	cProjectedFlockingVector (length): 1.57537
+	cCombinedVector (angle): CDegrees(-1.02399)
+	cCombinedVector (length): 0.925253
+	
+Tick: 1670	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.02399)
+	fHeadingLength: 0.925253
+	Turning Mechanism: 1
+	
+Tick: 1680	In ReorientTowardsWall
+	Current position: 2.9631,-0.99891
+	Current heading: CDegrees(-103.594)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80133 -> -103.208 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0341129
+	Normal displacement local (angle): CRadians(-1.55042 -> -88.8325 degrees)
+	Normal displacement local (length): 0.0341129
+	
+Tick: 1680	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-88.8325)
+	Final cNormal (length): 0.0341129
+	cTangential (angle): CDegrees(1.16749)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-178.833)
+	cProjectedFlockingVector (length): 1.65964
+	cCombinedVector (angle): CDegrees(-1.15705)
+	cCombinedVector (length): 0.841052
+	
+Tick: 1680	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.15705)
+	fHeadingLength: 0.841052
+	Turning Mechanism: 1
+	
+Tick: 1690	In ReorientTowardsWall
+	Current position: 2.96119,-1.00679
+	Current heading: CDegrees(-103.683)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80139 -> -103.212 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0342719
+	Normal displacement local (angle): CRadians(-1.54886 -> -88.7433 degrees)
+	Normal displacement local (length): 0.0342719
+	
+Tick: 1690	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-88.7433)
+	Final cNormal (length): 0.0342719
+	cTangential (angle): CDegrees(1.25672)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-178.743)
+	cProjectedFlockingVector (length): 1.72498
+	cCombinedVector (angle): CDegrees(-1.27528)
+	cCombinedVector (length): 0.77578
+	
+Tick: 1690	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.27528)
+	fHeadingLength: 0.77578
+	Turning Mechanism: 1
+	
+Tick: 1700	In ReorientTowardsWall
+	Current position: 2.95941,-1.01411
+	Current heading: CDegrees(-103.774)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80146 -> -103.216 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0344484
+	Normal displacement local (angle): CRadians(-1.54729 -> -88.653 degrees)
+	Normal displacement local (length): 0.0344484
+	
+Tick: 1700	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-88.653)
+	Final cNormal (length): 0.0344484
+	cTangential (angle): CDegrees(1.34697)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-178.653)
+	cProjectedFlockingVector (length): 1.77298
+	cCombinedVector (angle): CDegrees(-1.36584)
+	cCombinedVector (length): 0.727836
+	
+Tick: 1700	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.36584)
+	fHeadingLength: 0.727836
+	Turning Mechanism: 1
+	
+Tick: 1710	In ReorientTowardsWall
+	Current position: 2.95771,-1.02102
+	Current heading: CDegrees(-103.864)
+	Last vector to wall (local): CDegrees(172.5)
+	Last wall contact heading: CDegrees(-4.9266)
+	cNormal_Global: CDegrees(167.573)
+	Last wall contact position: 3.17681,-0.0883664
+	Vector to last position (angle): CRadians(-1.80154 -> -103.221 degrees)
+	Vector to last position (length): 2.5
+	Normal displacement global (angle): CRadians(2.92471 -> 167.573 degrees)
+	Normal displacement global (length): 0.0346419
+	Normal displacement local (angle): CRadians(-1.54571 -> -88.5628 degrees)
+	Normal displacement local (length): 0.0346419
+	
+Tick: 1710	In CalculateTangentialMovement
+	Off wall: 1
+	Final cNormal (angle): CDegrees(-88.5628)
+	Final cNormal (length): 0.0346419
+	cTangential (angle): CDegrees(1.43719)
+	cTangential (length): 2.5
+	cProjectedFlockingVector (angle): CDegrees(-178.563)
+	cProjectedFlockingVector (length): 1.8056
+	cCombinedVector (angle): CDegrees(-1.41878)
+	cCombinedVector (length): 0.695265
+	
+Tick: 1710	In SetWheelSpeedsFromVector
+	cHeadingAngle: CDegrees(-1.41878)
+	fHeadingLength: 0.695265
+	Turning Mechanism: 1
+	
