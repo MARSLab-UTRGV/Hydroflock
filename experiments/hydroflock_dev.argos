@@ -25,19 +25,19 @@
             </params>
         </footbot_hydroflock_controller>
     </controllers>
-    <arena size="10,15,10" center="0,0,0.5">
+    <arena size="8,15,10" center="0,0,0.5">
         <light id="light" position="0,4.5,5" orientation="0,0,0" color="yellow" intensity="5.0" medium="leds"/>
-        <box id="wall_north" size="10.1,0.1,1.0" movable="false">
+        <box id="wall_north" size="8.1,0.1,1.0" movable="false">
             <body position="0,7.5,0" orientation="0,0,0"/>
         </box>
-        <box id="wall_south" size="10.1,0.1,1.0" movable="false">
+        <box id="wall_south" size="8.1,0.1,1.0" movable="false">
             <body position="0,-7.5,0" orientation="0,0,0"/>
         </box>
         <box id="wall_east" size="0.1,15.0,1.0" movable="false">
-            <body position="5.0,0,0" orientation="0,0,0"/>
+            <body position="4.0,0,0" orientation="0,0,0"/>
         </box>
         <box id="wall_west" size="0.1,15.0,1.0" movable="false">
-            <body position="-5.0,0,0" orientation="0,0,0"/>
+            <body position="-4.0,0,0" orientation="0,0,0"/>
         </box>
         <distribute>
             <position method="uniform" min="-1.5,-3,0" max="-0.5,-2,0"/>
@@ -48,8 +48,8 @@
                 </foot-bot>
             </entity>
         </distribute>
-        <box id="wall_middle" size="8.0,0.1,1.0" movable="false">
-            <body position="-1.0,0,0" orientation="0,0,0"/>
+        <box id="wall_middle" size="6.4,0.1,1.0" movable="false">
+            <body position="-0.7999999999999998,0,0" orientation="0,0,0"/>
         </box>
     </arena>
     <physics_engines>

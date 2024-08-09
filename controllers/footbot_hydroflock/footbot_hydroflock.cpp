@@ -323,7 +323,7 @@ bool CFootBotHydroflock::RobotInProximity(const CRadians& f_cProximityAngle){
 
    // Filter out blobs that are not within range of the proximity sensor
    for (const auto& blob : sBlobList){
-      if (blob->Distance < 30){  // footbot radius is 17cm and max proximity sensor range is 10cm. I added 3cm for safety...
+      if (blob->Distance < 30){  // footbot diameter is 17cm and max proximity sensor range is 10cm. I added 3cm for safety...
          sFilterdBlobs.push_back(blob);
       }
    }
@@ -419,6 +419,25 @@ CVector2 CFootBotHydroflock::VectorToWall(){
    std::stringstream logstream;
 
    const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
+
+   AddWallPoints(tProxReads); //TODO: //!Not sure if i should do this here but it should work here for now...
+
+   logstream << "Current Position: " << GetCurrentPosition() << std::endl;
+   logstream << "Raw Wall Points: ";
+   std::queue<CVector2> qWallPointsTmp = m_qRawWallPoints;
+   while (!qWallPointsTmp.empty()){
+      logstream << qWallPointsTmp.front() << " ";
+      qWallPointsTmp.pop();
+   }
+   logstream << std::endl;
+   logstream << "Avg Wall Points: ";
+   std::queue<CVector2> qAvgWallPointsTmp = m_qAvgWallPoints;
+   while (!qAvgWallPointsTmp.empty()){
+      logstream << qAvgWallPointsTmp.front() << " ";
+      qAvgWallPointsTmp.pop();
+   }
+   logstream << std::endl;
+
    CVector2 cWallVector;
    bool bPrintSensor = false;
    size_t count = 0;
@@ -493,6 +512,102 @@ CVector2 CFootBotHydroflock::ReorientTowardsWall(){
 
    if (m_bLoggingEnabled) LOG(logstream.str());
    return cNormalDisplacement;
+}
+
+void CFootBotHydroflock::AddWallPoints(const CCI_FootBotProximitySensor::TReadings& f_cProximityReadings){
+
+   CVector2 cWallVector;
+   CRadians cWallVectorAngle;
+   Real fWallVectorValue = 0;
+   size_t count = 0;
+
+   for (size_t i = 0; i < f_cProximityReadings.size(); ++i){
+      if (f_cProximityReadings[i].Value > 0.0f){
+
+         CRadians cAngle = f_cProximityReadings[i].Angle;
+         Real fValue = f_cProximityReadings[i].Value;
+         cWallVectorAngle += cAngle;
+         count++;
+         
+         if (fValue > fWallVectorValue) {
+            fWallVectorValue = fValue;
+         }
+         
+         
+         /**
+          * Convert the sensor value to a distance value (max distance is 10cm) in cm. 
+          * Sensor values range from 0 to 1 so we multiply by 10 to scale this to 0cm to 10cm.
+          * The sensor value is inversely proportional to the distance so we subtract the value from 10 to get the distance. (e.g. 1 is touching and 0 is 10cm away, < 0 is no detection)
+          * 
+          * We add 8.5 to the distance value to get the distance from the center of the robot to the wall.
+          * 
+          * We divide the distance by 100 to convert it to meters.
+          */
+         Real fDistance = 10 - (fValue * 10); 
+         fDistance += 8.5;
+         fDistance /= 100.0f;
+
+         CVector2 cCurrentPosition = GetCurrentPosition();
+         CRadians cCurrentHeading = GetOrientation();
+
+         /** 
+          * Get the point on the wall in the robots frame of reference
+         */
+         Real cPointLocalX = fDistance * Cos(cAngle);
+         Real cPointLocalY = fDistance * Sin(cAngle);
+
+         /**
+          * Translate into the global frame of reference
+          * 
+          * Rotate the point to the global frame of reference using a rotation matrix     [   cos(theta) -sin(theta)  ] 
+          *                                                                               [   sin(theta)  cos(theta)  ]
+          * The point is rotated by the current heading of the robot.
+          */
+
+         Real cXRotated = cPointLocalX * Cos(cCurrentHeading) - cPointLocalY * Sin(cCurrentHeading);  // x' = xcos(theta) - ysin(theta)
+         Real cYRotated = cPointLocalX * Sin(cCurrentHeading) + cPointLocalY * Cos(cCurrentHeading);  // y' = xsin(theta) + ycos(theta)
+
+         /**
+          * Translate the point to the global frame of reference by adding the current position of the robot.
+          */
+         Real cPointGobalX = cXRotated + cCurrentPosition.GetX(); // x'' = x' + x0
+         Real cPointGobalY = cYRotated + cCurrentPosition.GetY(); // y'' = y' + y0
+
+         CVector2 cPoint(cPointGobalX, cPointGobalY);
+
+         m_qRawWallPoints.push(cPoint);  // Add the point to the list (queue) of wall points
+
+         if (m_qRawWallPoints.size() > m_unMaxWallPoints) m_qRawWallPoints.pop();  // Remove the oldest point if the queue exceeds the maximum size
+      }
+   }
+   
+   if (count > 0){
+      cWallVectorAngle /= count;
+      cWallVector = CVector2(fWallVectorValue, cWallVectorAngle);
+      CRadians cAngle = cWallVector.Angle();
+      Real cValue = cWallVector.Length();
+      
+      Real fDistance = 10 - (cValue * 10);
+      fDistance += 8.5;
+      fDistance /= 100.0f;
+
+      CVector2 cCurrentPosition = GetCurrentPosition();
+      CRadians cCurrentHeading = GetOrientation();
+
+      Real cPointLocalX = fDistance * Cos(cAngle);
+      Real cPointLocalY = fDistance * Sin(cAngle);
+      Real cXRotated = cPointLocalX * Cos(cCurrentHeading) - cPointLocalY * Sin(cCurrentHeading);
+      Real cYRotated = cPointLocalX * Sin(cCurrentHeading) + cPointLocalY * Cos(cCurrentHeading);
+      Real cPointGobalX = cXRotated + cCurrentPosition.GetX();
+      Real cPointGobalY = cYRotated + cCurrentPosition.GetY();
+
+      CVector2 cPoint(cPointGobalX, cPointGobalY);
+
+      m_qAvgWallPoints.push(cPoint);
+
+      if (m_qAvgWallPoints.size() > m_unMaxWallPoints) m_qAvgWallPoints.pop();
+   } 
+
 }
 
 CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFlockingVector) {
@@ -580,8 +695,6 @@ CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFloc
    return cCombinedVector;
 }
 
-
-
 bool CFootBotHydroflock::CornerDetected(){
    
    if (OuterCornerDetected() || InnerCornerDetected()){
@@ -593,48 +706,9 @@ bool CFootBotHydroflock::CornerDetected(){
 
 bool CFootBotHydroflock::OuterCornerDetected(){
 
-   //TODO: Transition to gradient-based approach for outer corner detection
-   /**
-    * * Empirical testing through plotting collected data on the gradients of the proximity sensor readings
-    */
-
-   /**
-    * Current implementation is a straightforward approach checking if sensors facing the wall (previously non-zero)
-    * become zero while other relevant sensors are still non-zero.
-    * 
-    * 
-    *                 _______________________________    /
-    *        Wall--> |_______________________________|  /
-    *                                              \   /  <-- Sensor facing wall (value: zero)
-    *      Sensor facing wall (value: non-zero)-->  \ /
-    *                                                X  <-- Robot
-    */
    
-   const CCI_FootBotProximitySensor::TReadings& tProxReads = m_pcProximity->GetReadings();
-   std::vector<size_t> vRelevantSensors = GetRelevantProximitySensors(VectorToWall());  // The relevant sensors are those facing the wall
-   bool bCornerDetected = false;
 
-   // loop through the relevant sensors
-   for (size_t i : vRelevantSensors) {
-      // Check if the current sensor reading is zero and the previous was non-zero
-      if (m_vecPreviousProximityReadings[i] > 0.0f && tProxReads[i].Value == 0.0f) {
-            size_t nextIndex = (i + 1) % tProxReads.size();    // Get the index of the next sensor (goes back to 0 if at the end)
-            size_t prevIndex = (i == 0) ? tProxReads.size() - 1 : i - 1;   // Get the index of the previous sensor (goes to the last index if at 0)
-
-            // Check if adjacent sensors still have non-zero readings
-            if (tProxReads[nextIndex].Value > 0.0f || tProxReads[prevIndex].Value > 0.0f) {
-               bCornerDetected = true;
-               break;
-            }
-      }
-   }
-
-   // Update previous readings
-   for (size_t i : vRelevantSensors) {
-      m_vecPreviousProximityReadings[i] = tProxReads[i].Value;
-   }
-
-   return bCornerDetected;
+   return false;
 
 }
 
@@ -799,42 +873,45 @@ void CFootBotHydroflock::StateUpdater(){
          //    m_bPrintState = false;
          //    SetFlockingState(AGGREGATEE);
          
-         // }
-         // } else if (OuterCornerDetected()){
+         // } else 
+         if (OuterCornerDetected()){
 
-         //    if (TargetVectorUnobstructed()){
+            // if (TargetVectorUnobstructed()){
 
-         //       m_bPrintState = false;
-         //       SetFlockingState(AGGREGATOR);
+            //    m_bPrintState = false;
+            //    SetFlockingState(AGGREGATOR);
 
-         //    } else {
-         //       //TODO: Need to navigate flock around corner
-         //    }
-         //    if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG << "Outer corner detected" << std::endl;
-         // } else if (InnerCornerDetected()){
+            // } else {
+            //    //TODO: Need to navigate flock around corner
+            // }
 
-         //    //TODO: Compute new tangent vector here or in CalculateTangentialMovement()?
-         //    if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG << "Inner corner detected" << std::endl;
+            logstream << "Detected outer corner: " << std::endl;  
+         
+         } 
+         // else if (InnerCornerDetected()){
+
+         //    logstream << "Detected inner corner: " << std::endl;
+
+         
          // } 
          // else if (m_bReachedTargetDistanceFromNeighbors){
 
          //    m_bPrintState = false;
          //    SetFlockingState(WALL_FOLLOWING);
-         //    if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG << "Reached target distance from neighbors" << std::endl;
+         
          // } 
-         // else {
+         else {
             SetFlockingState(WALL_DISPERSION);
-            // if (GetId() == "fb2" && m_unTicks % 20 == 0) LOG << "test" << std::endl;
-         // }
-         // else {
-         //    LOGERR << GetId() << " Error: No state transition detected in WALL_DISPERSION state" << std::endl;
-         // }
+         }
+         
          break;
 
       default:
          break;
    }
+
    if(m_bLoggingEnabled) LOG(logstream.str());
+   // LOG << GetId() << ": " << logstream.str() << std::endl;
 }
 
 void CFootBotHydroflock::GetNeighborStates(){

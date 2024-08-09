@@ -336,6 +336,11 @@ private:
    /* Vector of previous proximity readings used for corner detection */
    std::vector<Real> m_vecPreviousProximityReadings;
 
+   std::queue<CVector2> m_qRawWallPoints;
+   std::queue<CVector2> m_qAvgWallPoints;
+   const size_t m_unMaxWallPoints = 100;
+   void AddWallPoints(const CCI_FootBotProximitySensor::TReadings& f_cProximityReadings);
+
 
    /**
     * * Log File Stuff
