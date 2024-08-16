@@ -28,7 +28,7 @@ ARGOS_FORCE_NO_QTOPENGL:BOOL=OFF
 ARGOS_INCLUDE_DIRS:STRING=/usr/local/include;/usr/include;/usr/include/Headers;/usr/include/x86_64-linux-gnu/qt5/;/usr/include/x86_64-linux-gnu/qt5/QtWidgets;/usr/include/x86_64-linux-gnu/qt5/QtGui;/usr/include/x86_64-linux-gnu/qt5/QtCore;/usr/lib/x86_64-linux-gnu/qt5//mkspecs/linux-g++;/usr/include/lua5.3
 
 //The linker flags to compile ARGoS code
-ARGOS_LDFLAGS:STRING=/usr/lib/x86_64-linux-gnu/libdl.so;/usr/lib/x86_64-linux-gnu/libpthread.so;/usr/lib/x86_64-linux-gnu/libfreeimage.so;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;/usr/lib/x86_64-linux-gnu/libGL.so;/usr/lib/x86_64-linux-gnu/libGLU.so;/usr/lib/x86_64-linux-gnu/libglut.so;/usr/lib/x86_64-linux-gnu/libXmu.so;/usr/lib/x86_64-linux-gnu/libXi.so;Qt5::Widgets;Qt5::Gui;/usr/lib/x86_64-linux-gnu/liblua5.3.so;/usr/lib/x86_64-linux-gnu/libm.so;/usr/lib/x86_64-linux-gnu/libdl.so;/usr/lib/x86_64-linux-gnu/libpthread.so;/usr/lib/x86_64-linux-gnu/libfreeimage.so;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;/usr/lib/x86_64-linux-gnu/libGL.so;/usr/lib/x86_64-linux-gnu/libGLU.so;/usr/lib/x86_64-linux-gnu/libglut.so;/usr/lib/x86_64-linux-gnu/libXmu.so;/usr/lib/x86_64-linux-gnu/libXi.so;Qt5::Widgets;Qt5::Gui;/usr/lib/x86_64-linux-gnu/liblua5.3.so;/usr/lib/x86_64-linux-gnu/libm.so
+ARGOS_LDFLAGS:STRING=/usr/lib/x86_64-linux-gnu/libdl.so;/usr/lib/x86_64-linux-gnu/libpthread.so;/usr/lib/x86_64-linux-gnu/libfreeimage.so;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;/usr/lib/x86_64-linux-gnu/libGL.so;/usr/lib/x86_64-linux-gnu/libGLU.so;/usr/lib/x86_64-linux-gnu/libglut.so;/usr/lib/x86_64-linux-gnu/libXmu.so;/usr/lib/x86_64-linux-gnu/libXi.so;Qt5::Widgets;Qt5::Gui;/usr/lib/x86_64-linux-gnu/liblua5.3.so;/usr/lib/x86_64-linux-gnu/libm.so
 
 //Path to a library.
 ARGOS_LIBRARY:FILEPATH=/usr/local/lib/argos3/libargos3core_simulator.so
@@ -47,20 +47,24 @@ ARGOS_QTOPENGL_LIBRARIES:STRING=/usr/lib/x86_64-linux-gnu/libGL.so;/usr/lib/x86_
 //The directory containing a CMake configuration file for ARGoS.
 ARGoS_DIR:PATH=/usr/local/share/argos3/cmake
 
+//No help, variable specified on the command line.
+BUILD_EVOLVER:UNINITIALIZED=NO
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
-//No help, variable specified on the command line.
+//Choose the type of build, options are: None Debug Release RelWithDebInfo
+// MinSizeRel ...
 CMAKE_BUILD_TYPE:STRING=Debug
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++
+//CXX compiler
+CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -85,8 +89,8 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc
+//C compiler
+CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -129,8 +133,8 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
-//No help, variable specified on the command line.
-CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
+//Enable/Disable output of compile commands during generation.
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
@@ -280,6 +284,23 @@ GLUT_Xmu_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libXmu.so
 //Path to a library.
 GLUT_glut_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libglut.so
 
+//Path to a library.
+GSL_CBLAS_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libgslcblas.so
+
+//Path to a library.
+GSL_CBLAS_LIBRARY_DEBUG:FILEPATH=/usr/lib/x86_64-linux-gnu/libgslcblas.so
+
+//Path to a file.
+GSL_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+GSL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libgsl.so
+
+//Path to a library.
+GSL_LIBRARY_DEBUG:FILEPATH=/usr/lib/x86_64-linux-gnu/libgsl.so
+
+GSL_ROOT_DIR:STRING=/usr
+
 //Path to a file.
 LUA_INCLUDE_DIR:PATH=/usr/include/lua5.3
 
@@ -316,6 +337,9 @@ OPENGL_opengl_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libOpenGL.so
 //Path to a file.
 OPENGL_xmesa_INCLUDE_DIR:PATH=OPENGL_xmesa_INCLUDE_DIR-NOTFOUND
 
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
 //Path to a file.
 PTHREADS_INCLUDE_DIR:PATH=/usr/include
 
@@ -347,16 +371,25 @@ argos3_examples_BINARY_DIR:STATIC=/home/rluna319/Argos_Projects/Hydroflock/build
 argos3_examples_SOURCE_DIR:STATIC=/home/rluna319/Argos_Projects/Hydroflock
 
 //Dependencies for the target
-footbot_flocking_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;
+footbot_flocking_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;
 
 //Dependencies for the target
-footbot_hydroflock_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;general;rab_dsr;
+footbot_hydroflock_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;argos3core_simulator;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_genericrobot;general;rab_dsr;general;GSL::gsl;general;GSL::gslcblas;
 
 //Dependencies for the target
-hydroflock_loop_functions_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;argos3core_simulator;general;argos3plugin_simulator_entities;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_qtopengl;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;
+hydroflock_loop_functions_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;argos3core_simulator;general;argos3plugin_simulator_entities;general;argos3plugin_simulator_footbot;general;argos3plugin_simulator_qtopengl;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;
+
+//Path to a library.
+pkgcfg_lib_GSL_gsl:FILEPATH=/usr/lib/x86_64-linux-gnu/libgsl.so
+
+//Path to a library.
+pkgcfg_lib_GSL_gslcblas:FILEPATH=/usr/lib/x86_64-linux-gnu/libgslcblas.so
+
+//Path to a library.
+pkgcfg_lib_GSL_m:FILEPATH=/usr/lib/x86_64-linux-gnu/libm.so
 
 //Dependencies for the target
-rab_dsr_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;
+rab_dsr_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libfreeimage.so;general;/usr/lib/x86_64-linux-gnu/libfreeimageplus.so;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libXmu.so;general;/usr/lib/x86_64-linux-gnu/libXi.so;general;Qt5::Widgets;general;Qt5::Gui;general;/usr/lib/x86_64-linux-gnu/liblua5.3.so;general;/usr/lib/x86_64-linux-gnu/libm.so;
 
 
 ########################
@@ -520,10 +553,14 @@ DLFCN_LIBRARY-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_DLFCN:INTERNAL=[/usr/lib/x86_64-linux-gnu/libdl.so][/usr/include][v()]
 //Details about finding GLUT
 FIND_PACKAGE_MESSAGE_DETAILS_GLUT:INTERNAL=[/usr/lib/x86_64-linux-gnu/libglut.so][/usr/include][v()]
+//Details about finding GSL
+FIND_PACKAGE_MESSAGE_DETAILS_GSL:INTERNAL=[/usr/include][/usr/lib/x86_64-linux-gnu/libgsl.so][/usr/lib/x86_64-linux-gnu/libgslcblas.so][v2.5()]
 //Details about finding Lua
 FIND_PACKAGE_MESSAGE_DETAILS_Lua:INTERNAL=[/usr/lib/x86_64-linux-gnu/liblua5.3.so;/usr/lib/x86_64-linux-gnu/libm.so][/usr/include/lua5.3][v5.3.3()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libOpenGL.so][/usr/lib/x86_64-linux-gnu/libGLX.so][/usr/include][c ][v()]
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding Pthreads
 FIND_PACKAGE_MESSAGE_DETAILS_Pthreads:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpthread.so][/usr/include][v()]
 //ADVANCED property for variable: FREEIMAGE_BASE_INCLUDE_DIR
@@ -548,6 +585,55 @@ GLUT_Xi_LIBRARY-ADVANCED:INTERNAL=1
 GLUT_Xmu_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLUT_glut_LIBRARY
 GLUT_glut_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GSL_CBLAS_LIBRARY
+GSL_CBLAS_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GSL_CBLAS_LIBRARY_DEBUG
+GSL_CBLAS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+GSL_CFLAGS:INTERNAL=
+GSL_CFLAGS_I:INTERNAL=
+GSL_CFLAGS_OTHER:INTERNAL=
+GSL_FOUND:INTERNAL=1
+GSL_INCLUDEDIR:INTERNAL=/usr/include
+//ADVANCED property for variable: GSL_INCLUDE_DIR
+GSL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+GSL_INCLUDE_DIRS:INTERNAL=
+GSL_LDFLAGS:INTERNAL=-lgsl;-lgslcblas;-lm
+GSL_LDFLAGS_OTHER:INTERNAL=
+GSL_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+GSL_LIBRARIES:INTERNAL=gsl;gslcblas;m
+//ADVANCED property for variable: GSL_LIBRARY
+GSL_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GSL_LIBRARY_DEBUG
+GSL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+GSL_LIBRARY_DIRS:INTERNAL=
+GSL_LIBS:INTERNAL=
+GSL_LIBS_L:INTERNAL=
+GSL_LIBS_OTHER:INTERNAL=
+GSL_LIBS_PATHS:INTERNAL=
+GSL_MODULE_NAME:INTERNAL=gsl
+GSL_PREFIX:INTERNAL=/usr
+//ADVANCED property for variable: GSL_ROOT_DIR
+GSL_ROOT_DIR-ADVANCED:INTERNAL=1
+GSL_STATIC_CFLAGS:INTERNAL=
+GSL_STATIC_CFLAGS_I:INTERNAL=
+GSL_STATIC_CFLAGS_OTHER:INTERNAL=
+GSL_STATIC_INCLUDE_DIRS:INTERNAL=
+GSL_STATIC_LDFLAGS:INTERNAL=-lgsl;-lgslcblas;-lm
+GSL_STATIC_LDFLAGS_OTHER:INTERNAL=
+GSL_STATIC_LIBDIR:INTERNAL=
+GSL_STATIC_LIBRARIES:INTERNAL=gsl;gslcblas;m
+GSL_STATIC_LIBRARY_DIRS:INTERNAL=
+GSL_STATIC_LIBS:INTERNAL=
+GSL_STATIC_LIBS_L:INTERNAL=
+GSL_STATIC_LIBS_OTHER:INTERNAL=
+GSL_STATIC_LIBS_PATHS:INTERNAL=
+//ADVANCED property for variable: GSL_VERSION
+GSL_VERSION-ADVANCED:INTERNAL=1
+GSL_VERSION:INTERNAL=2.5
+GSL_gsl_INCLUDEDIR:INTERNAL=
+GSL_gsl_LIBDIR:INTERNAL=
+GSL_gsl_PREFIX:INTERNAL=
+GSL_gsl_VERSION:INTERNAL=
 //ADVANCED property for variable: LUA_INCLUDE_DIR
 LUA_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: LUA_LIBRARY
@@ -572,8 +658,19 @@ OPENGL_glx_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_opengl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_xmesa_INCLUDE_DIR
 OPENGL_xmesa_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PTHREADS_INCLUDE_DIR
 PTHREADS_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PTHREADS_LIBRARY
 PTHREADS_LIBRARY-ADVANCED:INTERNAL=1
+__pkg_config_arguments_GSL:INTERNAL=QUIET;gsl
+__pkg_config_checked_GSL:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GSL_gsl
+pkgcfg_lib_GSL_gsl-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GSL_gslcblas
+pkgcfg_lib_GSL_gslcblas-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GSL_m
+pkgcfg_lib_GSL_m-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu
 

@@ -67,6 +67,8 @@ using namespace argos;
 #include <sys/stat.h>
 #include <unistd.h>
 #include <fstream>
+#include <gsl/gsl_fit.h>
+// #include "etl/circular_buffer.h" //TODO: Implement circular buffer for wall point list using ETL library
 
 #define LOG(str) LogThis(str, __FUNCTION__)
 
@@ -336,18 +338,25 @@ private:
    /* Vector of previous proximity readings used for corner detection */
    std::vector<Real> m_vecPreviousProximityReadings;
 
-   std::queue<CVector2> m_qRawWallPoints;
-   std::queue<CVector2> m_qAvgWallPoints;
-   const size_t m_unMaxWallPoints = 100;
+   /* To do Linear Regression and check for outer corner */
+   std::vector<CVector2> m_qAvgWallPoints;
+   size_t m_unMaxWallPoints = 100;  // maximum size of the dataset to do linear regression (can set in the .argos file)
    void AddWallPoints(const CCI_FootBotProximitySensor::TReadings& f_cProximityReadings);
-
+   Real m_fWallSlope;
+   Real m_fWallIntercept;
+   void DoLinearRegression();
+   bool m_bInitWallRegression = false;
+   size_t m_unRegressionFreq;    // frequency of doing linear regression computation in ticks (can set in the .argos file)
+   CVector2 m_cPreviousPosition;
+   size_t m_unUpdatePrevPosFreq; // frequency of updating the previous position in ticks (can set in the .argos file)
+   /***********************************************/
 
    /**
     * * Log File Stuff
     */
    bool m_bLoggingEnabled;
    std::ofstream m_Log;
-   size_t m_fLogFrequency;
+   size_t m_unLogFrequency;
    const std::string m_sLogPath = "./controllers/footbot_hydroflock/controller_logs/";
    std::string m_sLogFileExt = ".log";
    std::string m_sLogFilePath;

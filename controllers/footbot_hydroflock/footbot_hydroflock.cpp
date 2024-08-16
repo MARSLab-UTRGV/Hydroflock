@@ -72,7 +72,7 @@ void CFootBotHydroflock::LogInit(){
          exit(1);
       } else {
          LOG << "Log Directory: " << sLogDir << std::endl;
-         LOG << "Log Frequency: Every " << m_fLogFrequency << " tick(s)" << std::endl;
+         LOG << "Log Frequency: Every " << m_unLogFrequency << " tick(s)" << std::endl;
       }
 
    }
@@ -87,7 +87,7 @@ void CFootBotHydroflock::LogThis(const std::string& f_sMessage, const std::strin
       std::cerr << "Error opening log file: " << m_sLogFilePath << std::endl;
       exit(1);
    } else {
-      if (m_unTicks % m_fLogFrequency == 0 && !f_sMessage.empty()){
+      if (m_unTicks % m_unLogFrequency == 0 && !f_sMessage.empty()){
          std::string sHeader = "Tick: " + std::to_string(m_unTicks) + "\tIn " + f_sFunctionName + "\n";
 
          std::string sModString = sHeader + f_sMessage;
@@ -131,7 +131,12 @@ CFootBotHydroflock::CFootBotHydroflock() :
    m_cLastVectorToWall(CVector2()),
    m_cAlpha(20.0),
    m_bReachedTargetDistanceFromNeighbors(false),
-   m_fLogFrequency(1){}
+   m_unLogFrequency(1),
+   m_fWallSlope(0.0),
+   m_fWallIntercept(0.0),
+   m_unMaxWallPoints(100),
+   m_unUpdatePrevPosFreq(10),
+   m_unRegressionFreq(10){}
 
 /****************************************/
 /****************************************/
@@ -182,7 +187,10 @@ void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
       GetNodeAttribute(tSettingsNode, "target_position", m_cTargetPosition);
       GetNodeAttribute(tSettingsNode, "AngleThresholdInDegrees", m_cAlpha);
       GetNodeAttribute(tSettingsNode, "EnableLogging", m_bLoggingEnabled);
-      GetNodeAttribute(tSettingsNode, "LogFrequency", m_fLogFrequency);
+      GetNodeAttribute(tSettingsNode, "LogFrequency", m_unLogFrequency);
+      GetNodeAttribute(tSettingsNode, "LinearRegressionFrequency", m_unRegressionFreq);
+      GetNodeAttribute(tSettingsNode, "MaxWallPoints", m_unMaxWallPoints);
+      GetNodeAttribute(tSettingsNode, "UpdatePreviousPositionFrequency", m_unUpdatePrevPosFreq);
    }
    catch(CARGoSException& ex) {
       THROW_ARGOSEXCEPTION_NESTED("Error parsing the controller parameters.", ex);
@@ -255,7 +263,7 @@ void CFootBotHydroflock::ControlStep() {
 
       StateUpdater();
    }
-   
+   if (m_unTicks % m_unUpdatePrevPosFreq == 0) m_cPreviousPosition = GetCurrentPosition(); // Update the previous position per the specified frequency
    m_unTicks++;
 }
 
@@ -414,7 +422,7 @@ CVector2 CFootBotHydroflock::ProjectVectorOnVector(const CVector2& f_cVectorA, c
    return cProjection;
 }
 
-CVector2 CFootBotHydroflock::VectorToWall(){
+CVector2 CFootBotHydroflock::VectorToWall(){       
 
    std::stringstream logstream;
 
@@ -423,19 +431,9 @@ CVector2 CFootBotHydroflock::VectorToWall(){
    AddWallPoints(tProxReads); //TODO: //!Not sure if i should do this here but it should work here for now...
 
    logstream << "Current Position: " << GetCurrentPosition() << std::endl;
-   logstream << "Raw Wall Points: ";
-   std::queue<CVector2> qWallPointsTmp = m_qRawWallPoints;
-   while (!qWallPointsTmp.empty()){
-      logstream << qWallPointsTmp.front() << " ";
-      qWallPointsTmp.pop();
-   }
    logstream << std::endl;
    logstream << "Avg Wall Points: ";
-   std::queue<CVector2> qAvgWallPointsTmp = m_qAvgWallPoints;
-   while (!qAvgWallPointsTmp.empty()){
-      logstream << qAvgWallPointsTmp.front() << " ";
-      qAvgWallPointsTmp.pop();
-   }
+   for (const auto& point : m_qAvgWallPoints) logstream << point.GetX() << "," << point.GetY() << " ";
    logstream << std::endl;
 
    CVector2 cWallVector;
@@ -486,7 +484,7 @@ CVector2 CFootBotHydroflock::ReorientTowardsWall(){
                << "cNormal_Global: "               << ToDegrees(cNormal_Global.Angle())      << std::endl;
 
    // Calculate the vector to the last wall contact position
-   CVector2 cVectorToLastPosition = cCurrentPosition - m_cLastWallContactPosition;
+   CVector2 cVectorToLastPosition = m_cLastWallContactPosition - cCurrentPosition;
    cVectorToLastPosition.Normalize();
    cVectorToLastPosition *= 0.25f * m_sWheelTurningParams.MaxSpeed;
 
@@ -511,103 +509,86 @@ CVector2 CFootBotHydroflock::ReorientTowardsWall(){
                << "Normal displacement local (length): " << cNormalDisplacement.Length()  << std::endl;
 
    if (m_bLoggingEnabled) LOG(logstream.str());
+   // if (GetId() == "fb4") LOG << logstream.str() << std::endl;
    return cNormalDisplacement;
 }
 
 void CFootBotHydroflock::AddWallPoints(const CCI_FootBotProximitySensor::TReadings& f_cProximityReadings){
 
    CVector2 cWallVector;
-   CRadians cWallVectorAngle;
-   Real fWallVectorValue = 0;
+   CRadians cSumOfAngles;
+   // Real fMaxSensorValue = 0;
+   Real fSumOfValues = 0;
    size_t count = 0;
 
+   /**
+    * Loop through proximity readings and only get the active ones
+    */
    for (size_t i = 0; i < f_cProximityReadings.size(); ++i){
       if (f_cProximityReadings[i].Value > 0.0f){
 
-         CRadians cAngle = f_cProximityReadings[i].Angle;
-         Real fValue = f_cProximityReadings[i].Value;
-         cWallVectorAngle += cAngle;
-         count++;
+         CRadians cAngle = f_cProximityReadings[i].Angle;   // Get the angle of the sensor
+         Real fValue = f_cProximityReadings[i].Value;       // Get the value of the sensor
+         cSumOfAngles += cAngle;                            // Add the angle to the sum of angles
+         fSumOfValues += fValue;                            // Add the value to the sum of values  //! Trying average instead of max...maybe the average will be more stable
+         count++;                                          // Increment the count of active sensors (used to get average angle)
+
          
-         if (fValue > fWallVectorValue) {
-            fWallVectorValue = fValue;
-         }
-         
-         
-         /**
-          * Convert the sensor value to a distance value (max distance is 10cm) in cm. 
-          * Sensor values range from 0 to 1 so we multiply by 10 to scale this to 0cm to 10cm.
-          * The sensor value is inversely proportional to the distance so we subtract the value from 10 to get the distance. (e.g. 1 is touching and 0 is 10cm away, < 0 is no detection)
-          * 
-          * We add 8.5 to the distance value to get the distance from the center of the robot to the wall.
-          * 
-          * We divide the distance by 100 to convert it to meters.
-          */
-         Real fDistance = 10 - (fValue * 10); 
-         fDistance += 8.5;
-         fDistance /= 100.0f;
-
-         CVector2 cCurrentPosition = GetCurrentPosition();
-         CRadians cCurrentHeading = GetOrientation();
-
-         /** 
-          * Get the point on the wall in the robots frame of reference
-         */
-         Real cPointLocalX = fDistance * Cos(cAngle);
-         Real cPointLocalY = fDistance * Sin(cAngle);
-
-         /**
-          * Translate into the global frame of reference
-          * 
-          * Rotate the point to the global frame of reference using a rotation matrix     [   cos(theta) -sin(theta)  ] 
-          *                                                                               [   sin(theta)  cos(theta)  ]
-          * The point is rotated by the current heading of the robot.
-          */
-
-         Real cXRotated = cPointLocalX * Cos(cCurrentHeading) - cPointLocalY * Sin(cCurrentHeading);  // x' = xcos(theta) - ysin(theta)
-         Real cYRotated = cPointLocalX * Sin(cCurrentHeading) + cPointLocalY * Cos(cCurrentHeading);  // y' = xsin(theta) + ycos(theta)
-
-         /**
-          * Translate the point to the global frame of reference by adding the current position of the robot.
-          */
-         Real cPointGobalX = cXRotated + cCurrentPosition.GetX(); // x'' = x' + x0
-         Real cPointGobalY = cYRotated + cCurrentPosition.GetY(); // y'' = y' + y0
-
-         CVector2 cPoint(cPointGobalX, cPointGobalY);
-
-         m_qRawWallPoints.push(cPoint);  // Add the point to the list (queue) of wall points
-
-         if (m_qRawWallPoints.size() > m_unMaxWallPoints) m_qRawWallPoints.pop();  // Remove the oldest point if the queue exceeds the maximum size
+         // if (fValue > fMaxSensorValue) {
+         //    fMaxSensorValue = fValue;                     // Only use the maximum sensor value
+         // }
       }
    }
    
    if (count > 0){
-      cWallVectorAngle /= count;
-      cWallVector = CVector2(fWallVectorValue, cWallVectorAngle);
-      CRadians cAngle = cWallVector.Angle();
-      Real cValue = cWallVector.Length();
+
+      CRadians cAngleAverage = cSumOfAngles / count;
       
-      Real fDistance = 10 - (cValue * 10);
-      fDistance += 8.5;
-      fDistance /= 100.0f;
+      /**
+       * Convert the sensor value to a distance value (max distance is 10cm) in cm. 
+       * Sensor values range from 0 to 1 so we multiply by 10 to scale this to 0cm to 10cm.
+       * The sensor value is inversely proportional to the distance so we subtract the value from 10 to get the distance. (e.g. 1 is touching and 0 is 10cm away, < 0 is no detection)
+       * 
+       * We add 8.5 to the distance value to get the distance from the center of the robot to the wall.
+       * 
+       * We divide the distance by 100 to convert it to meters.
+      */
+      // Real fDistance = 10 - (fMaxSensorValue * 10); // scale the sensor value to 0-10cm //! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      Real fDistance = 10 - (fSumOfValues * 10); // scale the sensor value to 0-10cm
+      fDistance += 8.5; // add the distance from the center of the robot to the sensor
+      fDistance /= 100.0f; // convert to meters
 
       CVector2 cCurrentPosition = GetCurrentPosition();
       CRadians cCurrentHeading = GetOrientation();
 
-      Real cPointLocalX = fDistance * Cos(cAngle);
-      Real cPointLocalY = fDistance * Sin(cAngle);
-      Real cXRotated = cPointLocalX * Cos(cCurrentHeading) - cPointLocalY * Sin(cCurrentHeading);
-      Real cYRotated = cPointLocalX * Sin(cCurrentHeading) + cPointLocalY * Cos(cCurrentHeading);
-      Real cPointGobalX = cXRotated + cCurrentPosition.GetX();
-      Real cPointGobalY = cYRotated + cCurrentPosition.GetY();
+      /**
+       * Get the point on the wall in the robot's frame of reference
+       */
+      Real cPointLocalX = fDistance * Cos(cAngleAverage);
+      Real cPointLocalY = fDistance * Sin(cAngleAverage);
+
+      /**
+       * Translate into the global frame of reference
+       * 
+       * Rotate the point to the global frame of reference using a rotation matrix     [   cos(theta) -sin(theta)  ] 
+       *                                                                               [   sin(theta)  cos(theta)  ]
+       * The point is rotated by the current heading of the robot.
+       */
+      Real cXRotated = cPointLocalX * Cos(cCurrentHeading) - cPointLocalY * Sin(cCurrentHeading); // x' = xcos(theta) - ysin(theta)
+      Real cYRotated = cPointLocalX * Sin(cCurrentHeading) + cPointLocalY * Cos(cCurrentHeading); // y' = xsin(theta) + ycos(theta)
+
+      /**
+       * Translate the point to the global frame of reference by adding the current position of the robot.
+       */
+      Real cPointGobalX = cXRotated + cCurrentPosition.GetX(); // x'' = x' + x0
+      Real cPointGobalY = cYRotated + cCurrentPosition.GetY(); // y'' = y' + y0
 
       CVector2 cPoint(cPointGobalX, cPointGobalY);
 
-      m_qAvgWallPoints.push(cPoint);
+      m_qAvgWallPoints.push_back(cPoint); // Add the point to the list (queue) of wall points
 
-      if (m_qAvgWallPoints.size() > m_unMaxWallPoints) m_qAvgWallPoints.pop();
+      if (m_qAvgWallPoints.size() > m_unMaxWallPoints) m_qAvgWallPoints.erase(m_qAvgWallPoints.begin()); // Remove the oldest point if the queue exceeds the maximum size
    } 
-
 }
 
 CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFlockingVector) {
@@ -691,7 +672,7 @@ CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFloc
 
 
    if(m_bLoggingEnabled) LOG(logstream.str());
-   if(GetId()=="fb4") LOG << logstream.str() << std::endl;
+   // if(GetId()=="fb4") LOG << logstream.str() << std::endl;
    return cCombinedVector;
 }
 
@@ -704,9 +685,66 @@ bool CFootBotHydroflock::CornerDetected(){
    return false;
 }
 
+void CFootBotHydroflock::DoLinearRegression(){
+
+   if (!m_bInitWallRegression) m_bInitWallRegression = true;
+
+   /**
+    * Separate the wall points into separate lists for x and y coordinates
+    * 
+    * This is needed to use the linear regression function in the GSL library
+    */
+   std::vector<Real> vXList, vYList;
+   for (const auto& point : m_qAvgWallPoints){
+      vXList.push_back(point.GetX());
+      vYList.push_back(point.GetY());
+   }
+
+   /**
+    * Intercept (c0): The y-intercept of the regression line.
+    * 
+    * Slope (c1): The slope of the regression line.
+    * 
+    * Variance and Covariance (cov00, cov01, cov11): These give information about the uncertainty in the slope and intercept.
+    * 
+    * Sum of Squares (sumsq): Indicates the overall error in the fit.
+    */
+   double m, b, cov00, cov01, cov11, sumsq;
+
+   // Calculate the linear regression of the wall points using the GSL library
+   gsl_fit_linear(vXList.data(), 1, vYList.data(), 1, m_qAvgWallPoints.size(), &m, &b, &cov00, &cov01, &cov11, &sumsq);
+
+   m_fWallSlope = m;        // Update slope of the regression line
+   m_fWallIntercept = b;    // Update intercept of the regression line
+}
+
 bool CFootBotHydroflock::OuterCornerDetected(){
 
-   
+   if (!m_bInitWallRegression){
+      DoLinearRegression();
+   } else if (m_unTicks % m_unRegressionFreq == 0){
+      DoLinearRegression();
+   }
+
+   /**
+    * Get the current and previous position of the robot
+    * 
+    * x1, y1: Previous position
+    * x2, y2: Current position
+    */
+   Real x1 = m_cPreviousPosition.GetX();
+   Real y1 = m_cPreviousPosition.GetY();
+   Real x2 = GetCurrentPosition().GetX();
+   Real y2 = GetCurrentPosition().GetY();
+
+   // Calculate the y values of the previous and current positions on the regression line
+   Real y1_on_line = m_fWallSlope * x1 + m_fWallIntercept;
+   Real y2_on_line = m_fWallSlope * x2 + m_fWallIntercept;
+
+   // Check for intersection
+   if ((y1 > y1_on_line && y2 < y2_on_line) || (y1 < y1_on_line && y2 > y2_on_line)) {
+        return true;
+   }
 
    return false;
 
@@ -782,6 +820,8 @@ bool CFootBotHydroflock::InnerCornerDetected(){
    return bCornerDetected;
 
 }
+
+
 
 /****************************************/
 /****************************************/
@@ -885,7 +925,8 @@ void CFootBotHydroflock::StateUpdater(){
             //    //TODO: Need to navigate flock around corner
             // }
 
-            logstream << "Detected outer corner: " << std::endl;  
+            logstream << "Detected outer corner: " << std::endl;
+            LOG << GetId() << ": Detected outer corner" << std::endl;
          
          } 
          // else if (InnerCornerDetected()){

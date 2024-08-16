@@ -4,4 +4,6 @@ target_link_libraries(footbot_hydroflock
   argos3core_simulator
   argos3plugin_simulator_footbot
   argos3plugin_simulator_genericrobot
-  rab_dsr)
+  rab_dsr
+  GSL::gsl
+  GSL::gslcblas)
