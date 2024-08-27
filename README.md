@@ -45,7 +45,7 @@ This project relies on several external libraries and tools. Ensure you have the
 2. **MLPack** - [GitHub](https://github.com/mlpack/mlpack)  
    Used for its DBSCAN implementation for clustering algorithms. <br>
 
-   > Note: There is a naming conflict between ARGoS and MLPack. (see [below]{#})
+   > Note: There is a naming conflict between ARGoS and MLPack. (see [below](#log-naming-conflict))
 
 3. **GNU Scientific Library (GSL)** - [Website](https://www.gnu.org/software/gsl/)  
    Utilized for linear regression and other numerical methods.
