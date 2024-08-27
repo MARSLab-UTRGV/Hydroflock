@@ -10,6 +10,7 @@
                 <differential_steering implementation="default"/>
                 <leds implementation="default" medium="leds"/>
                 <range_and_bearing implementation="default"/>
+                <footbot_distance_scanner implementation="default"/>
             </actuators>
             <sensors>
                 <footbot_light implementation="rot_z_only" show_rays="false"/>
@@ -17,6 +18,7 @@
                 <positioning implementation="default"/>
                 <range_and_bearing implementation="medium" medium="rab" show_rays="false"/>
                 <footbot_proximity implementation="default" show_rays="true"/>
+                <footbot_distance_scanner implementation="rot_z_only"/>
             </sensors>
             <params>
                 <wheel_turning hard_turn_angle_threshold="90" soft_turn_angle_threshold="70" no_turn_angle_threshold="0.1" max_speed="10"/>

@@ -69,6 +69,10 @@ argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_actuator.h
 -
 argos3/plugins/robots/foot-bot/control_interface/ci_footbot_proximity_sensor.h
 -
+argos3/plugins/robots/foot-bot/control_interface/ci_footbot_distance_scanner_actuator.h
+-
+argos3/plugins/robots/foot-bot/control_interface/ci_footbot_distance_scanner_sensor.h
+-
 rab_dsr.h
 -
 set
@@ -90,5 +94,9 @@ unistd.h
 fstream
 -
 gsl/gsl_fit.h
+-
+mlpack/core.hpp
+-
+mlpack/methods/dbscan/dbscan.hpp
 -
 

@@ -71,8 +71,8 @@ void CFootBotHydroflock::LogInit(){
          std::cerr << "Error creating directory: " << sLogDir << std::endl;
          exit(1);
       } else {
-         LOG << "Log Directory: " << sLogDir << std::endl;
-         LOG << "Log Frequency: Every " << m_unLogFrequency << " tick(s)" << std::endl;
+         argos::LOG << "Log Directory: " << sLogDir << std::endl;
+         argos::LOG << "Log Frequency: Every " << m_unLogFrequency << " tick(s)" << std::endl;
       }
 
    }
@@ -163,14 +163,17 @@ void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
     *       <controllers><footbot_diffusion><sensors> sections. If you forgot to
     *       list a device in the XML and then you request it here, an error occurs.
     */
-   m_pcWheels        = GetActuator  <CCI_DifferentialSteeringActuator            >("differential_steering");
-   m_pcLight         = GetSensor    <CCI_FootBotLightSensor                      >("footbot_light");
-   m_pcLEDs          = GetActuator  <CCI_LEDsActuator                            >("leds");
-   m_pcCamera        = GetSensor    <CCI_ColoredBlobOmnidirectionalCameraSensor  >("colored_blob_omnidirectional_camera");
-   m_pcPosition      = GetSensor    <CCI_PositioningSensor                       >("positioning");
-   m_pcRABActuator   = GetActuator  <CCI_RangeAndBearingActuator                 >("range_and_bearing");
-   m_pcRABSens       = GetSensor    <CCI_RangeAndBearingSensor                   >("range_and_bearing");
-   m_pcProximity     = GetSensor    <CCI_FootBotProximitySensor                  >("footbot_proximity");
+   m_pcWheels          = GetActuator  <CCI_DifferentialSteeringActuator            >("differential_steering");
+   m_pcLight           = GetSensor    <CCI_FootBotLightSensor                      >("footbot_light");
+   m_pcLEDs            = GetActuator  <CCI_LEDsActuator                            >("leds");
+   m_pcCamera          = GetSensor    <CCI_ColoredBlobOmnidirectionalCameraSensor  >("colored_blob_omnidirectional_camera");
+   m_pcPosition        = GetSensor    <CCI_PositioningSensor                       >("positioning");
+   m_pcRABActuator     = GetActuator  <CCI_RangeAndBearingActuator                 >("range_and_bearing");
+   m_pcRABSens         = GetSensor    <CCI_RangeAndBearingSensor                   >("range_and_bearing");
+   m_pcProximity       = GetSensor    <CCI_FootBotProximitySensor                  >("footbot_proximity");
+   m_pcDScanSensor     = GetSensor    <CCI_FootBotDistanceScannerSensor            >("footbot_distance_scanner");
+   m_pcDScanActuator   = GetActuator  <CCI_FootBotDistanceScannerActuator          >("footbot_distance_scanner");
+
 
    /*
     * Parse the config file
@@ -203,6 +206,10 @@ void CFootBotHydroflock::Init(TConfigurationNode& t_node) {
    m_pcCamera->Enable();
    /* Set beacon color to all red to be visible for other robots */
    m_pcLEDs->SetSingleColor(12, CColor::GREEN);
+
+   /* Enable distance scanner */
+   m_pcDScanActuator->Enable();
+   m_pcDScanActuator->SetRPM(20);   // "an OK value is 30" - ARGoS documentation in footbot_distance_scanner_actuator.h
 
    // Initialize the ticks
    m_unTicks = 0;
@@ -253,15 +260,15 @@ void CFootBotHydroflock::ControlStep() {
       }
 
       for (const auto& packet: incomingPackets){
-         LOG << "Packet received from " << packet.GetSource() << " at " << packet.GetPosition() << " with message: " << packet.GetPayload() << std::endl;
+         argos::LOG << "Packet received from " << packet.GetSource() << " at " << packet.GetPosition() << " with message: " << packet.GetPayload() << std::endl;
       }
    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    /*************** END COMS TEST *************/
    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    }else{
-
       StateUpdater();
+      WallPointsUsingDistanceScanner();      //! This is a test for the distance scanner, be sure to remove later.
    }
    if (m_unTicks % m_unUpdatePrevPosFreq == 0) m_cPreviousPosition = GetCurrentPosition(); // Update the previous position per the specified frequency
    m_unTicks++;
@@ -422,7 +429,7 @@ CVector2 CFootBotHydroflock::ProjectVectorOnVector(const CVector2& f_cVectorA, c
    return cProjection;
 }
 
-CVector2 CFootBotHydroflock::VectorToWall(){       
+CVector2 CFootBotHydroflock::VectorToWall(){
 
    std::stringstream logstream;
 
@@ -431,9 +438,8 @@ CVector2 CFootBotHydroflock::VectorToWall(){
    AddWallPoints(tProxReads); //TODO: //!Not sure if i should do this here but it should work here for now...
 
    logstream << "Current Position: " << GetCurrentPosition() << std::endl;
-   logstream << std::endl;
    logstream << "Avg Wall Points: ";
-   for (const auto& point : m_qAvgWallPoints) logstream << point.GetX() << "," << point.GetY() << " ";
+   for (const auto& point : m_vWallPoints) logstream << point.GetX() << "," << point.GetY() << " ";
    logstream << std::endl;
 
    CVector2 cWallVector;
@@ -458,7 +464,7 @@ CVector2 CFootBotHydroflock::VectorToWall(){
       }
    }
 
-   if (m_bLoggingEnabled) LOG(logstream.str());
+   if (m_bLoggingEnabled) HFLOG(logstream.str());
    return cWallVector/count;
 }
 
@@ -508,8 +514,8 @@ CVector2 CFootBotHydroflock::ReorientTowardsWall(){
    logstream   << "Normal displacement local (angle): "  << cNormalDisplacement.Angle()   << std::endl
                << "Normal displacement local (length): " << cNormalDisplacement.Length()  << std::endl;
 
-   if (m_bLoggingEnabled) LOG(logstream.str());
-   // if (GetId() == "fb4") LOG << logstream.str() << std::endl;
+   if (m_bLoggingEnabled) HFLOG(logstream.str());
+   // if (GetId() == "fb4") argos::LOG << logstream.str() << std::endl;
    return cNormalDisplacement;
 }
 
@@ -517,7 +523,7 @@ void CFootBotHydroflock::AddWallPoints(const CCI_FootBotProximitySensor::TReadin
 
    CVector2 cWallVector;
    CRadians cSumOfAngles;
-   // Real fMaxSensorValue = 0;
+   Real fMaxSensorValue = 0;
    Real fSumOfValues = 0;
    size_t count = 0;
 
@@ -530,13 +536,13 @@ void CFootBotHydroflock::AddWallPoints(const CCI_FootBotProximitySensor::TReadin
          CRadians cAngle = f_cProximityReadings[i].Angle;   // Get the angle of the sensor
          Real fValue = f_cProximityReadings[i].Value;       // Get the value of the sensor
          cSumOfAngles += cAngle;                            // Add the angle to the sum of angles
-         fSumOfValues += fValue;                            // Add the value to the sum of values  //! Trying average instead of max...maybe the average will be more stable
+         // fSumOfValues += fValue;                            // Add the value to the sum of values  //! Trying average instead of max...maybe the average will be more stable
          count++;                                          // Increment the count of active sensors (used to get average angle)
 
          
-         // if (fValue > fMaxSensorValue) {
-         //    fMaxSensorValue = fValue;                     // Only use the maximum sensor value
-         // }
+         if (fValue > fMaxSensorValue) {
+            fMaxSensorValue = fValue;                     // Only use the maximum sensor value
+         }
       }
    }
    
@@ -553,8 +559,8 @@ void CFootBotHydroflock::AddWallPoints(const CCI_FootBotProximitySensor::TReadin
        * 
        * We divide the distance by 100 to convert it to meters.
       */
-      // Real fDistance = 10 - (fMaxSensorValue * 10); // scale the sensor value to 0-10cm //! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      Real fDistance = 10 - (fSumOfValues * 10); // scale the sensor value to 0-10cm
+      Real fDistance = 10 - (fMaxSensorValue * 10); // scale the sensor value to 0-10cm //! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      // Real fDistance = 10 - (fSumOfValues * 10); // scale the sensor value to 0-10cm
       fDistance += 8.5; // add the distance from the center of the robot to the sensor
       fDistance /= 100.0f; // convert to meters
 
@@ -585,10 +591,157 @@ void CFootBotHydroflock::AddWallPoints(const CCI_FootBotProximitySensor::TReadin
 
       CVector2 cPoint(cPointGobalX, cPointGobalY);
 
-      m_qAvgWallPoints.push_back(cPoint); // Add the point to the list (queue) of wall points
+      m_vWallPoints.push_back(cPoint); // Add the point to the list (queue) of wall points
 
-      if (m_qAvgWallPoints.size() > m_unMaxWallPoints) m_qAvgWallPoints.erase(m_qAvgWallPoints.begin()); // Remove the oldest point if the queue exceeds the maximum size
+      if (m_vWallPoints.size() > m_unMaxWallPoints) m_vWallPoints.erase(m_vWallPoints.begin()); // Remove the oldest point if the queue exceeds the maximum size
    } 
+}
+
+void CFootBotHydroflock::WallPointsUsingDistanceScanner(){
+
+   // Get blob list from camera
+   const std::vector<CCI_ColoredBlobOmnidirectionalCameraSensor::SBlob*>& sBlobList = m_pcCamera->GetReadings().BlobList;
+
+   /** 
+    * A map of the readings of the ds short sensor readings in the following format:
+    * angle - value
+    *
+    * The value is the distance wrt to a perceived obstacle.
+    * If the value is -1 it means that the sensor is saturated (the obstacle is too close, i.e. < 4cm from the robot border)
+    * If the value is -2 it means that the sensor is empy (obstacle too far / no obstacle, i.e. > 30cm from the robot border)
+    */
+   const CCI_FootBotDistanceScannerSensor::TReadingsMap& tDScanShortReadings = m_pcDScanSensor->GetShortReadingsMap();
+   /**
+    * A map of the readings of the ds long sensor readings in the following format:
+    * angle - value
+    *
+    * The value is the distance wrt to a perceived obstacle.
+    * If the value is -1 it means that the sensor is saturated (the obstacle is too close, i.e. < 20cm from the robot border)
+    * If the value is -2 it means that the sensor is empy (obstacle too far / no obstacle, i.e. > 150cm from the robot border)
+    */
+   const CCI_FootBotDistanceScannerSensor::TReadingsMap& tDScanLongReadings = m_pcDScanSensor->GetLongReadingsMap();
+
+   const CRadians temporaryAngleThreshold = ToRadians(CDegrees(20.0f)); // temporary threshold for filtering out the same angle //! this threshold is arbitrary, might need to be adjusted
+
+   bool skip = false;
+
+   for (auto& shortReading : tDScanShortReadings){
+      CRadians cAngle = shortReading.first;
+      Real fValue = shortReading.second;
+
+      for (const auto& blob : sBlobList){
+         if (Abs(blob->Angle - cAngle) <= temporaryAngleThreshold){ 
+            skip = true;
+            break;
+         }
+      }
+
+      if (skip){
+         skip = false;
+         continue;
+      }
+
+               //? Just want to note that I'm not sure what happens if we get the same angle more than once. Judging by the TReadingsMap type, it should
+               //? be overwritten so we probably won't have to worry about checking for that.
+
+      if (fValue > 0.0f){
+         Real fDistance = fValue;
+         fDistance /= 100.0f; // convert to meters
+
+         CVector2 cCurrentPosition = GetCurrentPosition();
+         CRadians cCurrentHeading = GetOrientation();
+
+         /**
+          * Get the point on the wall in the robot's frame of reference
+          */
+         Real cPointLocalX = fDistance * Cos(cAngle);
+         Real cPointLocalY = fDistance * Sin(cAngle);
+
+         /**
+          * Translate into the global frame of reference
+          * 
+          * Rotate the point to the global frame of reference using a rotation matrix     [   cos(theta) -sin(theta)  ] 
+          *                                                                               [   sin(theta)  cos(theta)  ]
+          * The point is rotated by the current heading of the robot.
+          */
+         Real cXRotated = cPointLocalX * Cos(cCurrentHeading) - cPointLocalY * Sin(cCurrentHeading); // x' = xcos(theta) - ysin(theta)
+         Real cYRotated = cPointLocalX * Sin(cCurrentHeading) + cPointLocalY * Cos(cCurrentHeading); // y' = xsin(theta) + ycos(theta)
+
+         /**
+          * Translate the point to the global frame of reference by adding the current position of the robot.
+          */
+         Real cPointGobalX = cXRotated + cCurrentPosition.GetX(); // x'' = x' + x0
+         Real cPointGobalY = cYRotated + cCurrentPosition.GetY(); // y'' = y' + y0
+
+         CVector2 cPoint(cPointGobalX, cPointGobalY);
+
+         m_vWallPointsDS.push_back(cPoint); // Add the point to the list (queue) of wall points
+
+         if (m_vWallPointsDS.size() > m_unMaxWallPoints) m_vWallPointsDS.erase(m_vWallPointsDS.begin()); // Remove the oldest point if the queue exceeds the maximum size
+      }
+   }
+
+   for (auto& longReading : tDScanLongReadings){
+      CRadians cAngle = longReading.first;
+      Real fValue = longReading.second;
+
+      for (const auto& blob : sBlobList){
+         if (Abs(blob->Angle - cAngle) <= temporaryAngleThreshold){
+            fValue = 0.0f;
+            skip = true;
+            break;
+         }
+      }
+
+      if (skip){
+         skip = false;
+         continue;
+      }
+
+      if (fValue > 0.0f){
+         Real fDistance = fValue;
+         fDistance /= 100.0f; // convert to meters
+
+         CVector2 cCurrentPosition = GetCurrentPosition();
+         CRadians cCurrentHeading = GetOrientation();
+
+         /**
+          * Get the point on the wall in the robot's frame of reference
+          */
+         Real cPointLocalX = fDistance * Cos(cAngle);
+         Real cPointLocalY = fDistance * Sin(cAngle);
+
+         /**
+          * Translate into the global frame of reference
+          * 
+          * Rotate the point to the global frame of reference using a rotation matrix     [   cos(theta) -sin(theta)  ] 
+          *                                                                               [   sin(theta)  cos(theta)  ]
+          * The point is rotated by the current heading of the robot.
+          */
+         Real cXRotated = cPointLocalX * Cos(cCurrentHeading) - cPointLocalY * Sin(cCurrentHeading); // x' = xcos(theta) - ysin(theta)
+         Real cYRotated = cPointLocalX * Sin(cCurrentHeading) + cPointLocalY * Cos(cCurrentHeading); // y' = xsin(theta) + ycos(theta)
+
+         /**
+          * Translate the point to the global frame of reference by adding the current position of the robot.
+          */
+         Real cPointGobalX = cXRotated + cCurrentPosition.GetX(); // x'' = x' + x0
+         Real cPointGobalY = cYRotated + cCurrentPosition.GetY(); // y'' = y' + y0
+
+         CVector2 cPoint(cPointGobalX, cPointGobalY);
+
+         m_vWallPointsDS.push_back(cPoint); // Add the point to the list (queue) of wall points
+
+         if (m_vWallPointsDS.size() > m_unMaxWallPoints) m_vWallPointsDS.erase(m_vWallPointsDS.begin()); // Remove the oldest point if the queue exceeds the maximum size
+      }
+   }
+
+   std::stringstream logstream;
+   logstream << "Current Position: " << GetCurrentPosition() << std::endl;
+   logstream << "DS Wall Points: ";
+   for (const auto& point : m_vWallPointsDS) logstream << point.GetX() << "," << point.GetY() << " ";
+   logstream << std::endl;
+
+   if (m_bLoggingEnabled) HFLOG(logstream.str());
 }
 
 CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFlockingVector) {
@@ -671,8 +824,8 @@ CVector2 CFootBotHydroflock::CalculateTangentialMovement(const CVector2& f_cFloc
                << "cCombinedVector (length): " << cCombinedVector.Length() << std::endl;
 
 
-   if(m_bLoggingEnabled) LOG(logstream.str());
-   // if(GetId()=="fb4") LOG << logstream.str() << std::endl;
+   if(m_bLoggingEnabled) HFLOG(logstream.str());
+   // if(GetId()=="fb4") argos::LOG << logstream.str() << std::endl;
    return cCombinedVector;
 }
 
@@ -687,18 +840,27 @@ bool CFootBotHydroflock::CornerDetected(){
 
 void CFootBotHydroflock::DoLinearRegression(){
 
+   std::stringstream logstream;
+
    if (!m_bInitWallRegression) m_bInitWallRegression = true;
 
    /**
     * Separate the wall points into separate lists for x and y coordinates
     * 
     * This is needed to use the linear regression function in the GSL library
+    * 
+    * ? Currently using the moving average of the wall points
     */
    std::vector<Real> vXList, vYList;
-   for (const auto& point : m_qAvgWallPoints){
+   // std::vector<CVector2> m_vWallPointsMovingAverage = GetWallPointsMovingAverage(70); //TODO: Implement dynamic window size
+   // logstream << "Wall Points Moving Average: ";
+   // for (const auto& point : m_vWallPointsMovingAverage){
+   for (const auto& point : m_vWallPointsDS){
+      // logstream << point.GetX() << "," << point.GetY() << " ";
       vXList.push_back(point.GetX());
       vYList.push_back(point.GetY());
    }
+   logstream << std::endl;
 
    /**
     * Intercept (c0): The y-intercept of the regression line.
@@ -712,17 +874,51 @@ void CFootBotHydroflock::DoLinearRegression(){
    double m, b, cov00, cov01, cov11, sumsq;
 
    // Calculate the linear regression of the wall points using the GSL library
-   gsl_fit_linear(vXList.data(), 1, vYList.data(), 1, m_qAvgWallPoints.size(), &m, &b, &cov00, &cov01, &cov11, &sumsq);
+   gsl_fit_linear(vXList.data(), 1, vYList.data(), 1, m_vWallPointsDS.size(), &m, &b, &cov00, &cov01, &cov11, &sumsq);
 
    m_fWallSlope = m;        // Update slope of the regression line
    m_fWallIntercept = b;    // Update intercept of the regression line
+
+   logstream << "Slope: " << m_fWallSlope << std::endl;
+   logstream << "Intercept: " << m_fWallIntercept << std::endl;
+
+   if (m_bLoggingEnabled) HFLOG(logstream.str());
+}
+
+std::vector<CVector2> CFootBotHydroflock::GetWallPointsMovingAverage(int window_size){
+
+   /**
+    * Get the moving average of the wall points and return the smoothed points
+    */
+
+   std::vector<CVector2> smoothed_points;
+   int half_window = window_size / 2;
+
+   for(size_t i = 0; i < m_vWallPoints.size(); ++i){
+      CVector2 sum(0,0);
+      int count = 0;
+
+      // Calculate the averagte of the points within the window
+      for (int j = -half_window; j <= half_window; ++j){
+         int index = i + j;
+         if (index >= 0 && index < m_vWallPoints.size()){
+            sum += m_vWallPoints[index];
+            count++;
+         }
+      }
+
+      smoothed_points.push_back(sum / count);
+   }
+
+   return smoothed_points;
+
 }
 
 bool CFootBotHydroflock::OuterCornerDetected(){
 
-   if (!m_bInitWallRegression){
+   if (!m_bInitWallRegression && m_vWallPoints.size() > m_unMinWallPoints){
       DoLinearRegression();
-   } else if (m_unTicks % m_unRegressionFreq == 0){
+   } else if (m_unTicks % m_unRegressionFreq == 0 && m_vWallPoints.size() > m_unMinWallPoints){
       DoLinearRegression();
    }
 
@@ -821,8 +1017,6 @@ bool CFootBotHydroflock::InnerCornerDetected(){
 
 }
 
-
-
 /****************************************/
 /****************************************/
 
@@ -883,7 +1077,7 @@ void CFootBotHydroflock::SetFlockingState(const FlockingState& f_state){
          break;
    }
 
-   if(m_bLoggingEnabled) LOG(logstream.str());
+   if(m_bLoggingEnabled) HFLOG(logstream.str());
 }
 
 void CFootBotHydroflock::StateUpdater(){
@@ -926,7 +1120,7 @@ void CFootBotHydroflock::StateUpdater(){
             // }
 
             logstream << "Detected outer corner: " << std::endl;
-            LOG << GetId() << ": Detected outer corner" << std::endl;
+            argos::LOG << GetId() << ": Detected outer corner" << std::endl;
          
          } 
          // else if (InnerCornerDetected()){
@@ -951,8 +1145,8 @@ void CFootBotHydroflock::StateUpdater(){
          break;
    }
 
-   if(m_bLoggingEnabled) LOG(logstream.str());
-   // LOG << GetId() << ": " << logstream.str() << std::endl;
+   if(m_bLoggingEnabled) HFLOG(logstream.str());
+   // argos::LOG << GetId() << ": " << logstream.str() << std::endl;
 }
 
 void CFootBotHydroflock::GetNeighborStates(){
@@ -1330,7 +1524,7 @@ void CFootBotHydroflock::SetWheelSpeedsFromVector(const CVector2& c_heading) {
    }
    /* Finally, set the wheel speeds */
    m_pcWheels->SetLinearVelocity(fLeftWheelSpeed, fRightWheelSpeed);
-   if (m_bLoggingEnabled) LOG(logstream.str());
+   if (m_bLoggingEnabled) HFLOG(logstream.str());
 }
 
 
@@ -1368,6 +1562,9 @@ CRadians CFootBotHydroflock::GetOrientation(){
 /****************************************/
 
 void CFootBotHydroflock::OmniCameraTest(){
+
+   std::stringstream logstream;
+
    // Ensure m_pcPosition is not null
    if (m_pcPosition != nullptr) {
       // Get the global position and orientation of the receiving robot
@@ -1375,7 +1572,7 @@ void CFootBotHydroflock::OmniCameraTest(){
       CVector2 cReceiverPosition(tPositionReading.Position.GetX(), tPositionReading.Position.GetY());
 
       // Print the quaternion values for debugging
-      LOG << "Orientation Quaternion: " << tPositionReading.Orientation << std::endl;
+      logstream << "Orientation Quaternion: " << tPositionReading.Orientation << std::endl;
 
       // Declare CRadians for Euler angles
       CRadians cReceiverOrientation, cTemp1, cTemp2;
@@ -1385,7 +1582,7 @@ void CFootBotHydroflock::OmniCameraTest(){
 
       // Get the blobs detected by the camera
       const CCI_ColoredBlobOmnidirectionalCameraSensor::SReadings& sBlobReadings = m_pcCamera->GetReadings();
-      LOG << "Blobs detected: " << sBlobReadings.BlobList.size() << std::endl;
+      logstream << "Blobs detected: " << sBlobReadings.BlobList.size() << std::endl;
 
       size_t it = 0;
       // Convert blob positions to global coordinates
@@ -1394,13 +1591,15 @@ void CFootBotHydroflock::OmniCameraTest(){
             CRadians adjustedBlobAngle = blob->Angle + cReceiverOrientation;
             CVector2 cBlobPosition(blob->Distance / 100 * Cos(adjustedBlobAngle), blob->Distance / 100 * Sin(adjustedBlobAngle));
             cBlobPosition += cReceiverPosition;
-            LOG << "Blob " << it << " Position = " << cBlobPosition << std::endl;
+            logstream << "Blob " << it << " Position = " << cBlobPosition << std::endl;
          }
          it++;
       }
    } else {
-      LOGERR << "Positioning sensor not initialized." << std::endl;
+      argos::LOGERR << "Positioning sensor not initialized." << std::endl;
    }
+
+   if (m_bLoggingEnabled) HFLOG(logstream.str());
 }
 
 /****************************************/

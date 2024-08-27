@@ -27,11 +27,21 @@ link_libraries(${ARGOS_LDFLAGS})
 # Look for the GSL library
 find_package(GSL REQUIRED)
 
-# Look for the (optional) GALIB library
-find_package(GALIB)
-if(GALIB_FOUND)
-  include_directories(${GALIB_INCLUDE_DIRS})
-endif(GALIB_FOUND)
+# Find and include Armadillo library
+find_package(Armadillo REQUIRED)
+include_directories(${ARMADILLO_INCLUDE_DIRS})
+
+# Add OpenMP support
+find_package(OpenMP REQUIRED)
+if(OPENMP_FOUND)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+endif(OPENMP_FOUND)
+
+# # Look for the (optional) GALIB library
+# find_package(GALIB)
+# if(GALIB_FOUND)
+#   include_directories(${GALIB_INCLUDE_DIRS})
+# endif(GALIB_FOUND)
 
 # Descend into the controllers directory
 add_subdirectory(controllers)

@@ -1,32 +1,3 @@
-
-
-
-/**
- * Considering using the distance scanner (LiDAR) instaed of proximity sensor
- * 
- * Need to manage states and transition between states
- * 
- * Filtering out proximity readings that correlate with the omni-cam readings (other bots)
- * 
- * How to know when a corner has been reached?
- * 
- * Should I have a time buffer before switching to Aggregator state? Need to be sure that the vector is unobstructed.
- * 
- * How to do aggregation? Aggregator needs to wait for aggregatee to get close. Cannot loose sight/connection of aggregator
- * 
- */
-
-
-
-
-
-
-
-
-
-
-
-
 #ifndef FOOTBOT_HYDROFLOCK_H
 #define FOOTBOT_HYDROFLOCK_H
 
@@ -53,13 +24,17 @@
 #include <argos3/plugins/robots/generic/control_interface/ci_range_and_bearing_actuator.h>
 /* Definition of the foot-bot proximity sensor */
 #include <argos3/plugins/robots/foot-bot/control_interface/ci_footbot_proximity_sensor.h>
+/* Definition of the foot-bot distance scanner actuator */
+#include <argos3/plugins/robots/foot-bot/control_interface/ci_footbot_distance_scanner_actuator.h>
+/* Definition of the foot-bot distance scanner sensor */
+#include <argos3/plugins/robots/foot-bot/control_interface/ci_footbot_distance_scanner_sensor.h>
 
 #include <rab_dsr.h>
 #include <set>
 #include <unordered_map>
 #include <algorithm>
 
-using namespace argos;
+// using namespace argos;
 
 #include <chrono>
 #include <ctime>
@@ -68,9 +43,18 @@ using namespace argos;
 #include <unistd.h>
 #include <fstream>
 #include <gsl/gsl_fit.h>
+
+/** 
+ * We need to undefine argos' Log macro from `argos3/core/utility/math/general.h` 
+ * before including mlpack headers to avoid a conflict with mlpack's Log usage.
+*/
+#undef Log
+#include <mlpack/core.hpp>
+#include <mlpack/methods/dbscan/dbscan.hpp>
+
 // #include "etl/circular_buffer.h" //TODO: Implement circular buffer for wall point list using ETL library
 
-#define LOG(str) LogThis(str, __FUNCTION__)
+#define HFLOG(str) LogThis(str, __FUNCTION__)
 
 
 class CFootBotHydroflock : public CCI_Controller {
@@ -296,6 +280,10 @@ private:
    CCI_RangeAndBearingActuator* m_pcRABActuator;
    /* Pointer to the proximity sensor */
    CCI_FootBotProximitySensor* m_pcProximity;
+   /* Pointer to the distance scanner */
+   CCI_FootBotDistanceScannerActuator* m_pcDScanActuator;
+   /* Pointer to the distance scanner sensor */
+   CCI_FootBotDistanceScannerSensor* m_pcDScanSensor;
 
 
    /* Boolean used to keep robots in place for communication testing */
@@ -339,8 +327,10 @@ private:
    std::vector<Real> m_vecPreviousProximityReadings;
 
    /* To do Linear Regression and check for outer corner */
-   std::vector<CVector2> m_qAvgWallPoints;
-   size_t m_unMaxWallPoints = 100;  // maximum size of the dataset to do linear regression (can set in the .argos file)
+   std::vector<CVector2> m_vWallPoints;
+   std::vector<CVector2> GetWallPointsMovingAverage(int window_size);
+   size_t m_unMaxWallPoints = 1000;  // maximum size of the dataset to do linear regression (can set in the .argos file)
+   size_t m_unMinWallPoints = 250;    // minimum size of the dataset to do linear regression (can set in the .argos file)
    void AddWallPoints(const CCI_FootBotProximitySensor::TReadings& f_cProximityReadings);
    Real m_fWallSlope;
    Real m_fWallIntercept;
@@ -349,6 +339,8 @@ private:
    size_t m_unRegressionFreq;    // frequency of doing linear regression computation in ticks (can set in the .argos file)
    CVector2 m_cPreviousPosition;
    size_t m_unUpdatePrevPosFreq; // frequency of updating the previous position in ticks (can set in the .argos file)
+   void WallPointsUsingDistanceScanner();
+   std::vector<CVector2> m_vWallPointsDS;
    /***********************************************/
 
    /**

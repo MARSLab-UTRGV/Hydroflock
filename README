@@ -1,207 +1,163 @@
-====================
-==                ==
-== ARGoS EXAMPLES ==
-==                ==
-====================
-
-AUTHOR: Carlo Pinciroli <ilpincy@gmail.com>
-DATE: 22/03/2015
+# ARGoS Hydroflock Implementation
 
-
-
-*** INTRODUCTION ***
+**Status:** Work in Progress  
+**Platform:** Ubuntu (tested)
 
-In this package you'll find some basic examples to start using ARGoS.
-
-To run an experiment with ARGoS, you need to define two things:
-1. the robot controllers
-2. the experiment configuration
+The Argos Hydroflock Implementation is a robotics simulation project designed to test and develop advanced flocking behaviors in a swarm robotics environment using the ARGoS simulator. This project is actively under development and is currently tested on Ubuntu.
 
-You find example controllers in the controllers/ directory. The
-experiment configuration files are located in the experiments/
-directory.
+### Objective:
 
-Currently, ARGoS supports the foot-bot (a.k.a. the marXbot), and the
-e-puck. More robots will come in the future. All the examples, for the
-time being, are implemented for the foot-bot.
+The Hydroflock project seeks to develop an intelligent, hydrodynamics-based flocking algorithm for swarm robotics, drawing inspiration from fluid dynamics principles. The objective is to create a cohesive and adaptive flocking behavior that mimics the way fluids flow and interact with obstacles. While similar implementations exist in known environments where flocking can be modeled at a high level, this project aims to extend these concepts into unknown environments, addressing the challenges of unpredictable and dynamic settings.
 
+### Current Approach:
 
+**Lennard-Jones Potential:** Currently, the project uses the Lennard-Jones potential model to govern interactions between robots, simulating attractive and repulsive forces that maintain group cohesion and avoid collisions.
 
-*** THE EXAMPLES ***
+### Challenges:
 
-DIFFUSION
+**Accurate Wall and Corner Detection:** The main challenge right now is to accurately detect and navigate around walls and corners in the simulation environment. This requires refining sensor data processing to reduce noise and jitter, effectively segmenting different sides of walls, and ensuring the robots can maintain cohesive flocking behavior while responding correctly to obstacles. Implementing these improvements in a computationally efficient manner is also crucial. When an outer corner is detected, the robots will aggregate towards the robot that found it, if this is not accurate then robots waste time aggregating somewhere that isn't a corner.<br><br>
+**Direct Communication:** In ARGoS, direct communication is primarily implemented through the Range and Bearing sensor and actuator. Initially, time was invested in designing a routing protocol for this system (see the `rab-dsr` branch). However, due to its inherent broadcast-only nature, the system couldn't fully capitalize on the protocol's capabilities. To advance the development of the flocking algorithm, we've transitioned to using the omnidirectional camera for communication, detecting colors that represent different states and behaviors. These colors can be observed by neighboring robots, allowing individual flocking behaviors to adapt based on the states of nearby robots, ultimately achieving the desired emergent behavior at the swarm level.
 
-In this example experiment, a foot-bot performs obstacle avoidance
-while navigating in an small square environment.
-The source files in controllers/footbot_diffusion/ contain all the
-basic information about how to write a robot controller. Follow the
-comments and you should grasp the first steps. The configuration files
-for this experiment are two: experiments/diffusion_1.argos and
-experiments/diffusion_10.argos. The first file places a single
-foot-bot in an obstacle-free environment. In this file all the basics
-about ARGoS configuration are covered. The second file is to see 10
-robots in action. This files shows how to distribute objects (robots
-and obstacles) randomly in the environment without having to place
-them manually.
+### Future Directions:
 
-SYNCHRONIZATION
+**Fluid-Like Flocking Model:** The project intends to evolve towards a more sophisticated model that emulates the fluid-like behavior of robots, enabling smoother navigation around obstacles and better adaptation to dynamic environments.
 
-This example experiment reproduces the coupled oscillators of Mirollo
-and Strogatz. In the beginning, the robots flash their LEDs out of
-sync, but over time, seeing each other's LEDs, they synchronize.  In
-this example you'll see how to use the camera, and how to distribute
-robots in a grid.
+## Table of Contents
 
-FLOCKING
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Build and Run](#build-and-run)
+- [Customization](#customization)
+- [Logs and Debugging](#logs-and-debugging)
+- [Development Notes](#development-notes)
+- [Contributing](#contributing)
+- [License](#license)
 
-This example experiment shows how to achieve foraging through the well
-known Lennard-Jones potential.  The robots light up their central LED
-(called the beacon) in red. They use the omnidirectional camera to
-detect robots around and calculate the Lennard-Jones interaction force
-to all of them. The robots collectively go to a light source located
-in the origin.
+## Dependencies
 
-GRIPPING
+This project relies on several external libraries and tools. Ensure you have the following dependencies installed on your system:
 
-This examples shows how to use a cylinder as a movable object. Using a
-simple time-based logic, a foot-bot moves towards the cylinder, grips
-it, moves backwards dragging it, and finally releases it while keeping
-the backwards motion.
+### Required Dependencies
 
-FORAGING
+1. **ARGoS** - [Website](https://www.argos-sim.info/)  
+   ARGoS is the primary simulator for the Hydroflock project. It handles the simulation environment for the swarm robots.
 
-This example is a complete experiment. It shows how to interact with
-the simulation through the loop functions and the how to draw on the
-OpenGL graphical visualization through the Qt user functions. The
-arena is divided in two areas: a grey area that serves as nest, where
-the robots are initially deployed; and a white area where food items
-are scattered. The task of the foot-bots is to exit the nest, search
-for food items, grab them and bring them back to the nest. To simplify
-control, food items are just drawn as black spots on the ground, and
-when a robot passes over a food item it automatically grabs it. When a
-robot is transporting a food item, a cylinder is drawn on top of
-it. Each robot can transport only one item per time. Once a robot has
-grabbed an item, it must bring it back to the nest. The direction
-to/away from the nest is detectable through light sensors, that read
-the position of a set of lights displaced over the nest.
+2. **MLPack** - [GitHub](https://github.com/mlpack/mlpack)  
+   Used for its DBSCAN implementation for clustering algorithms. <br>
 
-EVOLUTION
+   > Note: There is a naming conflict between ARGoS and MLPack. (see [below]{#})
 
-This example shows how to embed ARGoS into a genetic algorithm and how
-to evolve a simple neural network controller. In this example, a
-foot-bot is evolved to perform phototaxis. The example is composed of
-a neural network controller in the controllers/ directory, a loop
-function in the loop_functions/ directory and additional code in the
-embedding/galib directory to wrap ARGoS.  The code is compiled only if
-the GALIB library is found. The library is searched for in /usr or
-/usr/local. If you installed the library in a different place, use the
-'ccmake' command to set the correct path. You can download GALIB at
-http://lancet.mit.edu/ga/ or install it through your system's package
-manager. On Ubuntu type 'sudo apt-get install libga-dev', while on
-HomeBrew type 'brew install brewsci/science/galib'.
+3. **GNU Scientific Library (GSL)** - [Website](https://www.gnu.org/software/gsl/)  
+   Utilized for linear regression and other numerical methods.
 
+4. **Cereal** - [GitHub](https://github.com/USCiLab/cereal)  
+   A header-only C++11 serialization library used for saving and loading simulation data.
 
+5. **Armadillo** - [Website](http://arma.sourceforge.net/)  
+   A C++ library for linear algebra & scientific computing, required by MLPack.
 
-*** COMPILATION ***
+6. **Ensmallen** - [GitHub](https://github.com/mlpack/ensmallen)  
+   A flexible C++ library for mathematical optimization, required by MLPack.
 
-In principle, you can compile your code however you want. In practice,
-the help of a build system makes your work much easier. In ARGoS, and
-in these examples, we use CMake. To compile the examples, open up a
-shell, go to the directory where you unpacked the tar.bz2 file and
-type:
+### Installing Dependencies
 
-$ mkdir build
-$ cd build
+To install the required dependencies, run the following commands:
 
-To produce debuggable code (slow), type:
+```bash
+sudo apt-get update
+sudo apt-get install libensmallen-dev libarmadillo-dev libopenblas-dev liblapack-dev libarpack2-dev libsuperlu-dev libmlpack-dev libgsl-dev
+```
 
-$ cmake -DCMAKE_BUILD_TYPE=Debug ..
+### Manual Installation of Cereal
 
-To produce fast but not debuggable code, type:
+`cereal` is not available as a prebuilt package. To install it manually:
 
-$ cmake -DCMAKE_BUILD_TYPE=Release ..
+1. Clone the repository:
 
-Finally, launch the compilation with the command:
+   ```bash
+   git clone https://github.com/USCiLab/cereal
+   ```
 
-$ make
+2. Copy the header files to your system include directory:
+   ```bash
+   sudo cp -r ./cereal/include/cereal /usr/include
+   ```
 
-If you find no error, you're ready to go to the next phase.
+> **Note:** These libraries and their versions are subject to change as the project evolves.
 
+## Installation
 
+To build and run the project, follow these steps:
 
-*** TROUBLESHOOTING ***
+1. **Clone the Repository:**
 
-When you launch one of the two 'cmake' commands, you might get an
-error like 'package argos3_simulator' not found. This error has two
-possible causes:
+   ```bash
+   git clone https://your-repository-url.git
+   cd your-repository-name
+   ```
 
-1. You haven't installed ARGoS3 system-wide. To fix this, install
-   ARGoS3 through the packages or with the command 'sudo make install'
-   in the ARGoS3 build directory.
+2. **Build the Project:**
+   Use the provided shell script to build the project:
 
-2. You have installed ARGoS in a non-standard location. The standard
-   locations are /usr and /usr/local. If you did not install ARGoS
-   there, CMake won't be able to find the file ARGoSConfig.cmake at
-   PREFIX/share/argos3/cmake. The solution in this case is to run
-   
-   $ cmake -DCMAKE_MODULE_PATH=/path/to/argos3/share/cmake
-   
-   Make sure that the folder /path/to/argos3/share/cmake contains the
-   file ARGoSConfig.cmake.
+   ```bash
+   ./build.sh
+   ```
 
+3. **Run the Simulation:**
+   Use the following command to start the simulation:
+   ```bash
+   ./run.sh
+   ```
 
+## Customization
 
-*** RUNNING THE EXAMPLES ***
+### Configuration
 
-To run an example, the configuration files have been written with the
-hypothesis that you run them in the directory where you unpacked the
-tar.bz2, NOT in the build/ directory. Therefore, go to that directory
-and type:
+For advanced customization, you can modify the `.argos` file directly:
 
-$ argos3 -c experiments/diffusion_1.argos
+- **File Location:** `./experiments/hydroflock_dev.argos`
+- **Python Script:** The `config.py` script is under development to simplify the configuration process but may not yet be fully functional.
 
-for the example obstacle avoidance with a single robot, 
+## Logs and Debugging
 
-$ argos3 -c experiments/diffusion_10.argos
+### Log File Management
 
-for the example obstacle avoidance with 10 robots,
+The project stores detailed logs in `./controllers/footbot_hydroflock/controller_logs/`. Each run creates a directory with a timestamp, storing individual log files for each robot. These logs are excluded from version control due to space considerations.
 
-$ argos3 -c experiments/synchronization.argos
+### Debugging Tools
 
-for the synchronization experiment,
+- **`flog.sh`:** This script can filter and parse logs for easier debugging. Note that it is currently not actively maintained.
+- **VSCode Configuration:** The project includes configurations for debugging with GDB in VSCode (`launch.json`, `tasks.json`, `c_cpp_properties.json`). These may require adjustments based on your environment.
 
-$ argos3 -c experiments/flocking.argos
+## Development Notes
 
-for the flocking experiment, and
+- **Platform:** This project is primarily developed and tested on Ubuntu.
+- **IDE:** Visual Studio Code is recommended for its robust debugging and development tools.
+  - **VSCode Extensions:** These are used in the codebase so if some of the comments are formatted weird it's probably because you don't have the extension. (_These are NOT required!_)
+    - **Prettier** - For automatic formatting of code (makes it look "pretty"). It enforces a consistent style.
+    - **:emojisense:** - Use emojis in your code comments! 😄
+    - **Better Comments:** - Colorcoded and styled comments. Categorize your annotations and make comments a bit more readable.
 
-$ argos3 -c experiments/foraging.argos
+#### "Log" Naming Conflict
 
-for the foraging experiment.
-The evolution experiments are divided in two parts. The
-command
+- **Issue:**
+  When integrating MLPack with ARGoS, a naming conflict arose because both libraries use `Log` for different purposes. ARGoS defines a `Log` macro for its math functions using logarithms, while MLPack has its own `Log` class. This conflict led to compilation errors.
+- **Workaround:**
+  Undefine `Log` before including the MLPack headers so that MLPack's `Log` class is recognized:
+  ```cpp
+  #undef Log
+  #include <mlpack/core.hpp>
+  #include <mlpack/methods/dbscan/dbscan.hpp>
+  ```
+  > **Note:**
+  > If the `#undef Log` directive is applied globally or incorrectly, it could result in compilation errors in other parts of the ARGoS codebase that rely on the Log macro. As an alternative, if the conflict occurs frequently, consider wrapping MLPack-related code within a specific scope or using namespaces to reduce the likelihood of such conflicts.
 
-$ build/embedding/galib/galib_phototaxis
+## Contributing
 
-runs the evolution process with the GALib library. Then, the command
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-$ argos3 -c experiments/galib-trial.argos
+> **BEWARE:** The code does not follow any standard format or naming convention!
 
-allows one to test a specific neural network.
+## License
 
-The command
-
-$ build/embedding/mpga/mpga_phototaxis
-
-runs the multi-process genetic algorithm. Then, the command
-
-$ argos3 -c experiments/mpga-trial.argos
-
-allows one to test a specific neural network.
-
-
-
-*** WHAT'S NEXT? ***
-
-More examples and a complete manual. I'm in the process of writing it,
-I do it a little bit every day. If you have specific questions, you
-can contact me at <ilpincy@gmail.com>.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.

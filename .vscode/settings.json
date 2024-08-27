@@ -104,5 +104,8 @@
             "bold": true,
             "italic": true
         }
-    ]
+    ],
+
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
 }
